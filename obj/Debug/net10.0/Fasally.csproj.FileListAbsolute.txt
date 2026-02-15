@@ -1,0 +1,350 @@
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/appsettings.Development.json
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/appsettings.json
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/Fasally.staticwebassets.endpoints.json
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/Fasally
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/Fasally.deps.json
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/Fasally.runtimeconfig.json
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/Fasally.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/Fasally.pdb
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/Microsoft.AspNetCore.OpenApi.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/Microsoft.OpenApi.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/Serilog.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/obj/Debug/net10.0/Fasally.csproj.AssemblyReference.cache
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/obj/Debug/net10.0/rpswa.dswa.cache.json
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/obj/Debug/net10.0/Fasally.GeneratedMSBuildEditorConfig.editorconfig
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/obj/Debug/net10.0/Fasally.AssemblyInfoInputs.cache
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/obj/Debug/net10.0/Fasally.AssemblyInfo.cs
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/obj/Debug/net10.0/Fasally.csproj.CoreCompileInputs.cache
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/obj/Debug/net10.0/Fasally.MvcApplicationPartsAssemblyInfo.cs
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/obj/Debug/net10.0/Fasally.MvcApplicationPartsAssemblyInfo.cache
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/obj/Debug/net10.0/rjimswa.dswa.cache.json
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/obj/Debug/net10.0/rjsmrazor.dswa.cache.json
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/obj/Debug/net10.0/rjsmcshtml.dswa.cache.json
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/obj/Debug/net10.0/scopedcss/bundle/Fasally.styles.css
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/obj/Debug/net10.0/staticwebassets.build.json
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/obj/Debug/net10.0/staticwebassets.build.json.cache
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/obj/Debug/net10.0/staticwebassets.development.json
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/obj/Debug/net10.0/staticwebassets.build.endpoints.json
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/obj/Debug/net10.0/swae.build.ex.cache
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/obj/Debug/net10.0/Fasally.csproj.Up2Date
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/obj/Debug/net10.0/Fasally.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/obj/Debug/net10.0/refint/Fasally.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/obj/Debug/net10.0/Fasally.pdb
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/obj/Debug/net10.0/Fasally.genruntimeconfig.cache
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/obj/Debug/net10.0/ref/Fasally.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/Microsoft.Extensions.DependencyModel.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/Serilog.AspNetCore.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/Serilog.Extensions.Hosting.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/Serilog.Extensions.Logging.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/Serilog.Formatting.Compact.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/Serilog.Settings.Configuration.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/Serilog.Sinks.Console.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/Serilog.Sinks.Debug.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/Serilog.Sinks.File.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/Azure.Core.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/Azure.Identity.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/Humanizer.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/Microsoft.Bcl.AsyncInterfaces.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/Microsoft.Bcl.Cryptography.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/Microsoft.Build.Framework.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/Microsoft.CodeAnalysis.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/Microsoft.CodeAnalysis.CSharp.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/Microsoft.CodeAnalysis.Workspaces.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/Microsoft.CodeAnalysis.ExternalAccess.RazorCompiler.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/Microsoft.CodeAnalysis.Workspaces.MSBuild.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/Microsoft.Data.SqlClient.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/Microsoft.EntityFrameworkCore.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/Microsoft.EntityFrameworkCore.Abstractions.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/Microsoft.EntityFrameworkCore.Design.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/Microsoft.EntityFrameworkCore.Relational.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/Microsoft.EntityFrameworkCore.SqlServer.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/Microsoft.Identity.Client.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/Microsoft.Identity.Client.Extensions.Msal.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/Microsoft.IdentityModel.Abstractions.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/Microsoft.IdentityModel.JsonWebTokens.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/Microsoft.IdentityModel.Logging.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/Microsoft.IdentityModel.Protocols.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/Microsoft.IdentityModel.Tokens.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/Microsoft.SqlServer.Server.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/Microsoft.VisualStudio.SolutionPersistence.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/Mono.TextTemplating.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/Newtonsoft.Json.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/System.ClientModel.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/System.CodeDom.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/System.Composition.AttributedModel.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/System.Composition.Convention.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/System.Composition.Hosting.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/System.Composition.Runtime.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/System.Composition.TypedParts.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/System.Configuration.ConfigurationManager.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/System.IdentityModel.Tokens.Jwt.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/System.Memory.Data.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/System.Security.Cryptography.ProtectedData.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/cs/Microsoft.CodeAnalysis.resources.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/de/Microsoft.CodeAnalysis.resources.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/es/Microsoft.CodeAnalysis.resources.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/fr/Microsoft.CodeAnalysis.resources.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/it/Microsoft.CodeAnalysis.resources.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/ja/Microsoft.CodeAnalysis.resources.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/ko/Microsoft.CodeAnalysis.resources.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/pl/Microsoft.CodeAnalysis.resources.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/pt-BR/Microsoft.CodeAnalysis.resources.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/ru/Microsoft.CodeAnalysis.resources.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/tr/Microsoft.CodeAnalysis.resources.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/zh-Hans/Microsoft.CodeAnalysis.resources.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/zh-Hant/Microsoft.CodeAnalysis.resources.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/cs/Microsoft.CodeAnalysis.CSharp.resources.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/de/Microsoft.CodeAnalysis.CSharp.resources.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/es/Microsoft.CodeAnalysis.CSharp.resources.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/fr/Microsoft.CodeAnalysis.CSharp.resources.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/it/Microsoft.CodeAnalysis.CSharp.resources.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/ja/Microsoft.CodeAnalysis.CSharp.resources.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/ko/Microsoft.CodeAnalysis.CSharp.resources.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/pl/Microsoft.CodeAnalysis.CSharp.resources.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/pt-BR/Microsoft.CodeAnalysis.CSharp.resources.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/ru/Microsoft.CodeAnalysis.CSharp.resources.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/tr/Microsoft.CodeAnalysis.CSharp.resources.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/zh-Hans/Microsoft.CodeAnalysis.CSharp.resources.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/zh-Hant/Microsoft.CodeAnalysis.CSharp.resources.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/cs/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/de/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/es/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/fr/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/it/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/ja/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/ko/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/pl/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/pt-BR/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/ru/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/tr/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/zh-Hans/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/zh-Hant/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/cs/Microsoft.CodeAnalysis.Workspaces.resources.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/de/Microsoft.CodeAnalysis.Workspaces.resources.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/es/Microsoft.CodeAnalysis.Workspaces.resources.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/fr/Microsoft.CodeAnalysis.Workspaces.resources.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/it/Microsoft.CodeAnalysis.Workspaces.resources.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/ja/Microsoft.CodeAnalysis.Workspaces.resources.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/ko/Microsoft.CodeAnalysis.Workspaces.resources.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/pl/Microsoft.CodeAnalysis.Workspaces.resources.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/pt-BR/Microsoft.CodeAnalysis.Workspaces.resources.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/ru/Microsoft.CodeAnalysis.Workspaces.resources.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/tr/Microsoft.CodeAnalysis.Workspaces.resources.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/zh-Hans/Microsoft.CodeAnalysis.Workspaces.resources.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/zh-Hant/Microsoft.CodeAnalysis.Workspaces.resources.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/cs/Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/de/Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/es/Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/fr/Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/it/Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/ja/Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/ko/Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/pl/Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/pt-BR/Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/ru/Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/tr/Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/zh-Hans/Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/zh-Hant/Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/cs/Microsoft.Data.SqlClient.resources.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/de/Microsoft.Data.SqlClient.resources.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/es/Microsoft.Data.SqlClient.resources.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/fr/Microsoft.Data.SqlClient.resources.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/it/Microsoft.Data.SqlClient.resources.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/ja/Microsoft.Data.SqlClient.resources.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/ko/Microsoft.Data.SqlClient.resources.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/pl/Microsoft.Data.SqlClient.resources.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/pt-BR/Microsoft.Data.SqlClient.resources.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/ru/Microsoft.Data.SqlClient.resources.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/tr/Microsoft.Data.SqlClient.resources.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/zh-Hans/Microsoft.Data.SqlClient.resources.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/zh-Hant/Microsoft.Data.SqlClient.resources.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/runtimes/unix/lib/net9.0/Microsoft.Data.SqlClient.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/runtimes/win/lib/net9.0/Microsoft.Data.SqlClient.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/runtimes/win-arm64/native/Microsoft.Data.SqlClient.SNI.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/runtimes/win-x64/native/Microsoft.Data.SqlClient.SNI.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/runtimes/win-x86/native/Microsoft.Data.SqlClient.SNI.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/FluentValidation.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/FluentValidation.DependencyInjectionExtensions.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/Mapster.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/Mapster.Core.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/Scalar.AspNetCore.dll
+D:/Fasally/Fasally/obj/Debug/net10.0/Fasally.dll
+D:/Fasally/Fasally/obj/Debug/net10.0/refint/Fasally.dll
+D:/Fasally/Fasally/obj/Debug/net10.0/Fasally.pdb
+D:/Fasally/Fasally/bin/Debug/net10.0/appsettings.Development.json
+D:/Fasally/Fasally/bin/Debug/net10.0/appsettings.json
+D:/Fasally/Fasally/bin/Debug/net10.0/Fasally.staticwebassets.endpoints.json
+D:/Fasally/Fasally/bin/Debug/net10.0/Fasally.exe
+D:/Fasally/Fasally/bin/Debug/net10.0/Fasally.deps.json
+D:/Fasally/Fasally/bin/Debug/net10.0/Fasally.runtimeconfig.json
+D:/Fasally/Fasally/bin/Debug/net10.0/Fasally.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/Fasally.pdb
+D:/Fasally/Fasally/bin/Debug/net10.0/Azure.Core.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/Azure.Identity.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/FluentValidation.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/FluentValidation.DependencyInjectionExtensions.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/Humanizer.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/Mapster.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/Mapster.Core.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/Microsoft.AspNetCore.OpenApi.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/Microsoft.Bcl.AsyncInterfaces.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/Microsoft.Bcl.Cryptography.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/Microsoft.Build.Framework.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/Microsoft.CodeAnalysis.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/Microsoft.CodeAnalysis.CSharp.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/Microsoft.CodeAnalysis.Workspaces.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/Microsoft.CodeAnalysis.ExternalAccess.RazorCompiler.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/Microsoft.CodeAnalysis.Workspaces.MSBuild.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/Microsoft.Data.SqlClient.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/Microsoft.EntityFrameworkCore.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/Microsoft.EntityFrameworkCore.Abstractions.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/Microsoft.EntityFrameworkCore.Design.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/Microsoft.EntityFrameworkCore.Relational.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/Microsoft.EntityFrameworkCore.SqlServer.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/Microsoft.Extensions.DependencyModel.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/Microsoft.Identity.Client.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/Microsoft.Identity.Client.Extensions.Msal.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/Microsoft.IdentityModel.Abstractions.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/Microsoft.IdentityModel.JsonWebTokens.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/Microsoft.IdentityModel.Logging.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/Microsoft.IdentityModel.Protocols.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/Microsoft.IdentityModel.Tokens.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/Microsoft.OpenApi.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/Microsoft.SqlServer.Server.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/Microsoft.VisualStudio.SolutionPersistence.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/Mono.TextTemplating.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/Newtonsoft.Json.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/Scalar.AspNetCore.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/Serilog.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/Serilog.AspNetCore.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/Serilog.Extensions.Hosting.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/Serilog.Extensions.Logging.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/Serilog.Formatting.Compact.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/Serilog.Settings.Configuration.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/Serilog.Sinks.Console.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/Serilog.Sinks.Debug.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/Serilog.Sinks.File.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/System.ClientModel.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/System.CodeDom.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/System.Composition.AttributedModel.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/System.Composition.Convention.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/System.Composition.Hosting.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/System.Composition.Runtime.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/System.Composition.TypedParts.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/System.Configuration.ConfigurationManager.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/System.IdentityModel.Tokens.Jwt.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/System.Memory.Data.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/System.Security.Cryptography.ProtectedData.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/cs/Microsoft.CodeAnalysis.resources.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/de/Microsoft.CodeAnalysis.resources.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/es/Microsoft.CodeAnalysis.resources.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/fr/Microsoft.CodeAnalysis.resources.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/it/Microsoft.CodeAnalysis.resources.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/ja/Microsoft.CodeAnalysis.resources.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/ko/Microsoft.CodeAnalysis.resources.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/pl/Microsoft.CodeAnalysis.resources.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/pt-BR/Microsoft.CodeAnalysis.resources.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/ru/Microsoft.CodeAnalysis.resources.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/tr/Microsoft.CodeAnalysis.resources.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/zh-Hans/Microsoft.CodeAnalysis.resources.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/zh-Hant/Microsoft.CodeAnalysis.resources.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/cs/Microsoft.CodeAnalysis.CSharp.resources.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/de/Microsoft.CodeAnalysis.CSharp.resources.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/es/Microsoft.CodeAnalysis.CSharp.resources.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/fr/Microsoft.CodeAnalysis.CSharp.resources.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/it/Microsoft.CodeAnalysis.CSharp.resources.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/ja/Microsoft.CodeAnalysis.CSharp.resources.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/ko/Microsoft.CodeAnalysis.CSharp.resources.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/pl/Microsoft.CodeAnalysis.CSharp.resources.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/pt-BR/Microsoft.CodeAnalysis.CSharp.resources.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/ru/Microsoft.CodeAnalysis.CSharp.resources.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/tr/Microsoft.CodeAnalysis.CSharp.resources.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/zh-Hans/Microsoft.CodeAnalysis.CSharp.resources.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/zh-Hant/Microsoft.CodeAnalysis.CSharp.resources.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/cs/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/de/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/es/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/fr/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/it/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/ja/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/ko/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/pl/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/pt-BR/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/ru/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/tr/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/zh-Hans/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/zh-Hant/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/cs/Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/de/Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/es/Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/fr/Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/it/Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/ja/Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/ko/Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/pl/Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/pt-BR/Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/ru/Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/tr/Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/zh-Hans/Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/zh-Hant/Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/cs/Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/de/Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/es/Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/fr/Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/it/Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/ja/Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/ko/Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/pl/Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/pt-BR/Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/ru/Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/tr/Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/zh-Hans/Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/zh-Hant/Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/cs/Microsoft.Data.SqlClient.resources.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/de/Microsoft.Data.SqlClient.resources.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/es/Microsoft.Data.SqlClient.resources.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/fr/Microsoft.Data.SqlClient.resources.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/it/Microsoft.Data.SqlClient.resources.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/ja/Microsoft.Data.SqlClient.resources.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/ko/Microsoft.Data.SqlClient.resources.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/pl/Microsoft.Data.SqlClient.resources.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/pt-BR/Microsoft.Data.SqlClient.resources.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/ru/Microsoft.Data.SqlClient.resources.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/tr/Microsoft.Data.SqlClient.resources.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/zh-Hans/Microsoft.Data.SqlClient.resources.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/zh-Hant/Microsoft.Data.SqlClient.resources.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/runtimes/unix/lib/net9.0/Microsoft.Data.SqlClient.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/runtimes/win/lib/net9.0/Microsoft.Data.SqlClient.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/runtimes/win-arm64/native/Microsoft.Data.SqlClient.SNI.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/runtimes/win-x64/native/Microsoft.Data.SqlClient.SNI.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/runtimes/win-x86/native/Microsoft.Data.SqlClient.SNI.dll
+D:/Fasally/Fasally/obj/Debug/net10.0/Fasally.csproj.AssemblyReference.cache
+D:/Fasally/Fasally/obj/Debug/net10.0/rpswa.dswa.cache.json
+D:/Fasally/Fasally/obj/Debug/net10.0/Fasally.GeneratedMSBuildEditorConfig.editorconfig
+D:/Fasally/Fasally/obj/Debug/net10.0/Fasally.AssemblyInfoInputs.cache
+D:/Fasally/Fasally/obj/Debug/net10.0/Fasally.AssemblyInfo.cs
+D:/Fasally/Fasally/obj/Debug/net10.0/Fasally.csproj.CoreCompileInputs.cache
+D:/Fasally/Fasally/obj/Debug/net10.0/Fasally.MvcApplicationPartsAssemblyInfo.cs
+D:/Fasally/Fasally/obj/Debug/net10.0/Fasally.MvcApplicationPartsAssemblyInfo.cache
+D:/Fasally/Fasally/obj/Debug/net10.0/rjimswa.dswa.cache.json
+D:/Fasally/Fasally/obj/Debug/net10.0/rjsmrazor.dswa.cache.json
+D:/Fasally/Fasally/obj/Debug/net10.0/rjsmcshtml.dswa.cache.json
+D:/Fasally/Fasally/obj/Debug/net10.0/scopedcss/bundle/Fasally.styles.css
+D:/Fasally/Fasally/obj/Debug/net10.0/staticwebassets.build.json
+D:/Fasally/Fasally/obj/Debug/net10.0/staticwebassets.build.json.cache
+D:/Fasally/Fasally/obj/Debug/net10.0/staticwebassets.development.json
+D:/Fasally/Fasally/obj/Debug/net10.0/staticwebassets.build.endpoints.json
+D:/Fasally/Fasally/obj/Debug/net10.0/swae.build.ex.cache
+D:/Fasally/Fasally/obj/Debug/net10.0/staticwebassets.upToDateCheck.txt
+D:/Fasally/Fasally/obj/Debug/net10.0/Fasally.csproj.Up2Date
+D:/Fasally/Fasally/obj/Debug/net10.0/Fasally.genruntimeconfig.cache
+D:/Fasally/Fasally/obj/Debug/net10.0/ref/Fasally.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/Fasally.staticwebassets.runtime.json
