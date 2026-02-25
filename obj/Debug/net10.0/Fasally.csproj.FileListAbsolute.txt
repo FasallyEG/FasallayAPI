@@ -348,3 +348,4 @@ D:/Fasally/Fasally/obj/Debug/net10.0/Fasally.csproj.Up2Date
 D:/Fasally/Fasally/obj/Debug/net10.0/Fasally.genruntimeconfig.cache
 D:/Fasally/Fasally/obj/Debug/net10.0/ref/Fasally.dll
 /run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/Fasally.staticwebassets.runtime.json
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/obj/Debug/net10.0/Fasally.sourcelink.json
