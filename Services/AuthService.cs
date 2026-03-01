@@ -1,12 +1,14 @@
-using System.Security.Cryptography;
+﻿using System.Security.Cryptography;
 using System.Text;
 using Fasally.Abstractions;
 using Fasally.Authentication;
 using Fasally.Contracts.Authentication;
 using Fasally.Entities;
 using Fasally.Errors;
+using Fasally.Helpers;
 using Fasally.Persistence;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.EntityFrameworkCore;
 
@@ -18,7 +20,8 @@ public class AuthService(
     IJWTProvider jwtProvider,
     ILogger<AuthService> logger,
     IHttpContextAccessor httpContextAccessor,
-    ApplicationDbContext context) : IAuthService
+    ApplicationDbContext context,
+    IEmailSender emailSender) : IAuthService
 {
     private readonly UserManager<ApplicationUser> _userManager = userManager;
     private readonly SignInManager<ApplicationUser> _signInManager = signInManager;
@@ -26,6 +29,7 @@ public class AuthService(
     private readonly ILogger<AuthService> _logger = logger;
     private readonly IHttpContextAccessor _httpContextAccessor = httpContextAccessor;
     private readonly ApplicationDbContext _context = context;
+    private readonly IEmailSender _emailSender = emailSender;
     private readonly int _refreshTokenExpiryDays = 14;
 
     public async Task<Result<AuthResponse>> GetTokenAsync(
@@ -65,7 +69,7 @@ public class AuthService(
         }
         else
         {
-            refreshToken =  GenerateRefreshToken();
+            refreshToken = GenerateRefreshToken();
             refreshTokenExpiry = DateTime.UtcNow.AddDays(_refreshTokenExpiryDays);
 
             _context.RefreshTokens.Add(new RefreshToken
@@ -164,23 +168,24 @@ public class AuthService(
 
         var result = await _userManager.CreateAsync(user, request.Password);
 
-        if (!result.Succeeded)
+        if (result.Succeeded)
         {
-            var error = result.Errors.First();
-            return Result.Failure(new Error(
-                error.Code,
-                error.Description,
-                StatusCodes.Status400BadRequest));
+            var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+            code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
+
+            _logger.LogInformation("Confirmation code: {Code}", code);
+
+            await SendConfirmationEmail(user, code);
+
+            return Result.Success();
         }
 
-        var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
-        code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
+        var error = result.Errors.First();
 
-        _logger.LogInformation("Email confirmation code: {Code}", code);
-
-        // TODO: Send confirmation email
-
-        return Result.Success();
+        return Result.Failure(new Error(
+            error.Code,
+            error.Description,
+            StatusCodes.Status400BadRequest));
     }
 
     public async Task<Result> ConfirmEmailAsync(ConfirmEmailRequest request)
@@ -225,7 +230,7 @@ public class AuthService(
 
         _logger.LogInformation("Resend confirmation code: {Code}", code);
 
-        // TODO: Send confirmation email
+        await SendConfirmationEmail(user, code);
 
         return Result.Success();
     }
@@ -243,7 +248,7 @@ public class AuthService(
 
         _logger.LogInformation("Reset password code: {Code}", code);
 
-        // TODO: Send reset password email
+        await SendResetPasswordEmail(user, code);
 
         return Result.Success();
     }
@@ -277,5 +282,36 @@ public class AuthService(
 
     private static string GenerateRefreshToken()
         => Convert.ToBase64String(RandomNumberGenerator.GetBytes(64));
+    private async Task SendConfirmationEmail(ApplicationUser user, string code)
+    {
+        // edit origin when yasin send 
+        var origin = _httpContextAccessor.HttpContext?.Request.Headers.Origin;
+
+        // replace templates when yasin send 
+        var emailBody = EmailBodyBuilder.GenerateEmailBody("EmailConfirmation",
+            templateModel: new Dictionary<string, string>
+            {
+                { "{{name}}", user.FirstName },
+                // edit url when yasin send 
+                { "{{action_url}}", $"{origin}/auth/emailConfirmation?userId={user.Id}&code={code}" }
+            }
+        );
+        await _emailSender.SendEmailAsync(user.Email!, "✅ Survey Basket: Email Confirmation", emailBody);
+    }
+
+    private async Task SendResetPasswordEmail(ApplicationUser user, string code)
+    {
+        var origin = _httpContextAccessor.HttpContext?.Request.Headers.Origin;
+
+        var emailBody = EmailBodyBuilder.GenerateEmailBody("ForgetPassword",
+            templateModel: new Dictionary<string, string>
+            {
+                { "{{name}}", user.FirstName },
+                    { "{{action_url}}", $"{origin}/auth/forgetPassword?email={user.Email}&code={code}" }
+            }
+        );
+
+        await _emailSender.SendEmailAsync(user.Email!, "✅ Survey Basket: Change Password", emailBody);
+    }
 }
 

@@ -3,12 +3,42 @@
   "WorkspaceRootPath": "D:\\Fasally\\Fasally\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{767BF866-8A5F-C19D-BA6F-32CD284B2957}|Fasally.csproj|d:\\fasally\\fasally\\migrations\\20260210032933_editapplicationuser.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{767BF866-8A5F-C19D-BA6F-32CD284B2957}|Fasally.csproj|solutionrelative:migrations\\20260210032933_editapplicationuser.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{767BF866-8A5F-C19D-BA6F-32CD284B2957}|Fasally.csproj|d:\\fasally\\fasally\\templates\\emailconfirmation.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{767BF866-8A5F-C19D-BA6F-32CD284B2957}|Fasally.csproj|solutionrelative:templates\\emailconfirmation.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{767BF866-8A5F-C19D-BA6F-32CD284B2957}|Fasally.csproj|d:\\fasally\\fasally\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{767BF866-8A5F-C19D-BA6F-32CD284B2957}|Fasally.csproj|solutionrelative:services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\hp\\AppData\\Roaming\\Microsoft\\UserSecrets\\330d2be0-bde1-4c4a-8e46-449d785b5245\\secrets.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{767BF866-8A5F-C19D-BA6F-32CD284B2957}|Fasally.csproj|d:\\fasally\\fasally\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{767BF866-8A5F-C19D-BA6F-32CD284B2957}|Fasally.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/FasallyBb/True/SqlTable/dbo.AspNetUsers.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{767BF866-8A5F-C19D-BA6F-32CD284B2957}|Fasally.csproj|d:\\fasally\\fasally\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{767BF866-8A5F-C19D-BA6F-32CD284B2957}|Fasally.csproj|solutionrelative:controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{767BF866-8A5F-C19D-BA6F-32CD284B2957}|Fasally.csproj|d:\\fasally\\fasally\\migrations\\applicationdbcontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{767BF866-8A5F-C19D-BA6F-32CD284B2957}|Fasally.csproj|solutionrelative:migrations\\applicationdbcontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{767BF866-8A5F-C19D-BA6F-32CD284B2957}|Fasally.csproj|d:\\fasally\\fasally\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{767BF866-8A5F-C19D-BA6F-32CD284B2957}|Fasally.csproj|solutionrelative:dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{767BF866-8A5F-C19D-BA6F-32CD284B2957}|Fasally.csproj|d:\\fasally\\fasally\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{767BF866-8A5F-C19D-BA6F-32CD284B2957}|Fasally.csproj|solutionrelative:services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{767BF866-8A5F-C19D-BA6F-32CD284B2957}|Fasally.csproj|d:\\fasally\\fasally\\migrations\\20260210032933_editapplicationuser.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{767BF866-8A5F-C19D-BA6F-32CD284B2957}|Fasally.csproj|solutionrelative:migrations\\20260210032933_editapplicationuser.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{767BF866-8A5F-C19D-BA6F-32CD284B2957}|Fasally.csproj|d:\\fasally\\fasally\\logs\\log-20260209.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
@@ -39,14 +69,6 @@
       "RelativeMoniker": "D:0:0:{767BF866-8A5F-C19D-BA6F-32CD284B2957}|Fasally.csproj|solutionrelative:migrations\\20260208221256_initialcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{767BF866-8A5F-C19D-BA6F-32CD284B2957}|Fasally.csproj|d:\\fasally\\fasally\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{767BF866-8A5F-C19D-BA6F-32CD284B2957}|Fasally.csproj|solutionrelative:dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{767BF866-8A5F-C19D-BA6F-32CD284B2957}|Fasally.csproj|d:\\fasally\\fasally\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{767BF866-8A5F-C19D-BA6F-32CD284B2957}|Fasally.csproj|solutionrelative:services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{767BF866-8A5F-C19D-BA6F-32CD284B2957}|Fasally.csproj|d:\\fasally\\fasally\\mapping\\mappingconfigurations.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{767BF866-8A5F-C19D-BA6F-32CD284B2957}|Fasally.csproj|solutionrelative:mapping\\mappingconfigurations.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -55,14 +77,7 @@
       "RelativeMoniker": "D:0:0:{767BF866-8A5F-C19D-BA6F-32CD284B2957}|Fasally.csproj|solutionrelative:contracts\\users\\userresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/FasallyBb/True/SqlTable/dbo.AspNetUsers.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/FasallyBb/True/SqlTable/dbo.RefreshTokens.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{767BF866-8A5F-C19D-BA6F-32CD284B2957}|Fasally.csproj|d:\\fasally\\fasally\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{767BF866-8A5F-C19D-BA6F-32CD284B2957}|Fasally.csproj|solutionrelative:services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{767BF866-8A5F-C19D-BA6F-32CD284B2957}|Fasally.csproj|d:\\fasally\\fasally\\contracts\\users\\createuserrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -71,14 +86,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{767BF866-8A5F-C19D-BA6F-32CD284B2957}|Fasally.csproj|d:\\fasally\\fasally\\contracts\\users\\createuserrequestvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{767BF866-8A5F-C19D-BA6F-32CD284B2957}|Fasally.csproj|solutionrelative:contracts\\users\\createuserrequestvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{767BF866-8A5F-C19D-BA6F-32CD284B2957}|Fasally.csproj|d:\\fasally\\fasally\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{767BF866-8A5F-C19D-BA6F-32CD284B2957}|Fasally.csproj|solutionrelative:controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{767BF866-8A5F-C19D-BA6F-32CD284B2957}|Fasally.csproj|d:\\fasally\\fasally\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{767BF866-8A5F-C19D-BA6F-32CD284B2957}|Fasally.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{767BF866-8A5F-C19D-BA6F-32CD284B2957}|Fasally.csproj|d:\\fasally\\fasally\\fasally.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
@@ -92,7 +99,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 241,
-          "SelectedChildIndex": 13,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Bookmark",
@@ -124,46 +131,43 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "EmailConfirmation.html",
+              "DocumentMoniker": "D:\\Fasally\\Fasally\\Templates\\EmailConfirmation.html",
+              "RelativeDocumentMoniker": "Templates\\EmailConfirmation.html",
+              "ToolTip": "D:\\Fasally\\Fasally\\Templates\\EmailConfirmation.html",
+              "RelativeToolTip": "Templates\\EmailConfirmation.html",
+              "ViewState": "AgIAAKgAAAAAAAAAAAAwwLUAAABWAQAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2026-03-01T01:28:09.165Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "UserErrors.cs",
-              "DocumentMoniker": "D:\\Fasally\\Fasally\\Errors\\UserErrors.cs",
-              "RelativeDocumentMoniker": "Errors\\UserErrors.cs",
-              "ToolTip": "D:\\Fasally\\Fasally\\Errors\\UserErrors.cs",
-              "RelativeToolTip": "Errors\\UserErrors.cs",
-              "ViewState": "AgIAABsAAAAAAAAAAAAAACMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-15T18:02:32.465Z",
+              "Title": "dbo.AspNetUsers [Data]",
+              "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/FasallyBb/True/SqlTable/dbo.AspNetUsers.sql",
+              "ToolTip": "dbo.AspNetUsers [Data]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2026-03-01T01:15:44.003Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "UpdateUserRequestValidator.cs",
-              "DocumentMoniker": "D:\\Fasally\\Fasally\\Contracts\\Users\\UpdateUserRequestValidator.cs",
-              "RelativeDocumentMoniker": "Contracts\\Users\\UpdateUserRequestValidator.cs",
-              "ToolTip": "D:\\Fasally\\Fasally\\Contracts\\Users\\UpdateUserRequestValidator.cs",
-              "RelativeToolTip": "Contracts\\Users\\UpdateUserRequestValidator.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAAABQAAAAJAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "AuthService.cs",
+              "DocumentMoniker": "D:\\Fasally\\Fasally\\Services\\AuthService.cs",
+              "RelativeDocumentMoniker": "Services\\AuthService.cs",
+              "ToolTip": "D:\\Fasally\\Fasally\\Services\\AuthService.cs",
+              "RelativeToolTip": "Services\\AuthService.cs",
+              "ViewState": "AgIAAB0BAAAAAAAAAAAgwCcBAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-15T18:02:22.483Z",
+              "WhenOpened": "2026-02-15T14:46:53.516Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "UpdateUserRequest.cs",
-              "DocumentMoniker": "D:\\Fasally\\Fasally\\Contracts\\Users\\UpdateUserRequest.cs",
-              "RelativeDocumentMoniker": "Contracts\\Users\\UpdateUserRequest.cs",
-              "ToolTip": "D:\\Fasally\\Fasally\\Contracts\\Users\\UpdateUserRequest.cs",
-              "RelativeToolTip": "Contracts\\Users\\UpdateUserRequest.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-15T18:02:08.174Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 11,
               "Title": "log-20260215.txt",
               "DocumentMoniker": "D:\\Fasally\\Fasally\\logs\\log-20260215.txt",
               "RelativeDocumentMoniker": "logs\\log-20260215.txt",
@@ -171,12 +175,86 @@
               "RelativeToolTip": "logs\\log-20260215.txt",
               "ViewState": "AgIAALEDAAAAAAAAAAD4v8ADAAAoAgAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2026-02-15T18:01:59.469Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-15T18:01:59.469Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "secrets.json",
+              "DocumentMoniker": "C:\\Users\\hp\\AppData\\Roaming\\Microsoft\\UserSecrets\\330d2be0-bde1-4c4a-8e46-449d785b5245\\secrets.json",
+              "ToolTip": "C:\\Users\\hp\\AppData\\Roaming\\Microsoft\\UserSecrets\\330d2be0-bde1-4c4a-8e46-449d785b5245\\secrets.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-03-01T00:55:38.497Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ApplicationDbContextModelSnapshot.cs",
+              "DocumentMoniker": "D:\\Fasally\\Fasally\\Migrations\\ApplicationDbContextModelSnapshot.cs",
+              "RelativeDocumentMoniker": "Migrations\\ApplicationDbContextModelSnapshot.cs",
+              "ToolTip": "D:\\Fasally\\Fasally\\Migrations\\ApplicationDbContextModelSnapshot.cs",
+              "RelativeToolTip": "Migrations\\ApplicationDbContextModelSnapshot.cs",
+              "ViewState": "AgIAAG4AAAAAAAAAAAAAAJgAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-15T18:01:37.069Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "20260210032933_EditApplicationUser.Designer.cs",
+              "DocumentMoniker": "D:\\Fasally\\Fasally\\Migrations\\20260210032933_EditApplicationUser.Designer.cs",
+              "RelativeDocumentMoniker": "Migrations\\20260210032933_EditApplicationUser.Designer.cs",
+              "ToolTip": "D:\\Fasally\\Fasally\\Migrations\\20260210032933_EditApplicationUser.Designer.cs",
+              "RelativeToolTip": "Migrations\\20260210032933_EditApplicationUser.Designer.cs",
+              "ViewState": "AgIAAIwAAAAAAAAAAAAEwJsAAABLAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-15T18:01:31.023Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "UserService.cs",
+              "DocumentMoniker": "D:\\Fasally\\Fasally\\Services\\UserService.cs",
+              "RelativeDocumentMoniker": "Services\\UserService.cs",
+              "ToolTip": "D:\\Fasally\\Fasally\\Services\\UserService.cs",
+              "RelativeToolTip": "Services\\UserService.cs",
+              "ViewState": "AgIAAD4AAAAAAAAAAAAgwFIAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-15T17:24:57.365Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\Fasally\\Fasally\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "D:\\Fasally\\Fasally\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAAACkAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-02-15T14:02:46.969Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "D:\\Fasally\\Fasally\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AuthController.cs",
+              "ToolTip": "D:\\Fasally\\Fasally\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "Controllers\\AuthController.cs",
+              "ViewState": "AgIAACAAAAAAAAAAAAAIwC0AAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-15T14:39:52.632Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
               "Title": "log-20260209.txt",
               "DocumentMoniker": "D:\\Fasally\\Fasally\\logs\\log-20260209.txt",
               "RelativeDocumentMoniker": "logs\\log-20260209.txt",
@@ -184,38 +262,60 @@
               "RelativeToolTip": "logs\\log-20260209.txt",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAClAQAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2026-02-15T18:01:53.783Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ApplicationDbContextModelSnapshot.cs",
-              "DocumentMoniker": "D:\\Fasally\\Fasally\\Migrations\\ApplicationDbContextModelSnapshot.cs",
-              "RelativeDocumentMoniker": "Migrations\\ApplicationDbContextModelSnapshot.cs",
-              "ToolTip": "D:\\Fasally\\Fasally\\Migrations\\ApplicationDbContextModelSnapshot.cs",
-              "RelativeToolTip": "Migrations\\ApplicationDbContextModelSnapshot.cs",
-              "ViewState": "AgIAAG4AAAAAAAAAAAAAAJgAAABLAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-15T18:01:37.069Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "20260210032933_EditApplicationUser.Designer.cs",
-              "DocumentMoniker": "D:\\Fasally\\Fasally\\Migrations\\20260210032933_EditApplicationUser.Designer.cs",
-              "RelativeDocumentMoniker": "Migrations\\20260210032933_EditApplicationUser.Designer.cs",
-              "ToolTip": "D:\\Fasally\\Fasally\\Migrations\\20260210032933_EditApplicationUser.Designer.cs*",
-              "RelativeToolTip": "Migrations\\20260210032933_EditApplicationUser.Designer.cs*",
-              "ViewState": "AgIAAIwAAAAAAAAAAAAEwJsAAABLAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-15T18:01:31.023Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-15T18:01:53.783Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 7,
+              "Title": "DependencyInjection.cs",
+              "DocumentMoniker": "D:\\Fasally\\Fasally\\DependencyInjection.cs",
+              "RelativeDocumentMoniker": "DependencyInjection.cs",
+              "ToolTip": "D:\\Fasally\\Fasally\\DependencyInjection.cs",
+              "RelativeToolTip": "DependencyInjection.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAQwB4AAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-15T14:25:06.283Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "UpdateUserRequest.cs",
+              "DocumentMoniker": "D:\\Fasally\\Fasally\\Contracts\\Users\\UpdateUserRequest.cs",
+              "RelativeDocumentMoniker": "Contracts\\Users\\UpdateUserRequest.cs",
+              "ToolTip": "D:\\Fasally\\Fasally\\Contracts\\Users\\UpdateUserRequest.cs",
+              "RelativeToolTip": "Contracts\\Users\\UpdateUserRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-15T18:02:08.174Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "UpdateUserRequestValidator.cs",
+              "DocumentMoniker": "D:\\Fasally\\Fasally\\Contracts\\Users\\UpdateUserRequestValidator.cs",
+              "RelativeDocumentMoniker": "Contracts\\Users\\UpdateUserRequestValidator.cs",
+              "ToolTip": "D:\\Fasally\\Fasally\\Contracts\\Users\\UpdateUserRequestValidator.cs",
+              "RelativeToolTip": "Contracts\\Users\\UpdateUserRequestValidator.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAAABQAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-15T18:02:22.483Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "UserErrors.cs",
+              "DocumentMoniker": "D:\\Fasally\\Fasally\\Errors\\UserErrors.cs",
+              "RelativeDocumentMoniker": "Errors\\UserErrors.cs",
+              "ToolTip": "D:\\Fasally\\Fasally\\Errors\\UserErrors.cs",
+              "RelativeToolTip": "Errors\\UserErrors.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAAAACMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-15T18:02:32.465Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
               "Title": "20260208221256_InitialCreate.Designer.cs",
               "DocumentMoniker": "D:\\Fasally\\Fasally\\Migrations\\20260208221256_InitialCreate.Designer.cs",
               "RelativeDocumentMoniker": "Migrations\\20260208221256_InitialCreate.Designer.cs",
@@ -223,12 +323,11 @@
               "RelativeToolTip": "Migrations\\20260208221256_InitialCreate.Designer.cs",
               "ViewState": "AgIAADkBAAAAAAAAAAAmwEwBAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-15T18:01:21.231Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-15T18:01:21.231Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 16,
               "Title": "20260208221256_InitialCreate.cs",
               "DocumentMoniker": "D:\\Fasally\\Fasally\\Migrations\\20260208221256_InitialCreate.cs",
               "RelativeDocumentMoniker": "Migrations\\20260208221256_InitialCreate.cs",
@@ -236,12 +335,11 @@
               "RelativeToolTip": "Migrations\\20260208221256_InitialCreate.cs",
               "ViewState": "AgIAAPYAAAAAAAAAAAAmwAUBAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-15T18:01:02.112Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-15T18:01:02.112Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 18,
               "Title": "UserResponse.cs",
               "DocumentMoniker": "D:\\Fasally\\Fasally\\Contracts\\Users\\UserResponse.cs",
               "RelativeDocumentMoniker": "Contracts\\Users\\UserResponse.cs",
@@ -249,12 +347,11 @@
               "RelativeToolTip": "Contracts\\Users\\UserResponse.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-15T17:55:51.84Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-15T17:55:51.84Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 20,
               "Title": "CreateUserRequest.cs",
               "DocumentMoniker": "D:\\Fasally\\Fasally\\Contracts\\Users\\CreateUserRequest.cs",
               "RelativeDocumentMoniker": "Contracts\\Users\\CreateUserRequest.cs",
@@ -262,74 +359,20 @@
               "RelativeToolTip": "Contracts\\Users\\CreateUserRequest.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAATAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-15T17:29:55.923Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-15T17:29:55.923Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "UserService.cs",
-              "DocumentMoniker": "D:\\Fasally\\Fasally\\Services\\UserService.cs",
-              "RelativeDocumentMoniker": "Services\\UserService.cs",
-              "ToolTip": "D:\\Fasally\\Fasally\\Services\\UserService.cs",
-              "RelativeToolTip": "Services\\UserService.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAvwBkAAAAcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-15T17:24:57.365Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "dbo.RefreshTokens [Data]",
+              "DocumentIndex": 19,
+              "Title": "dbo.RefreshTokens.sql",
               "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/FasallyBb/True/SqlTable/dbo.RefreshTokens.sql",
-              "ToolTip": "dbo.RefreshTokens [Data]",
+              "ToolTip": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/FasallyBb/True/SqlTable/dbo.RefreshTokens.sql",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2026-02-15T14:56:57.549Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-15T14:56:57.549Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "AuthService.cs",
-              "DocumentMoniker": "D:\\Fasally\\Fasally\\Services\\AuthService.cs",
-              "RelativeDocumentMoniker": "Services\\AuthService.cs",
-              "ToolTip": "D:\\Fasally\\Fasally\\Services\\AuthService.cs",
-              "RelativeToolTip": "Services\\AuthService.cs",
-              "ViewState": "AgIAAIoAAAAAAAAAAAAAwJAAAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-15T14:46:53.516Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "AuthController.cs",
-              "DocumentMoniker": "D:\\Fasally\\Fasally\\Controllers\\AuthController.cs",
-              "RelativeDocumentMoniker": "Controllers\\AuthController.cs",
-              "ToolTip": "D:\\Fasally\\Fasally\\Controllers\\AuthController.cs",
-              "RelativeToolTip": "Controllers\\AuthController.cs",
-              "ViewState": "AgIAADMAAAAAAAAAAAAowEIAAAA0AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-15T14:39:52.632Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "DependencyInjection.cs",
-              "DocumentMoniker": "D:\\Fasally\\Fasally\\DependencyInjection.cs",
-              "RelativeDocumentMoniker": "DependencyInjection.cs",
-              "ToolTip": "D:\\Fasally\\Fasally\\DependencyInjection.cs",
-              "RelativeToolTip": "DependencyInjection.cs",
-              "ViewState": "AgIAABoAAAAAAAAAAAAYwCcAAAA5AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-15T14:25:06.283Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 17,
               "Title": "MappingConfigurations.cs",
               "DocumentMoniker": "D:\\Fasally\\Fasally\\Mapping\\MappingConfigurations.cs",
               "RelativeDocumentMoniker": "Mapping\\MappingConfigurations.cs",
@@ -337,12 +380,11 @@
               "RelativeToolTip": "Mapping\\MappingConfigurations.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAAA4AAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-15T17:45:50.059Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-15T17:45:50.059Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 21,
               "Title": "CreateUserRequestValidator.cs",
               "DocumentMoniker": "D:\\Fasally\\Fasally\\Contracts\\Users\\CreateUserRequestValidator.cs",
               "RelativeDocumentMoniker": "Contracts\\Users\\CreateUserRequestValidator.cs",
@@ -350,44 +392,19 @@
               "RelativeToolTip": "Contracts\\Users\\CreateUserRequestValidator.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAAAwAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-15T17:30:23.943Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-15T17:30:23.943Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "dbo.AspNetUsers [Data]",
-              "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/FasallyBb/True/SqlTable/dbo.AspNetUsers.sql",
-              "ToolTip": "dbo.AspNetUsers [Data]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2026-02-15T14:18:19.066Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "D:\\Fasally\\Fasally\\appsettings.json",
-              "RelativeDocumentMoniker": "appsettings.json",
-              "ToolTip": "D:\\Fasally\\Fasally\\appsettings.json",
-              "RelativeToolTip": "appsettings.json",
-              "ViewState": "AgIAABIAAAAAAAAAAAAAAAMAAABpAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-02-15T14:02:46.969Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "Fasally",
+              "DocumentIndex": 22,
+              "Title": "Fasally.csproj",
               "DocumentMoniker": "D:\\Fasally\\Fasally\\Fasally.csproj",
               "RelativeDocumentMoniker": "Fasally.csproj",
               "ToolTip": "D:\\Fasally\\Fasally\\Fasally.csproj",
               "RelativeToolTip": "Fasally.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2026-02-15T13:59:45.297Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-15T13:59:45.297Z"
             }
           ]
         },

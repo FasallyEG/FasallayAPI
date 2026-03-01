@@ -349,3 +349,11 @@ D:/Fasally/Fasally/obj/Debug/net10.0/Fasally.genruntimeconfig.cache
 D:/Fasally/Fasally/obj/Debug/net10.0/ref/Fasally.dll
 /run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/Fasally.staticwebassets.runtime.json
 /run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/obj/Debug/net10.0/Fasally.sourcelink.json
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/BouncyCastle.Cryptography.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/MailKit.dll
+/run/media/nesmaabdelmaboud/New Volume/Fasally/Fasally/bin/Debug/net10.0/MimeKit.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/Fasally.staticwebassets.runtime.json
+D:/Fasally/Fasally/bin/Debug/net10.0/BouncyCastle.Cryptography.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/MailKit.dll
+D:/Fasally/Fasally/bin/Debug/net10.0/MimeKit.dll
+D:/Fasally/Fasally/obj/Debug/net10.0/Fasally.sourcelink.json

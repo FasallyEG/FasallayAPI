@@ -2,8 +2,10 @@ using Fasally.Authentication;
 using Fasally.Entities;
 using Fasally.Persistence;
 using Fasally.Services;
+using Fasally.Settings;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
@@ -25,9 +27,12 @@ public static class DependencyInjection
             options.UseSqlServer(connectionString));
 
         services.AddScoped<IAuthService,AuthService>();
+        services.AddScoped<IEmailSender,EmailService>();
         services.AddScoped<IUserService,UserService>();
 
         services.AddOpenApi();
+
+        services.Configure<MailSettings>(config.GetSection(nameof(MailSettings)));
 
 
         return services;
