@@ -1,0 +1,236 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\my_projects\\Fasally\\FasallayAPI\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{767BF866-8A5F-C19D-BA6F-32CD284B2957}|Fasally.csproj|c:\\my_projects\\fasally\\fasallayapi\\contracts\\authentication\\registerrequestvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{767BF866-8A5F-C19D-BA6F-32CD284B2957}|Fasally.csproj|solutionrelative:contracts\\authentication\\registerrequestvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{767BF866-8A5F-C19D-BA6F-32CD284B2957}|Fasally.csproj|c:\\my_projects\\fasally\\fasallayapi\\contracts\\authentication\\registerrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{767BF866-8A5F-C19D-BA6F-32CD284B2957}|Fasally.csproj|solutionrelative:contracts\\authentication\\registerrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{767BF866-8A5F-C19D-BA6F-32CD284B2957}|Fasally.csproj|c:\\my_projects\\fasally\\fasallayapi\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{767BF866-8A5F-C19D-BA6F-32CD284B2957}|Fasally.csproj|solutionrelative:dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{767BF866-8A5F-C19D-BA6F-32CD284B2957}|Fasally.csproj|c:\\my_projects\\fasally\\fasallayapi\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{767BF866-8A5F-C19D-BA6F-32CD284B2957}|Fasally.csproj|solutionrelative:services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{767BF866-8A5F-C19D-BA6F-32CD284B2957}|Fasally.csproj|c:\\my_projects\\fasally\\fasallayapi\\services\\iauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{767BF866-8A5F-C19D-BA6F-32CD284B2957}|Fasally.csproj|solutionrelative:services\\iauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{767BF866-8A5F-C19D-BA6F-32CD284B2957}|Fasally.csproj|c:\\my_projects\\fasally\\fasallayapi\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{767BF866-8A5F-C19D-BA6F-32CD284B2957}|Fasally.csproj|solutionrelative:controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{767BF866-8A5F-C19D-BA6F-32CD284B2957}|Fasally.csproj|c:\\my_projects\\fasally\\fasallayapi\\authentication\\jwtprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{767BF866-8A5F-C19D-BA6F-32CD284B2957}|Fasally.csproj|solutionrelative:authentication\\jwtprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{767BF866-8A5F-C19D-BA6F-32CD284B2957}|Fasally.csproj|c:\\my_projects\\fasally\\fasallayapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{767BF866-8A5F-C19D-BA6F-32CD284B2957}|Fasally.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{767BF866-8A5F-C19D-BA6F-32CD284B2957}|Fasally.csproj|c:\\my_projects\\fasally\\fasallayapi\\persistence\\seeders\\roleseeder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{767BF866-8A5F-C19D-BA6F-32CD284B2957}|Fasally.csproj|solutionrelative:persistence\\seeders\\roleseeder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{767BF866-8A5F-C19D-BA6F-32CD284B2957}|Fasally.csproj|c:\\my_projects\\fasally\\fasallayapi\\abstractions\\constants\\roles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{767BF866-8A5F-C19D-BA6F-32CD284B2957}|Fasally.csproj|solutionrelative:abstractions\\constants\\roles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{767BF866-8A5F-C19D-BA6F-32CD284B2957}|Fasally.csproj|c:\\my_projects\\fasally\\fasallayapi\\entities\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{767BF866-8A5F-C19D-BA6F-32CD284B2957}|Fasally.csproj|solutionrelative:entities\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{767BF866-8A5F-C19D-BA6F-32CD284B2957}|Fasally.csproj|c:\\my_projects\\fasally\\fasallayapi\\fasally.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{767BF866-8A5F-C19D-BA6F-32CD284B2957}|Fasally.csproj|solutionrelative:fasally.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 194,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
+            }
+          ]
+        },
+        {
+          "DockedHeight": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AuthService.cs",
+              "DocumentMoniker": "C:\\my_projects\\Fasally\\FasallayAPI\\Services\\AuthService.cs",
+              "RelativeDocumentMoniker": "Services\\AuthService.cs",
+              "ToolTip": "C:\\my_projects\\Fasally\\FasallayAPI\\Services\\AuthService.cs",
+              "RelativeToolTip": "Services\\AuthService.cs",
+              "ViewState": "AgIAAPsAAAAAAAAAAAAAwBwBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-14T16:22:53.622Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "IAuthService.cs",
+              "DocumentMoniker": "C:\\my_projects\\Fasally\\FasallayAPI\\Services\\IAuthService.cs",
+              "RelativeDocumentMoniker": "Services\\IAuthService.cs",
+              "ToolTip": "C:\\my_projects\\Fasally\\FasallayAPI\\Services\\IAuthService.cs",
+              "RelativeToolTip": "Services\\IAuthService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-14T16:21:41.816Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "RegisterRequestValidator.cs",
+              "DocumentMoniker": "C:\\my_projects\\Fasally\\FasallayAPI\\Contracts\\Authentication\\RegisterRequestValidator.cs",
+              "RelativeDocumentMoniker": "Contracts\\Authentication\\RegisterRequestValidator.cs",
+              "ToolTip": "C:\\my_projects\\Fasally\\FasallayAPI\\Contracts\\Authentication\\RegisterRequestValidator.cs",
+              "RelativeToolTip": "Contracts\\Authentication\\RegisterRequestValidator.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-14T16:20:28.225Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "UsersController.cs",
+              "DocumentMoniker": "C:\\my_projects\\Fasally\\FasallayAPI\\Controllers\\UsersController.cs",
+              "RelativeDocumentMoniker": "Controllers\\UsersController.cs",
+              "ToolTip": "C:\\my_projects\\Fasally\\FasallayAPI\\Controllers\\UsersController.cs",
+              "RelativeToolTip": "Controllers\\UsersController.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAQwBcAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-04T22:50:08.942Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "RegisterRequest.cs",
+              "DocumentMoniker": "C:\\my_projects\\Fasally\\FasallayAPI\\Contracts\\Authentication\\RegisterRequest.cs",
+              "RelativeDocumentMoniker": "Contracts\\Authentication\\RegisterRequest.cs",
+              "ToolTip": "C:\\my_projects\\Fasally\\FasallayAPI\\Contracts\\Authentication\\RegisterRequest.cs",
+              "RelativeToolTip": "Contracts\\Authentication\\RegisterRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-04T21:05:17.921Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\my_projects\\Fasally\\FasallayAPI\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\my_projects\\Fasally\\FasallayAPI\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAABYAAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-04T20:42:48.89Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "RoleSeeder.cs",
+              "DocumentMoniker": "C:\\my_projects\\Fasally\\FasallayAPI\\Persistence\\Seeders\\RoleSeeder.cs",
+              "RelativeDocumentMoniker": "Persistence\\Seeders\\RoleSeeder.cs",
+              "ToolTip": "C:\\my_projects\\Fasally\\FasallayAPI\\Persistence\\Seeders\\RoleSeeder.cs",
+              "RelativeToolTip": "Persistence\\Seeders\\RoleSeeder.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAAgwCQAAABbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-04T20:33:28.852Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "DependencyInjection.cs",
+              "DocumentMoniker": "C:\\my_projects\\Fasally\\FasallayAPI\\DependencyInjection.cs",
+              "RelativeDocumentMoniker": "DependencyInjection.cs",
+              "ToolTip": "C:\\my_projects\\Fasally\\FasallayAPI\\DependencyInjection.cs",
+              "RelativeToolTip": "DependencyInjection.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAAqwCoAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-04T20:23:03.36Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "JWTProvider.cs",
+              "DocumentMoniker": "C:\\my_projects\\Fasally\\FasallayAPI\\Authentication\\JWTProvider.cs",
+              "RelativeDocumentMoniker": "Authentication\\JWTProvider.cs",
+              "ToolTip": "C:\\my_projects\\Fasally\\FasallayAPI\\Authentication\\JWTProvider.cs",
+              "RelativeToolTip": "Authentication\\JWTProvider.cs",
+              "ViewState": "AgIAADkAAAAAAAAAAAAowCYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-04T20:51:05.151Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Roles.cs",
+              "DocumentMoniker": "C:\\my_projects\\Fasally\\FasallayAPI\\Abstractions\\Constants\\Roles.cs",
+              "RelativeDocumentMoniker": "Abstractions\\Constants\\Roles.cs",
+              "ToolTip": "C:\\my_projects\\Fasally\\FasallayAPI\\Abstractions\\Constants\\Roles.cs",
+              "RelativeToolTip": "Abstractions\\Constants\\Roles.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-04T20:18:57.857Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "ApplicationUser.cs",
+              "DocumentMoniker": "C:\\my_projects\\Fasally\\FasallayAPI\\Entities\\ApplicationUser.cs",
+              "RelativeDocumentMoniker": "Entities\\ApplicationUser.cs",
+              "ToolTip": "C:\\my_projects\\Fasally\\FasallayAPI\\Entities\\ApplicationUser.cs",
+              "RelativeToolTip": "Entities\\ApplicationUser.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-04T19:56:13.364Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Fasally.csproj",
+              "DocumentMoniker": "C:\\my_projects\\Fasally\\FasallayAPI\\Fasally.csproj",
+              "RelativeDocumentMoniker": "Fasally.csproj",
+              "ToolTip": "C:\\my_projects\\Fasally\\FasallayAPI\\Fasally.csproj",
+              "RelativeToolTip": "Fasally.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-03-04T18:48:35.547Z"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{56df62a4-05a3-4e5b-aa1a-99371ccfb997}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

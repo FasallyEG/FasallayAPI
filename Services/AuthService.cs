@@ -307,7 +307,7 @@ public class AuthService(
             templateModel: new Dictionary<string, string>
             {
                 { "{{name}}", user.FirstName },
-                    { "{{action_url}}", $"{origin}/auth/forgetPassword?email={user.Email}&code={code}" }
+                { "{{action_url}}", $"{origin}/auth/forgetPassword?email={user.Email}&code={code}" }
             }
         );
 

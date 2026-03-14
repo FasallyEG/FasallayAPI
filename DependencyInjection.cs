@@ -8,14 +8,15 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using System.Security.Claims;
 using System.Text;
 
 namespace Fasally;
 
 public static class DependencyInjection
-    {
+{
     public static IServiceCollection AddDependencies(this IServiceCollection services,IConfiguration config)
-        {
+    {
         services.AddControllers();
 
         services.AddAuthConfig(config);
@@ -34,13 +35,13 @@ public static class DependencyInjection
 
         services.Configure<MailSettings>(config.GetSection(nameof(MailSettings)));
 
-
         return services;
-        }
-    private static IServiceCollection AddAuthConfig(this IServiceCollection services,
+    }
+private static IServiceCollection AddAuthConfig(this IServiceCollection services,
         IConfiguration config)
-        {
-        services.AddSingleton<IJWTProvider,JWTProvider>();
+    {
+        // Ya Nesma, I Changed it from Singleton to Scoped to allow UserManager injection
+        services.AddScoped<IJWTProvider,JWTProvider>();
 
         services.AddIdentity<ApplicationUser,IdentityRole>()
             .AddEntityFrameworkStores<ApplicationDbContext>()
@@ -53,31 +54,34 @@ public static class DependencyInjection
         var jwtSettings = config.GetSection(JWTOptions.SectionName).Get<JWTOptions>();
 
         services.AddAuthentication(options =>
-    {
-        options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-        options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-    })
-    .AddJwtBearer(o =>
-    {
-        o.SaveToken = true;
-        o.TokenValidationParameters = new TokenValidationParameters
+        {
+            options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+            options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+        })
+        .AddJwtBearer(o =>
+        {
+            o.SaveToken = true;
+            o.TokenValidationParameters = new TokenValidationParameters
             {
-            ValidateIssuerSigningKey = true,
-            ValidateIssuer = true,
-            ValidateAudience = true,
-            ValidateLifetime = true,
-            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSettings?.Key!)),
-            ValidIssuer = jwtSettings?.Issuer,
-            ValidAudience = jwtSettings?.Audience
+                ValidateIssuerSigningKey = true,
+                ValidateIssuer = true,
+                ValidateAudience = true,
+                ValidateLifetime = true,
+                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSettings?.Key!)),
+                ValidIssuer = jwtSettings?.Issuer,
+                ValidAudience = jwtSettings?.Audience,
+
+                // add it for [Authorize(Roles="Admin")]
+                RoleClaimType = ClaimTypes.Role
             };
-    });
+        });
 
         services.Configure<IdentityOptions>(options =>
-           {
-               options.Password.RequiredLength = 8;
-               options.SignIn.RequireConfirmedEmail = true;
-               options.User.RequireUniqueEmail = true;
-           });
+        {
+            options.Password.RequiredLength = 8;
+            options.SignIn.RequireConfirmedEmail = true;
+            options.User.RequireUniqueEmail = true;
+        });
         return services;
-        }
     }
+}
