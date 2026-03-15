@@ -1,6 +1,8 @@
 using Fasally.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+namespace Fasally.Persistence.EntitiesConfiguration;
+
 public class RefreshTokenConfiguration
     : IEntityTypeConfiguration<RefreshToken>
 {

@@ -1,6 +1,7 @@
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using System.Text.Json;
 using Fasally.Entities;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
@@ -11,14 +12,17 @@ public class JWTProvider(IOptions<JWTOptions> jwtOptions) : IJWTProvider
 {
     private readonly JWTOptions _jwtOptions = jwtOptions.Value;
 
-    public (string token, int expiresIn) GenerateToken(ApplicationUser user)
+    public (string token, int expiresIn) GenerateToken(ApplicationUser user,IEnumerable<string> roles,IEnumerable<string> permissions)
     {
         var claims = new[]
         {
             new Claim(JwtRegisteredClaimNames.Sub, user.Id),
             new Claim(JwtRegisteredClaimNames.Email, user.Email ?? string.Empty),
             new Claim(JwtRegisteredClaimNames.GivenName, user.FirstName),
-            new Claim(JwtRegisteredClaimNames.FamilyName, user.LastName)
+            new Claim(JwtRegisteredClaimNames.FamilyName, user.LastName),
+            new(nameof(roles), JsonSerializer.Serialize(roles),JsonClaimValueTypes.JsonArray),
+            new(nameof(permissions), JsonSerializer.Serialize(permissions),JsonClaimValueTypes.JsonArray)
+            
         };
 
         var key = new SymmetricSecurityKey(

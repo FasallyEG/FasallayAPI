@@ -2,6 +2,8 @@ using Fasally.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
+namespace Fasally.Persistence.EntitiesConfiguration;
+
 public class UserConfiguration
     : IEntityTypeConfiguration<ApplicationUser>
 {

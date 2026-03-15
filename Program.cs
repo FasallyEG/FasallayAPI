@@ -17,7 +17,11 @@ var app = builder.Build();
 using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
+
+    await RoleSeeder.SeedRolesAsync(services);
     await UserSeeder.SeedAdminAsync(services);
+    await UserRoleSeeder.SeedUserRolesAsync(services);
+    await RoleClaimSeeder.SeedRoleClaimsAsync(services);
 }
 
 // Configure the HTTP request pipeline.
@@ -31,6 +35,7 @@ app.UseSerilogRequestLogging();
 
 app.UseHttpsRedirection();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.UseStaticFiles();

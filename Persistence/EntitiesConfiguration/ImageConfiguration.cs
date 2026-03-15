@@ -2,7 +2,7 @@ using Fasally.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Fasally.Persistence.Configurations;
+namespace Fasally.Persistence.EntitiesConfiguration;
 
 public class ImageConfiguration : IEntityTypeConfiguration<Image>
 {

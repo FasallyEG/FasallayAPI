@@ -137,7 +137,7 @@
               "RelativeDocumentMoniker": "Templates\\EmailConfirmation.html",
               "ToolTip": "D:\\Fasally\\Fasally\\Templates\\EmailConfirmation.html",
               "RelativeToolTip": "Templates\\EmailConfirmation.html",
-              "ViewState": "AgIAAKgAAAAAAAAAAAAwwLUAAABWAQAAAAAAAA==",
+              "ViewState": "AgIAAKgAAAAAAAAAAAAwwK8AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
               "WhenOpened": "2026-03-01T01:28:09.165Z",
               "EditorCaption": ""
@@ -145,12 +145,11 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "dbo.AspNetUsers [Data]",
+              "Title": "dbo.AspNetUsers.sql",
               "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/FasallyBb/True/SqlTable/dbo.AspNetUsers.sql",
-              "ToolTip": "dbo.AspNetUsers [Data]",
+              "ToolTip": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/FasallyBb/True/SqlTable/dbo.AspNetUsers.sql",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2026-03-01T01:15:44.003Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-01T01:15:44.003Z"
             },
             {
               "$type": "Document",
@@ -160,7 +159,7 @@
               "RelativeDocumentMoniker": "Services\\AuthService.cs",
               "ToolTip": "D:\\Fasally\\Fasally\\Services\\AuthService.cs",
               "RelativeToolTip": "Services\\AuthService.cs",
-              "ViewState": "AgIAAB0BAAAAAAAAAAAgwCcBAAAfAAAAAAAAAA==",
+              "ViewState": "AgIAAB0BAAAAAAAAAAAgwCcBAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-15T14:46:53.516Z",
               "EditorCaption": ""
@@ -175,7 +174,8 @@
               "RelativeToolTip": "logs\\log-20260215.txt",
               "ViewState": "AgIAALEDAAAAAAAAAAD4v8ADAAAoAgAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2026-02-15T18:01:59.469Z"
+              "WhenOpened": "2026-02-15T18:01:59.469Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -196,7 +196,7 @@
               "RelativeDocumentMoniker": "Migrations\\ApplicationDbContextModelSnapshot.cs",
               "ToolTip": "D:\\Fasally\\Fasally\\Migrations\\ApplicationDbContextModelSnapshot.cs",
               "RelativeToolTip": "Migrations\\ApplicationDbContextModelSnapshot.cs",
-              "ViewState": "AgIAAG4AAAAAAAAAAAAAAJgAAAATAAAAAAAAAA==",
+              "ViewState": "AgIAAGsAAAAAAAAAAIBJwJgAAAATAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-15T18:01:37.069Z",
               "EditorCaption": ""
@@ -211,7 +211,8 @@
               "RelativeToolTip": "Migrations\\20260210032933_EditApplicationUser.Designer.cs",
               "ViewState": "AgIAAIwAAAAAAAAAAAAEwJsAAABLAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-15T18:01:31.023Z"
+              "WhenOpened": "2026-02-15T18:01:31.023Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -221,7 +222,7 @@
               "RelativeDocumentMoniker": "Services\\UserService.cs",
               "ToolTip": "D:\\Fasally\\Fasally\\Services\\UserService.cs",
               "RelativeToolTip": "Services\\UserService.cs",
-              "ViewState": "AgIAAD4AAAAAAAAAAAAgwFIAAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAAD4AAAAAAAAAAAA3wFIAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-15T17:24:57.365Z",
               "EditorCaption": ""
@@ -234,7 +235,7 @@
               "RelativeDocumentMoniker": "appsettings.json",
               "ToolTip": "D:\\Fasally\\Fasally\\appsettings.json",
               "RelativeToolTip": "appsettings.json",
-              "ViewState": "AgIAAB4AAAAAAAAAAAAAACkAAAAlAAAAAAAAAA==",
+              "ViewState": "AgIAABsAAAAAAAAAAIBJwCkAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2026-02-15T14:02:46.969Z",
               "EditorCaption": ""
@@ -262,7 +263,8 @@
               "RelativeToolTip": "logs\\log-20260209.txt",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAClAQAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2026-02-15T18:01:53.783Z"
+              "WhenOpened": "2026-02-15T18:01:53.783Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -287,7 +289,8 @@
               "RelativeToolTip": "Contracts\\Users\\UpdateUserRequest.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-15T18:02:08.174Z"
+              "WhenOpened": "2026-02-15T18:02:08.174Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -297,9 +300,10 @@
               "RelativeDocumentMoniker": "Contracts\\Users\\UpdateUserRequestValidator.cs",
               "ToolTip": "D:\\Fasally\\Fasally\\Contracts\\Users\\UpdateUserRequestValidator.cs",
               "RelativeToolTip": "Contracts\\Users\\UpdateUserRequestValidator.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAAABQAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAAsAAAAAAAAAAIBJwBQAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-15T18:02:22.483Z"
+              "WhenOpened": "2026-02-15T18:02:22.483Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -309,9 +313,10 @@
               "RelativeDocumentMoniker": "Errors\\UserErrors.cs",
               "ToolTip": "D:\\Fasally\\Fasally\\Errors\\UserErrors.cs",
               "RelativeToolTip": "Errors\\UserErrors.cs",
-              "ViewState": "AgIAABsAAAAAAAAAAAAAACMAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAABgAAAAAAAAAAIBJwCMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-15T18:02:32.465Z"
+              "WhenOpened": "2026-02-15T18:02:32.465Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -323,7 +328,8 @@
               "RelativeToolTip": "Migrations\\20260208221256_InitialCreate.Designer.cs",
               "ViewState": "AgIAADkBAAAAAAAAAAAmwEwBAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-15T18:01:21.231Z"
+              "WhenOpened": "2026-02-15T18:01:21.231Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -335,7 +341,8 @@
               "RelativeToolTip": "Migrations\\20260208221256_InitialCreate.cs",
               "ViewState": "AgIAAPYAAAAAAAAAAAAmwAUBAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-15T18:01:02.112Z"
+              "WhenOpened": "2026-02-15T18:01:02.112Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -347,7 +354,8 @@
               "RelativeToolTip": "Contracts\\Users\\UserResponse.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-15T17:55:51.84Z"
+              "WhenOpened": "2026-02-15T17:55:51.84Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -359,7 +367,8 @@
               "RelativeToolTip": "Contracts\\Users\\CreateUserRequest.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAATAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-15T17:29:55.923Z"
+              "WhenOpened": "2026-02-15T17:29:55.923Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -378,9 +387,10 @@
               "RelativeDocumentMoniker": "Mapping\\MappingConfigurations.cs",
               "ToolTip": "D:\\Fasally\\Fasally\\Mapping\\MappingConfigurations.cs",
               "RelativeToolTip": "Mapping\\MappingConfigurations.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA4AAAAZAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAIBJwA4AAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-15T17:45:50.059Z"
+              "WhenOpened": "2026-02-15T17:45:50.059Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -390,9 +400,10 @@
               "RelativeDocumentMoniker": "Contracts\\Users\\CreateUserRequestValidator.cs",
               "ToolTip": "D:\\Fasally\\Fasally\\Contracts\\Users\\CreateUserRequestValidator.cs",
               "RelativeToolTip": "Contracts\\Users\\CreateUserRequestValidator.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAwAAAAcAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAIBJwAwAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-15T17:30:23.943Z"
+              "WhenOpened": "2026-02-15T17:30:23.943Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -404,7 +415,8 @@
               "RelativeToolTip": "Fasally.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2026-02-15T13:59:45.297Z"
+              "WhenOpened": "2026-02-15T13:59:45.297Z",
+              "EditorCaption": ""
             }
           ]
         },

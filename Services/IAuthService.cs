@@ -24,6 +24,9 @@ public interface IAuthService
         RegisterRequest request,
         CancellationToken cancellationToken = default);
 
+    Task<Result<AuthResponse>> GoogleLoginAsync(
+        GoogleAuthRequest request,
+        CancellationToken cancellationToken = default);
     Task<Result> ConfirmEmailAsync(
         ConfirmEmailRequest request);
 

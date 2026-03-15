@@ -1,7 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace Fasally.Settings
-{
+namespace Fasally.Settings;
 
     public class MailSettings
     {
@@ -20,4 +19,4 @@ namespace Fasally.Settings
         [Range(100, 900)]
         public int Port { get; set; }
     }
-}
+

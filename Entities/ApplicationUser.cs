@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Identity;
 
 namespace Fasally.Entities;
+
 public sealed class ApplicationUser : IdentityUser
 {
     public ApplicationUser()
@@ -16,4 +17,5 @@ public sealed class ApplicationUser : IdentityUser
     public string? ProfileImageUrl { get; set; }
 
     public List<RefreshToken> RefreshTokens { get; set; } = [];
+    public List<ExternalLogin> ExternalLogins { get; set; } = [];
 }
