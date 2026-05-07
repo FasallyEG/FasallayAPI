@@ -11,21 +11,21 @@ public static class UserRoleSeeder
         var userManager = serviceProvider.GetRequiredService<UserManager<ApplicationUser>>();
         var roleManager = serviceProvider.GetRequiredService<RoleManager<ApplicationRole>>();
 
-        var admin = await userManager.FindByIdAsync(DefaultUsers.Admin.Id);
+        var admin = await userManager.FindByEmailAsync(DefaultUsers.Admin.Email);
 
         if (admin is null)
             return;
 
-        var roleExists = await roleManager.RoleExistsAsync(DefaultRoles.Admin.Name);
+        var roleExists = await roleManager.RoleExistsAsync(DefaultRoles.Admin);
 
         if (!roleExists)
             return;
 
-        var isInRole = await userManager.IsInRoleAsync(admin, DefaultRoles.Admin.Name);
+        var isInRole = await userManager.IsInRoleAsync(admin, DefaultRoles.Admin);
 
         if (!isInRole)
         {
-            await userManager.AddToRoleAsync(admin, DefaultRoles.Admin.Name);
+            await userManager.AddToRoleAsync(admin, DefaultRoles.Admin);
         }
     }
 }

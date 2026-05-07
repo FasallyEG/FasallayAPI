@@ -20,33 +20,22 @@ public class UserService(
     private readonly ApplicationDbContext _context = context;
 
     public async Task<IEnumerable<UserResponse>> GetAllAsync(CancellationToken cancellationToken = default) =>
-         await (from u in _context.Users
-                join ur in _context.UserRoles
-                on u.Id equals ur.UserId
-                join r in _context.Roles
-                on ur.RoleId equals r.Id into roles
-                where !roles.Any(x => x.Name == DefaultRoles.Member.Name)
-                select new
-                {
-                    u.Id,
-                    u.FirstName,
-                    u.LastName,
-                    u.Email,
-                    u.IsDisabled,
-                    Roles = roles.Select(x => x.Name!).ToList()
-                }
-                )
-                .GroupBy(u => new { u.Id, u.FirstName, u.LastName, u.Email, u.IsDisabled })
-                .Select(u => new UserResponse
-                (
-                    u.Key.Id,
-                    u.Key.FirstName,
-                    u.Key.LastName,
-                    u.Key.Email,
-                    u.Key.IsDisabled,
-                    u.SelectMany(x => x.Roles)
-                ))
-              .ToListAsync(cancellationToken);
+        await (from u in _context.Users
+               join ur in _context.UserRoles on u.Id equals ur.UserId
+               join r in _context.Roles on ur.RoleId equals r.Id into roles
+               where !roles.Any(x => x.Name == DefaultRoles.Member)
+               select new
+               {
+                   u.Id, u.FirstName, u.LastName, u.Email, u.IsDisabled,
+                   Roles = roles.Select(x => x.Name!).ToList()
+               })
+               .GroupBy(u => new { u.Id, u.FirstName, u.LastName, u.Email, u.IsDisabled })
+               .Select(g => new UserResponse(
+                   g.Key.Id, g.Key.FirstName, g.Key.LastName,
+                   g.Key.Email!, g.Key.IsDisabled,
+                   g.SelectMany(x => x.Roles),
+                   null))
+               .ToListAsync(cancellationToken);
 
     public async Task<Result<UserResponse>> GetAsync(string id)
     {
@@ -54,11 +43,13 @@ public class UserService(
             return Result.Failure<UserResponse>(UserErrors.UserNotFound);
 
         var roles = await _userManager.GetRolesAsync(user);
-        
 
-        // var response = (user, Roles: roles).Adapt<UserResponse>();
-        var response = user.Adapt<UserResponse>() with { Roles = roles };
+        var tailor = await _context.Tailors
+            .Where(t => t.ApplicationUserId == id)
+            .Select(t => new TailorStatusResponse(t.Status, t.IsVerified, t.ExperienceYears))
+            .FirstOrDefaultAsync();
 
+        var response = user.Adapt<UserResponse>() with { Roles = roles, TailorProfile = tailor };
 
         return Result.Success(response);
     }
@@ -76,16 +67,14 @@ public class UserService(
         if (request.Roles.Except(allowedRoles.Select(r => r.Name)).Any())
             return Result.Failure<UserResponse>(UserErrors.InvalidRoles);
 
-
         var user = request.Adapt<ApplicationUser>();
-        user.UserName = request.Email;
+
         var result = await _userManager.CreateAsync(user, request.Password);
 
         if (result.Succeeded)
         {
             await _userManager.AddToRolesAsync(user, request.Roles);
-           // var response = (user, request.Roles).Adapt<UserResponse>();
-            var response = user.Adapt<UserResponse>() with { Roles = request.Roles };
+            var response = user.Adapt<UserResponse>() with { Roles = request.Roles, TailorProfile = null };
             return Result.Success(response);
         }
 
@@ -101,7 +90,7 @@ public class UserService(
 
         if (emailIsExists)
             return Result.Failure(UserErrors.DuplicatedEmail);
-        
+
         var allowedRoles = await _roleService.GetAllAsync(cancellationToken: cancellationToken);
 
         if (request.Roles.Except(allowedRoles.Select(r => r.Name)).Any())
@@ -114,16 +103,17 @@ public class UserService(
 
         var result = await _userManager.UpdateAsync(user);
 
-        if(result.Succeeded)
-            {
+        if (result.Succeeded)
+        {
             await _context.UserRoles
                 .Where(ur => ur.UserId == user.Id)
                 .ExecuteDeleteAsync(cancellationToken);
 
-            await _userManager.AddToRolesAsync(user,request.Roles);
+            await _userManager.AddToRolesAsync(user, request.Roles);
 
-            return Result.Success(result);
-            }
+            return Result.Success();
+        }
+
         var error = result.Errors.First();
         return Result.Failure(
             new Error(error.Code, error.Description, StatusCodes.Status400BadRequest));
@@ -165,10 +155,28 @@ public class UserService(
             new Error(error.Code, error.Description, StatusCodes.Status400BadRequest));
     }
 
+    public async Task<Result> RequestUpgradeAsync(string userId, RequestUpgradeRequest request)
+    {
+        var user = await _userManager.FindByIdAsync(userId);
+
+        if (user is null)
+            return Result.Failure(UserErrors.UserNotFound);
+
+        if (user.PendingProfileType is not null)
+            return Result.Failure(UserErrors.UpgradeAlreadyRequested);
+
+        user.PendingProfileType = request.ProfileType;
+        user.IsProfileCompleted = false;
+
+        await _userManager.UpdateAsync(user);
+
+        return Result.Success();
+    }
+
     public async Task<Result> ToggleStatusAsync(string id)
     {
         if (await _userManager.FindByIdAsync(id) is not { } user)
-            return Result.Failure<UserResponse>(UserErrors.UserNotFound);
+            return Result.Failure(UserErrors.UserNotFound);
 
         user.IsDisabled = !user.IsDisabled;
 
@@ -185,7 +193,7 @@ public class UserService(
     public async Task<Result> UnlockUser(string id)
     {
         if (await _userManager.FindByIdAsync(id) is not { } user)
-            return Result.Failure<UserResponse>(UserErrors.UserNotFound);
+            return Result.Failure(UserErrors.UserNotFound);
 
         var result = await _userManager.SetLockoutEndDateAsync(user, null);
 
@@ -196,33 +204,4 @@ public class UserService(
         return Result.Failure(
             new Error(error.Code, error.Description, StatusCodes.Status400BadRequest));
     }
-    //  public async Task<Image> SaveSingleFileAsync(IFormFile file)
-    // {
-    //     if (file == null || file.Length == 0)
-    //         throw new ArgumentException("No file uploaded");
-
-    //     var uploadsFolder = Path.Combine(_env.WebRootPath, "uploads");
-    //     if (!Directory.Exists(uploadsFolder))
-    //         Directory.CreateDirectory(uploadsFolder);
-
-    //     var fileName = Guid.NewGuid() + Path.GetExtension(file.FileName);
-    //     var filePath = Path.Combine(uploadsFolder, fileName);
-
-    //     using var stream = new FileStream(filePath, FileMode.Create);
-    //     await file.CopyToAsync(stream);
-
-    //     var image = new Image
-    //     {
-    //         FileName = fileName,
-    //         OriginalName = file.FileName,
-    //         FilePath = "/uploads/" + fileName,
-    //         Size = file.Length
-    //     };
-
-    //     _context.Images.Add(image);
-    //     await _context.SaveChangesAsync();
-
-    //     return image;
-    // }
-
 }

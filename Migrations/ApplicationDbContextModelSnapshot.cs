@@ -17,7 +17,7 @@ namespace Fasally.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "10.0.2")
+                .HasAnnotation("ProductVersion", "10.0.7")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -84,6 +84,9 @@ namespace Fasally.Migrations
                         .HasColumnType("bit")
                         .HasDefaultValue(false);
 
+                    b.Property<bool>("IsProfileCompleted")
+                        .HasColumnType("bit");
+
                     b.Property<string>("LastName")
                         .IsRequired()
                         .HasMaxLength(100)
@@ -105,6 +108,9 @@ namespace Fasally.Migrations
 
                     b.Property<string>("PasswordHash")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("PendingProfileType")
+                        .HasColumnType("int");
 
                     b.Property<string>("PhoneNumber")
                         .HasColumnType("nvarchar(max)");
@@ -217,6 +223,39 @@ namespace Fasally.Migrations
                     b.ToTable("Images", (string)null);
                 });
 
+            modelBuilder.Entity("Fasally.Entities.PortfolioItem", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasMaxLength(1000)
+                        .HasColumnType("nvarchar(1000)");
+
+                    b.Property<string>("ImageUrls")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TailorId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("TailorId");
+
+                    b.ToTable("PortfolioItems");
+                });
+
             modelBuilder.Entity("Fasally.Entities.RefreshToken", b =>
                 {
                     b.Property<Guid>("Id")
@@ -259,6 +298,66 @@ namespace Fasally.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("RefreshTokens");
+                });
+
+            modelBuilder.Entity("Fasally.Entities.Tailor", b =>
+                {
+                    b.Property<string>("ApplicationUserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<double>("AverageRating")
+                        .HasColumnType("float");
+
+                    b.Property<string>("Bio")
+                        .HasMaxLength(1000)
+                        .HasColumnType("nvarchar(1000)");
+
+                    b.Property<int>("ExperienceYears")
+                        .HasColumnType("int");
+
+                    b.Property<string>("NationalIdImageUrl")
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
+                    b.Property<double>("ResponseRate")
+                        .HasColumnType("float");
+
+                    b.Property<string>("ShopImageUrl")
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
+                    b.Property<int>("Status")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasDefaultValue(0);
+
+                    b.Property<int>("TotalReviews")
+                        .HasColumnType("int");
+
+                    b.HasKey("ApplicationUserId");
+
+                    b.ToTable("Tailors");
+                });
+
+            modelBuilder.Entity("Fasally.Entities.TailorCategory", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Name")
+                        .IsUnique();
+
+                    b.ToTable("TailorCategories");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -367,6 +466,21 @@ namespace Fasally.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("TailorTailorCategory", b =>
+                {
+                    b.Property<int>("CategoriesId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("TailorsApplicationUserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("CategoriesId", "TailorsApplicationUserId");
+
+                    b.HasIndex("TailorsApplicationUserId");
+
+                    b.ToTable("TailorCategoryMappings", (string)null);
+                });
+
             modelBuilder.Entity("Fasally.Entities.ExternalLogin", b =>
                 {
                     b.HasOne("Fasally.Entities.ApplicationUser", "User")
@@ -378,11 +492,33 @@ namespace Fasally.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("Fasally.Entities.PortfolioItem", b =>
+                {
+                    b.HasOne("Fasally.Entities.Tailor", "Tailor")
+                        .WithMany("PortfolioItems")
+                        .HasForeignKey("TailorId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Tailor");
+                });
+
             modelBuilder.Entity("Fasally.Entities.RefreshToken", b =>
                 {
                     b.HasOne("Fasally.Entities.ApplicationUser", "User")
                         .WithMany("RefreshTokens")
                         .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("Fasally.Entities.Tailor", b =>
+                {
+                    b.HasOne("Fasally.Entities.ApplicationUser", "User")
+                        .WithOne("Tailor")
+                        .HasForeignKey("Fasally.Entities.Tailor", "ApplicationUserId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
@@ -440,11 +576,33 @@ namespace Fasally.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("TailorTailorCategory", b =>
+                {
+                    b.HasOne("Fasally.Entities.TailorCategory", null)
+                        .WithMany()
+                        .HasForeignKey("CategoriesId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("Fasally.Entities.Tailor", null)
+                        .WithMany()
+                        .HasForeignKey("TailorsApplicationUserId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("Fasally.Entities.ApplicationUser", b =>
                 {
                     b.Navigation("ExternalLogins");
 
                     b.Navigation("RefreshTokens");
+
+                    b.Navigation("Tailor");
+                });
+
+            modelBuilder.Entity("Fasally.Entities.Tailor", b =>
+                {
+                    b.Navigation("PortfolioItems");
                 });
 #pragma warning restore 612, 618
         }

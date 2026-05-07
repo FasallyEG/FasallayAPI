@@ -7,14 +7,16 @@ namespace Fasally.Persistence;
 
 public class ApplicationDbContext(
     DbContextOptions<ApplicationDbContext> options,
-    IHttpContextAccessor httpContextAccessor) : IdentityDbContext<ApplicationUser,ApplicationRole,string>(options)
+    IHttpContextAccessor httpContextAccessor) : IdentityDbContext<ApplicationUser, ApplicationRole, string>(options)
 {
     private readonly IHttpContextAccessor _httpContextAccessor = httpContextAccessor;
 
-    // DbSets
     public DbSet<RefreshToken> RefreshTokens { get; set; } = null!;
     public DbSet<Image> Images { get; set; } = null!;
-    public DbSet<ExternalLogin> ExternalLogins { get; set; }
+    public DbSet<ExternalLogin> ExternalLogins { get; set; } = null!;
+    public DbSet<Tailor> Tailors { get; set; } = null!;
+    public DbSet<TailorCategory> TailorCategories { get; set; } = null!;
+    public DbSet<PortfolioItem> PortfolioItems { get; set; } = null!;
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

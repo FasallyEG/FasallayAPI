@@ -19,7 +19,7 @@ using (var scope = app.Services.CreateScope())
     var services = scope.ServiceProvider;
 
     await RoleSeeder.SeedRolesAsync(services);
-    await UserSeeder.SeedAdminAsync(services);
+    await UserSeeder.SeedUsersAsync(services);
     await UserRoleSeeder.SeedUserRolesAsync(services);
     await RoleClaimSeeder.SeedRoleClaimsAsync(services);
 }

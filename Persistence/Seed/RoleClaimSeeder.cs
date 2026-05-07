@@ -9,23 +9,52 @@ public static class RoleClaimSeeder
 {
     public static async Task SeedRoleClaimsAsync(IServiceProvider serviceProvider)
     {
-        var roleManager = serviceProvider.GetRequiredService<RoleManager<ApplicationRole>>();
+        var roleManager = serviceProvider
+            .GetRequiredService<RoleManager<ApplicationRole>>();
 
-        var adminRole = await roleManager.FindByIdAsync(DefaultRoles.Admin.Id);
+        // Admin => all permissions
+        await SeedClaimsForRoleAsync(
+            roleManager,
+            DefaultRoles.Admin,
+            Permissions.GetAllPermissions());
 
-        if (adminRole is null)
+        // Tailor permissions
+        await SeedClaimsForRoleAsync(
+            roleManager,
+            DefaultRoles.Tailor,
+            Permissions.TailorPermissions);
+
+        // Member permissions
+        await SeedClaimsForRoleAsync(
+            roleManager,
+            DefaultRoles.Member,
+            Permissions.MemberPermissions);
+    }
+
+    private static async Task SeedClaimsForRoleAsync(
+        RoleManager<ApplicationRole> roleManager,
+        string roleName,
+        IEnumerable<string> permissions)
+    {
+        var role = await roleManager.FindByNameAsync(roleName);
+
+        if (role is null)
             return;
 
-        var permissions = Permissions.GetAllPermissions();
-
-        var existingClaims = await roleManager.GetClaimsAsync(adminRole);
+        var existingClaims = await roleManager.GetClaimsAsync(role);
 
         foreach (var permission in permissions)
         {
-            if (existingClaims.Any(x => x.Type == Permissions.Type && x.Value == permission))
+            var hasPermission = existingClaims.Any(c =>
+                c.Type == Permissions.Type &&
+                c.Value == permission);
+
+            if (hasPermission)
                 continue;
 
-            await roleManager.AddClaimAsync(adminRole, new Claim(Permissions.Type, permission!));
+            await roleManager.AddClaimAsync(
+                role,
+                new Claim(Permissions.Type, permission));
         }
     }
 }

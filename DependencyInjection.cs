@@ -38,6 +38,12 @@ public static class DependencyInjection
         services.AddScoped<IEmailSender, EmailService>();
         services.AddScoped<IUserService, UserService>();
         services.AddScoped<IRoleService, RoleService>();
+        services.AddScoped<ITailorService, TailorService>();
+        services.AddScoped<ITailorBrowsingService, TailorBrowsingService>();
+        services.AddScoped<ICategoryService, CategoryService>();
+
+        services.AddMapsterConfig();
+        services.AddFluentValidationConfig();
 
         services.AddOpenApi();
 
@@ -46,6 +52,7 @@ public static class DependencyInjection
 
         return services;
     }
+
     private static IServiceCollection AddMapsterConfig(this IServiceCollection services)
     {
         var mappingConfig = TypeAdapterConfig.GlobalSettings;
@@ -55,16 +62,16 @@ public static class DependencyInjection
 
         return services;
     }
+
     private static IServiceCollection AddFluentValidationConfig(this IServiceCollection services)
-        {
+    {
         services.AddFluentValidationAutoValidation()
-        .AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
+            .AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
 
         return services;
-        }
+    }
 
-    private static IServiceCollection AddAuthConfig(this IServiceCollection services,
-        IConfiguration config)
+    private static IServiceCollection AddAuthConfig(this IServiceCollection services, IConfiguration config)
     {
         services.AddSingleton<IJWTProvider, JWTProvider>();
 
@@ -75,7 +82,6 @@ public static class DependencyInjection
         services.AddTransient<IAuthorizationHandler, PermissionAuthorizationHandler>();
         services.AddTransient<IAuthorizationPolicyProvider, PermissionAuthorizationPolicyProvider>();
 
-
         services.AddOptions<JWTOptions>()
             .BindConfiguration(JWTOptions.SectionName)
             .ValidateDataAnnotations();
@@ -83,36 +89,37 @@ public static class DependencyInjection
         var jwtSettings = config.GetSection(JWTOptions.SectionName).Get<JWTOptions>();
 
         services.AddAuthentication(options =>
-    {
-        options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-        options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-    })
-    .AddJwtBearer(o =>
-    {
-        o.SaveToken = true;
-        o.TokenValidationParameters = new TokenValidationParameters
         {
-            ValidateIssuerSigningKey = true,
-            ValidateIssuer = true,
-            ValidateAudience = true,
-            ValidateLifetime = true,
-            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSettings?.Key!)),
-            ValidIssuer = jwtSettings?.Issuer,
-            ValidAudience = jwtSettings?.Audience
-        };
-    });
+            options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+            options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+        })
+        .AddJwtBearer(o =>
+        {
+            o.SaveToken = true;
+            o.TokenValidationParameters = new TokenValidationParameters
+            {
+                ValidateIssuerSigningKey = true,
+                ValidateIssuer = true,
+                ValidateAudience = true,
+                ValidateLifetime = true,
+                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSettings?.Key!)),
+                ValidIssuer = jwtSettings?.Issuer,
+                ValidAudience = jwtSettings?.Audience
+            };
+        });
 
         services.Configure<IdentityOptions>(options =>
-           {
-               options.Password.RequiredLength = 8;
-               options.SignIn.RequireConfirmedEmail = true;
-               options.User.RequireUniqueEmail = true;
-           });
+        {
+            options.Password.RequiredLength = 8;
+            options.SignIn.RequireConfirmedEmail = true;
+            options.User.RequireUniqueEmail = true;
+        });
 
         services.AddAuthorization(o =>
-     {
-         o.AddPolicy("ApiAdminPolicy", b => b.RequireRole(DefaultRoles.Admin.Name));
-     });
+        {
+            o.AddPolicy("ApiAdminPolicy", b => b.RequireRole(DefaultRoles.Admin));
+        });
+
         return services;
     }
 }

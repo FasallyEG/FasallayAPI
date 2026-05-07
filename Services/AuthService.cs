@@ -10,6 +10,7 @@ using Fasally.Helpers;
 using Fasally.Persistence;
 using Fasally.Settings;
 using Google.Apis.Auth;
+using Mapster;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.WebUtilities;
@@ -39,9 +40,9 @@ public class AuthService(
     private readonly int _refreshTokenExpiryDays = 14;
 
     public async Task<Result<AuthResponse>> GetTokenAsync(
-         string email,
-         string password,
-         CancellationToken cancellationToken = default)
+        string email,
+        string password,
+        CancellationToken cancellationToken = default)
     {
         var user = await _userManager.FindByEmailAsync(email);
         if (user is null) return Result.Failure<AuthResponse>(UserErrors.InvalidCredintials);
@@ -63,8 +64,8 @@ public class AuthService(
         var (token, expiresIn) = _jwtProvider.GenerateToken(user, userRoles, userPermissions);
 
         var activeRefreshToken = await _context.RefreshTokens
-       .Where(t => t.UserId == user.Id && t.RevokedOn == null && t.ExpiresOn > DateTime.UtcNow)
-       .FirstOrDefaultAsync(cancellationToken);
+            .Where(t => t.UserId == user.Id && t.RevokedOn == null && t.ExpiresOn > DateTime.UtcNow)
+            .FirstOrDefaultAsync(cancellationToken);
 
         string refreshToken;
         DateTime refreshTokenExpiry;
@@ -81,22 +82,23 @@ public class AuthService(
 
             _context.RefreshTokens.Add(new RefreshToken
             {
-                Token = refreshToken,
+                Token     = refreshToken,
                 ExpiresOn = refreshTokenExpiry,
-                UserId = user.Id
+                UserId    = user.Id
             });
 
             await _context.SaveChangesAsync(cancellationToken);
         }
+
         return Result.Success(new AuthResponse(
             user.Id, user.Email, user.FirstName, user.LastName,
             token, expiresIn, refreshToken, refreshTokenExpiry));
     }
 
     public async Task<Result<AuthResponse>> GetRefreshTokenAsync(
-       string token,
-       string refreshToken,
-       CancellationToken cancellationToken = default)
+        string token,
+        string refreshToken,
+        CancellationToken cancellationToken = default)
     {
         var userId = _jwtProvider.ValidateToken(token);
         if (userId is null) return Result.Failure<AuthResponse>(UserErrors.InvalidJwtToken);
@@ -116,7 +118,6 @@ public class AuthService(
         activeRefreshToken.RevokedOn = DateTime.UtcNow;
 
         var (userRoles, userPermissions) = await GetUserRolesAndPermissions(user, cancellationToken);
-
         var (newToken, expiresIn) = _jwtProvider.GenerateToken(user, userRoles, userPermissions);
 
         var newRefreshToken = GenerateRefreshToken();
@@ -124,9 +125,9 @@ public class AuthService(
 
         _context.RefreshTokens.Add(new RefreshToken
         {
-            Token = newRefreshToken,
+            Token     = newRefreshToken,
             ExpiresOn = newRefreshTokenExpiry,
-            UserId = user.Id
+            UserId    = user.Id
         });
 
         await _context.SaveChangesAsync(cancellationToken);
@@ -163,18 +164,13 @@ public class AuthService(
         RegisterRequest request,
         CancellationToken cancellationToken = default)
     {
-        var emailIsExists = await _userManager.Users.AnyAsync(x => x.Email == request.Email, cancellationToken);
+        var emailIsExists = await _userManager.Users
+            .AnyAsync(x => x.Email == request.Email, cancellationToken);
 
         if (emailIsExists)
             return Result.Failure(UserErrors.DuplicatedEmail);
 
-        var user = new ApplicationUser
-        {
-            UserName = request.Email,
-            Email = request.Email,
-            FirstName = request.FirstName,
-            LastName = request.LastName
-        };
+        var user = request.Adapt<ApplicationUser>();
 
         var result = await _userManager.CreateAsync(user, request.Password);
 
@@ -197,7 +193,6 @@ public class AuthService(
             error.Description,
             StatusCodes.Status400BadRequest));
     }
-
 
     public async Task<Result<AuthResponse>> GoogleLoginAsync(
         GoogleAuthRequest request,
@@ -244,46 +239,34 @@ public class AuthService(
 
             if (user == null)
             {
-                user = new ApplicationUser
-                {
-                    Email = payload.Email,
-                    UserName = payload.Email,
-                    FirstName = payload.GivenName ?? "",
-                    LastName = payload.FamilyName ?? "",
-                    EmailConfirmed = true,
-                    ProfileImageUrl = payload.Picture
-                };
+                user = payload.Adapt<ApplicationUser>();
 
                 var result = await _userManager.CreateAsync(user);
 
                 if (!result.Succeeded)
                 {
                     var error = result.Errors.First();
-
                     return Result.Failure<AuthResponse>(
                         new Error(error.Code, error.Description, StatusCodes.Status400BadRequest));
                 }
+
+                await _userManager.AddToRoleAsync(user, DefaultRoles.Member);
             }
 
             _context.ExternalLogins.Add(new ExternalLogin
             {
-                Provider = "Google",
+                Provider       = "Google",
                 ProviderUserId = payload.Subject,
-                UserId = user.Id
+                UserId         = user.Id
             });
         }
 
         var (userRoles, userPermissions) = await GetUserRolesAndPermissions(user, cancellationToken);
-
         var (newToken, expiresIn) = _jwtProvider.GenerateToken(user, userRoles, userPermissions);
 
-
         var activeRefreshToken = await _context.RefreshTokens
-        .Where(t =>
-            t.UserId == user.Id &&
-            t.RevokedOn == null &&
-            t.ExpiresOn > DateTime.UtcNow)
-        .FirstOrDefaultAsync(cancellationToken);
+            .Where(t => t.UserId == user.Id && t.RevokedOn == null && t.ExpiresOn > DateTime.UtcNow)
+            .FirstOrDefaultAsync(cancellationToken);
 
         string refreshToken;
         DateTime refreshTokenExpiry;
@@ -300,23 +283,17 @@ public class AuthService(
 
             _context.RefreshTokens.Add(new RefreshToken
             {
-                Token = refreshToken,
+                Token     = refreshToken,
                 ExpiresOn = refreshTokenExpiry,
-                UserId = user.Id
+                UserId    = user.Id
             });
         }
 
         await _context.SaveChangesAsync(cancellationToken);
 
         return Result.Success(new AuthResponse(
-            user.Id,
-            user.Email!,
-            user.FirstName,
-            user.LastName,
-            newToken,
-            expiresIn,
-            refreshToken,
-            refreshTokenExpiry));
+            user.Id, user.Email!, user.FirstName, user.LastName,
+            newToken, expiresIn, refreshToken, refreshTokenExpiry));
     }
 
     public async Task<Result> ConfirmEmailAsync(ConfirmEmailRequest request)
@@ -342,16 +319,19 @@ public class AuthService(
 
         if (result.Succeeded)
         {
-            await _userManager.AddToRoleAsync(user, DefaultRoles.Member.Name);
+            await _userManager.AddToRoleAsync(user, DefaultRoles.Member);
             return Result.Success();
         }
 
         var error = result.Errors.First();
 
-        return Result.Failure(new Error(error.Code, error.Description, StatusCodes.Status400BadRequest));
+        return Result.Failure(new Error(
+            error.Code,
+            error.Description,
+            StatusCodes.Status400BadRequest));
     }
-    public async Task<Result> ResendConfirmationEmailAsync(
-        ResendConfirmationEmailRequest request)
+
+    public async Task<Result> ResendConfirmationEmailAsync(ResendConfirmationEmailRequest request)
     {
         if (await _userManager.FindByEmailAsync(request.Email) is not { } user)
             return Result.Success();
@@ -372,7 +352,7 @@ public class AuthService(
     public async Task<Result> SendResetPasswordCodeAsync(string email)
     {
         if (await _userManager.FindByEmailAsync(email) is not { } user)
-            return Result.Success(); // misleading
+            return Result.Success();
 
         if (!user.EmailConfirmed)
             return Result.Failure(UserErrors.EmailNotConfirmed with { StatusCode = StatusCodes.Status400BadRequest });
@@ -395,6 +375,7 @@ public class AuthService(
 
         if (user is null || !user.EmailConfirmed)
             return Result.Failure(UserErrors.InvalidCode);
+
         IdentityResult identityResult;
 
         try
@@ -416,20 +397,18 @@ public class AuthService(
 
     private static string GenerateRefreshToken()
         => Convert.ToBase64String(RandomNumberGenerator.GetBytes(64));
+
     private async Task SendConfirmationEmail(ApplicationUser user, string code)
     {
-        // edit origin when yasin send 
         var origin = _httpContextAccessor.HttpContext?.Request.Headers.Origin;
-
 
         var emailBody = EmailBodyBuilder.GenerateEmailBody("EmailConfirmation",
             templateModel: new Dictionary<string, string>
             {
                 { "{{name}}", user.FirstName },
-                // edit url when yasin send 
                 { "{{action_url}}", $"{origin}/auth/emailConfirmation?userId={user.Id}&code={code}" }
-            }
-        );
+            });
+
         await _emailSender.SendEmailAsync(user.Email!, "✅ Fasally: Email Confirmation", emailBody);
     }
 
@@ -441,20 +420,20 @@ public class AuthService(
             templateModel: new Dictionary<string, string>
             {
                 { "{{name}}", user.FirstName },
-                    { "{{action_url}}", $"{origin}/auth/forgetPassword?email={user.Email}&code={code}" }
-            }
-        );
+                { "{{action_url}}", $"{origin}/auth/forgetPassword?email={user.Email}&code={code}" }
+            });
 
         await _emailSender.SendEmailAsync(user.Email!, "✅ Fasally: Change Password", emailBody);
     }
-    private async Task<(IEnumerable<string> roles, IEnumerable<string> permissions)> GetUserRolesAndPermissions(ApplicationUser user, CancellationToken cancellationToken)
+
+    private async Task<(IEnumerable<string> roles, IEnumerable<string> permissions)> GetUserRolesAndPermissions(
+        ApplicationUser user,
+        CancellationToken cancellationToken)
     {
         var userRoles = await _userManager.GetRolesAsync(user);
 
-
         var userPermissions = await (from r in _context.Roles
-                                     join p in _context.RoleClaims
-                                     on r.Id equals p.RoleId
+                                     join p in _context.RoleClaims on r.Id equals p.RoleId
                                      where userRoles.Contains(r.Name!)
                                      select p.ClaimValue!)
                                     .Distinct()
@@ -463,4 +442,3 @@ public class AuthService(
         return (userRoles, userPermissions);
     }
 }
-

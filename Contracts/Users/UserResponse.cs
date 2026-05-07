@@ -1,10 +1,19 @@
+using Fasally.Entities.Enums;
+
 namespace Fasally.Contracts.Users;
 
 public record UserResponse(
-    string Id,
-    string FirstName,
-    string LastName,
-    string Email,
-    bool IsDisabled,
-    IEnumerable<string> Roles
+    string               Id,
+    string               FirstName,
+    string               LastName,
+    string               Email,
+    bool                 IsDisabled,
+    IEnumerable<string>  Roles,
+    TailorStatusResponse? TailorProfile
+);
+
+public record TailorStatusResponse(
+    ProfileStatus Status,
+    bool          IsVerified,
+    int           ExperienceYears
 );
