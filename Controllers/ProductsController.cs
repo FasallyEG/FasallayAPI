@@ -76,4 +76,75 @@ public class ProductsController(IProductService productService) : ControllerBase
 
         return result.IsSuccess ? NoContent() : result.ToProblem();
     }
+
+    [HttpPost("{productId:guid}/images")]
+    [Authorize]
+    [HasPermission(Permissions.AddProductImage)]
+    public async Task<IActionResult> AddImage(
+        [FromRoute] Guid productId,
+        [FromBody] AddProductImageRequest request,
+        CancellationToken cancellationToken)
+    {
+        var userId = User.GetUserId()!;
+        var result = await _productService.AddProductImageAsync(userId, productId, request, cancellationToken);
+
+        return result.IsSuccess ? Ok(result.Value) : result.ToProblem();
+    }
+
+    [HttpDelete("{productId:guid}/images/{imageId:guid}")]
+    [Authorize]
+    [HasPermission(Permissions.DeleteProductImage)]
+    public async Task<IActionResult> DeleteImage(
+        [FromRoute] Guid productId,
+        [FromRoute] Guid imageId,
+        CancellationToken cancellationToken)
+    {
+        var userId = User.GetUserId()!;
+        var result = await _productService.DeleteProductImageAsync(userId, productId, imageId, cancellationToken);
+
+        return result.IsSuccess ? NoContent() : result.ToProblem();
+    }
+
+    [HttpPost("{productId:guid}/variants")]
+    [Authorize]
+    [HasPermission(Permissions.AddProductVariant)]
+    public async Task<IActionResult> AddVariant(
+        [FromRoute] Guid productId,
+        [FromBody] ProductVariantRequest request,
+        CancellationToken cancellationToken)
+    {
+        var userId = User.GetUserId()!;
+        var result = await _productService.AddProductVariantAsync(userId, productId, request, cancellationToken);
+
+        return result.IsSuccess ? Ok(result.Value) : result.ToProblem();
+    }
+
+    [HttpPut("{productId:guid}/variants/{variantId:guid}")]
+    [Authorize]
+    [HasPermission(Permissions.UpdateProductVariant)]
+    public async Task<IActionResult> UpdateVariant(
+        [FromRoute] Guid productId,
+        [FromRoute] Guid variantId,
+        [FromBody] ProductVariantRequest request,
+        CancellationToken cancellationToken)
+    {
+        var userId = User.GetUserId()!;
+        var result = await _productService.UpdateProductVariantAsync(userId, productId, variantId, request, cancellationToken);
+
+        return result.IsSuccess ? NoContent() : result.ToProblem();
+    }
+
+    [HttpDelete("{productId:guid}/variants/{variantId:guid}")]
+    [Authorize]
+    [HasPermission(Permissions.DeleteProductVariant)]
+    public async Task<IActionResult> DeleteVariant(
+        [FromRoute] Guid productId,
+        [FromRoute] Guid variantId,
+        CancellationToken cancellationToken)
+    {
+        var userId = User.GetUserId()!;
+        var result = await _productService.DeleteProductVariantAsync(userId, productId, variantId, cancellationToken);
+
+        return result.IsSuccess ? NoContent() : result.ToProblem();
+    }
 }

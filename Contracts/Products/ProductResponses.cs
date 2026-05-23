@@ -14,5 +14,20 @@ public record ProductResponse(
     int Stock,
     ProductStatus Status,
     DateTime CreatedAt,
-    DateTime? UpdatedAt
+    DateTime? UpdatedAt,
+    IEnumerable<ProductImageResponse> Images,
+    IEnumerable<ProductVariantResponse> Variants
+);
+
+public record ProductImageResponse(
+    Guid Id,
+    string ImageUrl,
+    string? AltText,
+    int SortOrder
+);
+
+public record ProductVariantResponse(
+    Guid Id,
+    string Type,
+    string Value
 );

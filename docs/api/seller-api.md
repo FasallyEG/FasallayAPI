@@ -7,7 +7,8 @@ Implemented:
 - Product catalog endpoints under `/api/Products`
 - Seller product list endpoints under `/api/Sellers`
 
-Product images, variants, inventory history, dashboard, orders, payments, cart, checkout, reviews, and delivery tracking are not implemented yet.
+Inventory history, dashboard, orders, payments, cart, checkout, reviews, and delivery tracking are not implemented yet.
+Product image management currently stores image URLs/references only. The existing `ImageController`/`ImageService` do not provide a complete upload flow yet.
 
 ## Create Seller Profile
 
@@ -182,7 +183,22 @@ Response `200 OK`:
       "stock": 30,
       "status": 1,
       "createdAt": "2026-05-23T00:00:00Z",
-      "updatedAt": null
+      "updatedAt": null,
+      "images": [
+        {
+          "id": "b6bba76a-2368-4947-8352-832930901d43",
+          "imageUrl": "https://cdn.example.com/fabric.jpg",
+          "altText": "Blue cotton fabric",
+          "sortOrder": 0
+        }
+      ],
+      "variants": [
+        {
+          "id": "6fa00415-b829-4829-b2fb-f5b09cc0ba64",
+          "type": "color",
+          "value": "blue"
+        }
+      ]
     }
   ],
   "pageNumber": 1,
@@ -282,3 +298,115 @@ Query: same pagination/filter fields as `GET /api/Products`, plus optional `stat
 Auth: not required.
 
 Query: same pagination/filter fields as `GET /api/Products`. The backend forces `sellerId` to the route value and returns active products only.
+
+## Add Product Image
+
+`POST /api/Products/{productId}/images`
+
+Auth: required.
+
+Role/permission: seller must have `products:images:add`.
+
+Request:
+```json
+{
+  "imageUrl": "https://cdn.example.com/fabric.jpg",
+  "altText": "Blue cotton fabric",
+  "sortOrder": 0
+}
+```
+
+Response `200 OK`:
+```json
+{
+  "id": "b6bba76a-2368-4947-8352-832930901d43",
+  "imageUrl": "https://cdn.example.com/fabric.jpg",
+  "altText": "Blue cotton fabric",
+  "sortOrder": 0
+}
+```
+
+Validation:
+- `imageUrl` is required and max 500 characters.
+- `altText` max 200 characters.
+- `sortOrder` must be greater than or equal to 0.
+- Only the owning seller can add images.
+
+## Delete Product Image
+
+`DELETE /api/Products/{productId}/images/{imageId}`
+
+Auth: required.
+
+Role/permission: seller must have `products:images:delete`.
+
+Response:
+- `204 No Content`
+
+Notes:
+- Delete is implemented as a soft delete.
+- Only the owning seller can delete product images.
+
+## Add Product Variant
+
+`POST /api/Products/{productId}/variants`
+
+Auth: required.
+
+Role/permission: seller must have `products:variants:add`.
+
+Request:
+```json
+{
+  "type": "color",
+  "value": "blue"
+}
+```
+
+Response `200 OK`:
+```json
+{
+  "id": "6fa00415-b829-4829-b2fb-f5b09cc0ba64",
+  "type": "color",
+  "value": "blue"
+}
+```
+
+Validation:
+- `type` is required and max 100 characters.
+- `value` is required and max 200 characters.
+- Only the owning seller can add variants.
+
+## Update Product Variant
+
+`PUT /api/Products/{productId}/variants/{variantId}`
+
+Auth: required.
+
+Role/permission: seller must have `products:variants:update`.
+
+Request:
+```json
+{
+  "type": "size",
+  "value": "large"
+}
+```
+
+Response:
+- `204 No Content`
+
+## Delete Product Variant
+
+`DELETE /api/Products/{productId}/variants/{variantId}`
+
+Auth: required.
+
+Role/permission: seller must have `products:variants:delete`.
+
+Response:
+- `204 No Content`
+
+Notes:
+- Delete is implemented as a soft delete.
+- Only the owning seller can update or delete variants.
