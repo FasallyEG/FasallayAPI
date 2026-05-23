@@ -41,6 +41,7 @@ public static class DependencyInjection
         services.AddScoped<IRoleService, RoleService>();
         services.AddScoped<ITailorService, TailorService>();
         services.AddScoped<ITailorBrowsingService, TailorBrowsingService>();
+        services.AddScoped<ISellerService, SellerService>();
         services.AddScoped<ICategoryService, CategoryService>();
 
         services.AddMapsterConfig();
