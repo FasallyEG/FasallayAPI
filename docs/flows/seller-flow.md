@@ -1,6 +1,6 @@
 # Seller Flow
 
-This document covers the seller profile flow, product catalog flow, product image URL/reference flow, and product variant flow implemented through Part 3. Inventory history, dashboard, order, payment, cart, checkout, review, and delivery flows are future integrations.
+This document covers the seller profile flow, product catalog flow, product image URL/reference flow, product variant flow, inventory flow, and product-only dashboard flow implemented through Part 4. Order, payment, cart, checkout, review, and delivery flows are future integrations.
 
 ## Seller Profile Flow
 
@@ -51,11 +51,19 @@ This document covers the seller profile flow, product catalog flow, product imag
 
 ## Inventory Update Flow
 
-Not implemented in Part 1. Planned for a later inventory part.
+1. Seller sends `PUT /api/Products/{productId}/stock` with the new stock value and optional reason.
+2. Backend validates that stock is not negative.
+3. Backend validates that the authenticated seller owns the product.
+4. Backend updates product stock.
+5. Backend creates an inventory log with old stock, new stock, change amount, reason, and audit metadata.
+6. Seller can read current stock and log history with `GET /api/Products/{productId}/inventory`.
 
 ## Dashboard Flow
 
-Not implemented in Part 2. A lightweight seller summary can be added from seller/product data in a later part.
+1. Seller sends `GET /api/Sellers/me/dashboard`.
+2. Backend validates that the authenticated user has a seller profile.
+3. Backend calculates total products, active products, out-of-stock products, and latest products.
+4. Backend does not include earnings, order counts, payment totals, reviews, or delivery metrics because those modules are not implemented.
 
 ## Future Integration Notes
 

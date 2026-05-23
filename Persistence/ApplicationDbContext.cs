@@ -19,6 +19,7 @@ public class ApplicationDbContext(
     public DbSet<Product> Products { get; set; } = null!;
     public DbSet<ProductImage> ProductImages { get; set; } = null!;
     public DbSet<ProductVariant> ProductVariants { get; set; } = null!;
+    public DbSet<InventoryLog> InventoryLogs { get; set; } = null!;
     public DbSet<TailorCategory> TailorCategories { get; set; } = null!;
     public DbSet<PortfolioItem> PortfolioItems { get; set; } = null!;
 

@@ -56,6 +56,16 @@ public class SellersController(
         return result.IsSuccess ? Ok(result.Value) : result.ToProblem();
     }
 
+    [HttpGet("me/dashboard")]
+    [HasPermission(Permissions.ViewSellerDashboard)]
+    public async Task<IActionResult> GetDashboard(CancellationToken cancellationToken)
+    {
+        var userId = User.GetUserId()!;
+        var result = await _sellerService.GetCurrentSellerDashboardAsync(userId, cancellationToken);
+
+        return result.IsSuccess ? Ok(result.Value) : result.ToProblem();
+    }
+
     [HttpGet("{sellerId}")]
     [HasPermission(Permissions.ViewSellerProfile)]
     public async Task<IActionResult> GetById(

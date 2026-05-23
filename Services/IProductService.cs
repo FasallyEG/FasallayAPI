@@ -17,4 +17,6 @@ public interface IProductService
     Task<Result<ProductVariantResponse>> AddProductVariantAsync(string userId, Guid productId, ProductVariantRequest request, CancellationToken cancellationToken = default);
     Task<Result> UpdateProductVariantAsync(string userId, Guid productId, Guid variantId, ProductVariantRequest request, CancellationToken cancellationToken = default);
     Task<Result> DeleteProductVariantAsync(string userId, Guid productId, Guid variantId, CancellationToken cancellationToken = default);
+    Task<Result> UpdateProductStockAsync(string userId, Guid productId, UpdateProductStockRequest request, CancellationToken cancellationToken = default);
+    Task<Result<ProductInventoryResponse>> GetProductInventoryAsync(string userId, Guid productId, CancellationToken cancellationToken = default);
 }

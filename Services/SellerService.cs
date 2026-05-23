@@ -110,6 +110,45 @@ public class SellerService(
         return Result.Success();
     }
 
+    public async Task<Result<SellerDashboardResponse>> GetCurrentSellerDashboardAsync(
+        string userId,
+        CancellationToken cancellationToken = default)
+    {
+        var sellerExists = await _context.SellerProfiles
+            .AnyAsync(s => s.ApplicationUserId == userId, cancellationToken);
+
+        if (!sellerExists)
+            return Result.Failure<SellerDashboardResponse>(SellerErrors.SellerNotFound);
+
+        var products = _context.Products
+            .AsNoTracking()
+            .Where(p => p.SellerProfileId == userId && !p.IsDeleted);
+
+        var totalProducts = await products.CountAsync(cancellationToken);
+        var activeProducts = await products
+            .CountAsync(p => p.Status == ProductStatus.Active, cancellationToken);
+        var outOfStockProducts = await products
+            .CountAsync(p => p.Stock == 0, cancellationToken);
+
+        var latestProducts = await products
+            .OrderByDescending(p => p.CreatedAt)
+            .Take(5)
+            .Select(p => new SellerDashboardProductResponse(
+                p.Id,
+                p.Name,
+                p.Price,
+                p.Stock,
+                p.Status,
+                p.CreatedAt))
+            .ToListAsync(cancellationToken);
+
+        return Result.Success(new SellerDashboardResponse(
+            totalProducts,
+            activeProducts,
+            outOfStockProducts,
+            latestProducts));
+    }
+
     private static SellerProfileResponse ToResponse(SellerProfile seller) =>
         new(
             seller.ApplicationUserId,
