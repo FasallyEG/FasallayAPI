@@ -4,5 +4,6 @@ public static class DefaultRoles
 {
     public const string Admin  = nameof(Admin);
     public const string Member = nameof(Member);
+    public const string Seller = nameof(Seller);
     public const string Tailor = nameof(Tailor);
 }

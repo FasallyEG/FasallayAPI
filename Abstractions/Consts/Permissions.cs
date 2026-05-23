@@ -44,6 +44,14 @@ public static class Permissions
     public const string ViewMyPortfolio       = "tailor:portfolio:read";
 
     // =============================
+    // Seller
+    // =============================
+    public const string CreateSellerProfile = "seller:profile:create";
+    public const string ViewMySellerProfile = "seller:profile:read";
+    public const string ViewSellerProfile   = "seller:profile:details";
+    public const string UpdateSellerProfile = "seller:profile:update";
+
+    // =============================
     // Tailor Admin
     // =============================
     public const string ApproveTailor = "tailors:approve";
@@ -69,7 +77,9 @@ public static class Permissions
         ViewTailors,
         ViewTailorDetails,
         RequestTailorUpgrade,
-        CreateTailorProfile
+        CreateTailorProfile,
+        ViewSellerProfile,
+        CreateSellerProfile
     ];
 
     // =============================
@@ -85,6 +95,22 @@ public static class Permissions
         UpdateTailorProfile,
         AddPortfolioItem,
         ViewMyPortfolio
+    ];
+
+    // =============================
+    // Seller Permissions
+    // =============================
+    public static readonly IReadOnlyCollection<string> SellerPermissions =
+    [
+        GetMyProfile,
+        UpdateMyProfile,
+        ChangePassword,
+        ViewTailors,
+        ViewTailorDetails,
+        ViewSellerProfile,
+        CreateSellerProfile,
+        ViewMySellerProfile,
+        UpdateSellerProfile
     ];
 
     // =============================

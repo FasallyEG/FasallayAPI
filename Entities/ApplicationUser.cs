@@ -25,6 +25,7 @@ public sealed class ApplicationUser : IdentityUser
 
     // Navigation
     public Tailor? Tailor { get; set; }
+    public SellerProfile? SellerProfile { get; set; }
     public List<RefreshToken> RefreshTokens { get; set; } = [];
     public List<ExternalLogin> ExternalLogins { get; set; } = [];
 }

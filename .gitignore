@@ -95,6 +95,7 @@ App_Data/
 .ionide/
 chat-history/
 copilot-chat/
+AGENT_MISTAKES.md
 
 # Local project guidance and drafts
 AGENTS.md

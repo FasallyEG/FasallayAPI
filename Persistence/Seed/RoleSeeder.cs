@@ -10,7 +10,7 @@ public static class RoleSeeder
     {
         var roleManager = serviceProvider.GetRequiredService<RoleManager<ApplicationRole>>();
 
-        string[] roles = [DefaultRoles.Admin, DefaultRoles.Member, DefaultRoles.Tailor];
+        string[] roles = [DefaultRoles.Admin, DefaultRoles.Member, DefaultRoles.Seller, DefaultRoles.Tailor];
 
         foreach (var roleName in roles)
         {
