@@ -1,6 +1,6 @@
 # Seller Flow
 
-This document covers the seller profile flow implemented in Part 1. Product, image, variant, inventory, dashboard, order, payment, cart, checkout, review, and delivery flows are future integrations.
+This document covers the seller profile flow and product catalog flow implemented through Part 2. Product image, variant, inventory history, dashboard, order, payment, cart, checkout, review, and delivery flows are future integrations.
 
 ## Seller Profile Flow
 
@@ -16,11 +16,20 @@ This document covers the seller profile flow implemented in Part 1. Product, ima
 
 ## Product Creation Flow
 
-Not implemented in Part 1. Planned for Part 2.
+1. Seller creates a seller profile first.
+2. Seller sends `POST /api/Products` with product fields.
+3. Backend validates the authenticated seller has a seller profile.
+4. Backend validates price, stock, status, and category existence when `categoryId` is provided.
+5. Backend stores the product under the authenticated seller.
+6. Backend returns the created product DTO.
 
 ## Product Update/Delete Flow
 
-Not implemented in Part 1. Planned for Part 2.
+1. Seller sends `PUT /api/Products/{productId}` or `DELETE /api/Products/{productId}`.
+2. Backend loads the product and rejects missing or deleted products.
+3. Backend validates that the authenticated seller owns the product.
+4. Update changes product fields after validation.
+5. Delete marks the product as deleted and inactive.
 
 ## Product Image Flow
 
@@ -36,7 +45,7 @@ Not implemented in Part 1. Planned for a later inventory part.
 
 ## Dashboard Flow
 
-Not implemented in Part 1. A lightweight seller summary can be added after product data exists.
+Not implemented in Part 2. A lightweight seller summary can be added from seller/product data in a later part.
 
 ## Future Integration Notes
 

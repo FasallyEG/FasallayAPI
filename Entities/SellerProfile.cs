@@ -18,4 +18,6 @@ public class SellerProfile
 
     public double AverageRating { get; set; } = 0;
     public int TotalReviews { get; set; } = 0;
+
+    public ICollection<Product> Products { get; set; } = [];
 }

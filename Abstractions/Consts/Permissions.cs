@@ -50,6 +50,10 @@ public static class Permissions
     public const string ViewMySellerProfile = "seller:profile:read";
     public const string ViewSellerProfile   = "seller:profile:details";
     public const string UpdateSellerProfile = "seller:profile:update";
+    public const string ViewMySellerProducts = "seller:products:read";
+    public const string CreateProduct        = "products:create";
+    public const string UpdateProduct        = "products:update";
+    public const string DeleteProduct        = "products:delete";
 
     // =============================
     // Tailor Admin
@@ -110,7 +114,11 @@ public static class Permissions
         ViewSellerProfile,
         CreateSellerProfile,
         ViewMySellerProfile,
-        UpdateSellerProfile
+        UpdateSellerProfile,
+        ViewMySellerProducts,
+        CreateProduct,
+        UpdateProduct,
+        DeleteProduct
     ];
 
     // =============================

@@ -8,6 +8,10 @@ These rules describe the seller profile functionality implemented in Part 1.
 - Reading the current seller profile requires `seller:profile:read`.
 - Reading a public seller profile requires `seller:profile:details`.
 - Updating the current seller profile requires `seller:profile:update`.
+- Creating products requires `products:create`.
+- Updating products requires `products:update`.
+- Deleting products requires `products:delete`.
+- Reading current seller products requires `seller:products:read`.
 
 ## Seller Profile Rules
 
@@ -19,19 +23,30 @@ These rules describe the seller profile functionality implemented in Part 1.
 
 ## Product Ownership Rules
 
-Product ownership is not implemented in Part 1. Products will belong to seller profiles in a later part.
+- Products belong to one seller profile.
+- Product create uses the authenticated user's seller profile.
+- Product update and delete require the authenticated seller to own the product.
+- Public product list and detail endpoints expose DTOs only.
+- Deleted products are filtered out of product list/detail responses.
 
 ## Product Validation Rules
 
-Product validation is not implemented in Part 1.
+- Product name is required and max 150 characters.
+- Product description max is 2000 characters.
+- Product price must be greater than 0.
+- Product stock must be greater than or equal to 0.
+- Product status must be a valid `ProductStatus`.
 
 ## Inventory Rules
 
-Inventory is not implemented in Part 1.
+- Product stock is stored on the product in Part 2.
+- Inventory history/log endpoints are not implemented until the inventory part.
 
 ## Category Rules
 
-Product category integration is not implemented in Part 1. Future product work should reuse existing category APIs if the schema supports it.
+- Product `categoryId` is optional.
+- When provided, `categoryId` must exist in the current `/api/Categories` data.
+- No duplicate product category management is implemented.
 
 ## Edge Cases
 
@@ -39,7 +54,9 @@ Product category integration is not implemented in Part 1. Future product work s
 - Reading or updating a missing current seller profile returns not found.
 - Reading a missing seller id returns not found.
 - Invalid request fields are rejected by FluentValidation.
+- Updating or deleting a product owned by another seller returns forbidden.
+- Listing a missing seller's products returns not found.
 
 ## Not Implemented Yet
 
-Orders, cart, checkout, payments, wallet, refunds, chat, offers, notifications, reviews, disputes, delivery tracking, dashboards, event bus, background workers, and WebSockets are not implemented for sellers yet.
+Product images, product variants, inventory history, orders, cart, checkout, payments, wallet, refunds, chat, offers, notifications, reviews, disputes, delivery tracking, dashboards, event bus, background workers, and WebSockets are not implemented for sellers yet.

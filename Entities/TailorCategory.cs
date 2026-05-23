@@ -7,4 +7,5 @@ public class TailorCategory
 
     // Navigation
     public ICollection<Tailor> Tailors { get; set; } = [];
+    public ICollection<Product> Products { get; set; } = [];
 }

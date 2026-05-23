@@ -1,6 +1,7 @@
 using Fasally.Abstractions;
 using Fasally.Abstractions.Consts;
 using Fasally.Authentication.Filters;
+using Fasally.Contracts.Products;
 using Fasally.Contracts.Sellers;
 using Fasally.Extensions;
 using Fasally.Services;
@@ -12,9 +13,12 @@ namespace Fasally.Controllers;
 [Route("api/[controller]")]
 [ApiController]
 [Authorize]
-public class SellersController(ISellerService sellerService) : ControllerBase
+public class SellersController(
+    ISellerService sellerService,
+    IProductService productService) : ControllerBase
 {
     private readonly ISellerService _sellerService = sellerService;
+    private readonly IProductService _productService = productService;
 
     [HttpPost("profile")]
     [HasPermission(Permissions.CreateSellerProfile)]
@@ -40,6 +44,18 @@ public class SellersController(ISellerService sellerService) : ControllerBase
         return result.IsSuccess ? Ok(result.Value) : result.ToProblem();
     }
 
+    [HttpGet("me/products")]
+    [HasPermission(Permissions.ViewMySellerProducts)]
+    public async Task<IActionResult> GetMyProducts(
+        [FromQuery] ProductFilterRequest request,
+        CancellationToken cancellationToken)
+    {
+        var userId = User.GetUserId()!;
+        var result = await _productService.GetCurrentSellerProductsAsync(userId, request, cancellationToken);
+
+        return result.IsSuccess ? Ok(result.Value) : result.ToProblem();
+    }
+
     [HttpGet("{sellerId}")]
     [HasPermission(Permissions.ViewSellerProfile)]
     public async Task<IActionResult> GetById(
@@ -47,6 +63,18 @@ public class SellersController(ISellerService sellerService) : ControllerBase
         CancellationToken cancellationToken)
     {
         var result = await _sellerService.GetSellerProfileAsync(sellerId, cancellationToken);
+
+        return result.IsSuccess ? Ok(result.Value) : result.ToProblem();
+    }
+
+    [HttpGet("{sellerId}/products")]
+    [AllowAnonymous]
+    public async Task<IActionResult> GetSellerProducts(
+        string sellerId,
+        [FromQuery] ProductFilterRequest request,
+        CancellationToken cancellationToken)
+    {
+        var result = await _productService.GetSellerProductsAsync(sellerId, request, cancellationToken);
 
         return result.IsSuccess ? Ok(result.Value) : result.ToProblem();
     }
