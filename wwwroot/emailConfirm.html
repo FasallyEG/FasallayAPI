@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fasally &mdash; Account Verification</title>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f9fafb;
+        }
+        .card {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+        }
+        .status { font-size: 1.25rem; font-weight: bold; margin-bottom: 1rem; }
+        .loading { color: #2563eb; }
+        .success { color: #16a34a; }
+        .error { color: #dc2626; }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <div id="status-text" class="status loading">Verifying your account...</div>
+        <p id="message-text">Please wait.</p>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", async () => {
+            const statusText = document.getElementById("status-text");
+            const messageText = document.getElementById("message-text");
+
+            const urlParams = new URLSearchParams(window.location.search);
+            const userId = urlParams.get('userId');
+            const code = urlParams.get('code');
+
+            if (!userId || !code) {
+                statusText.innerText = "Url error";
+                statusText.className = "status error";
+                messageText.innerText = "The confirmation link is invalid or incomplete..";
+                return;
+            }
+
+            try {
+                const response = await fetch('/Auth/confirm-email', {
+                  method: 'POST',
+                  headers: {
+                    'Content-Type': 'application/json'
+                  },
+                  body: JSON.stringify({
+                    userId: encodeURIComponent(userId),
+                    code: encodeURIComponent(code)
+                  })
+                });
+
+                if (response.ok) {
+                    statusText.innerText = "Verification Completed!";
+                    statusText.className = "status success";
+                    messageText.innerText = "Your acount is now verified, you can return to the app and start tailoring.";
+                } else {
+                    const errorData = await response.json().catch(() => ({}));
+                    statusText.innerText = "Virification Failed";
+                    statusText.className = "status error";
+                    messageText.innerText = errorData.message || "The link has expired or has already been used.";
+                }
+            } catch (error) {
+                statusText.innerText = "Connection Error";
+                statusText.className = "status error";
+                messageText.innerText = "An error occurred while connecting to the server. Please try again later..";
+            }
+        });
+    </script>
+</body>
+</html>
