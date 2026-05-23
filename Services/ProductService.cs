@@ -328,6 +328,72 @@ public class ProductService(
         return Result.Success();
     }
 
+    public async Task<Result> UpdateProductStockAsync(
+        string userId,
+        Guid productId,
+        UpdateProductStockRequest request,
+        CancellationToken cancellationToken = default)
+    {
+        var productResult = await GetOwnedProductForManagementAsync(userId, productId, cancellationToken);
+        if (productResult.IsFailure)
+            return productResult;
+
+        var product = productResult.Value;
+        var oldStock = product.Stock;
+
+        product.Stock = request.Stock;
+
+        _context.InventoryLogs.Add(new InventoryLog
+        {
+            ProductId = productId,
+            OldStock = oldStock,
+            NewStock = request.Stock,
+            ChangeAmount = request.Stock - oldStock,
+            Reason = request.Reason
+        });
+
+        await _context.SaveChangesAsync(cancellationToken);
+
+        _logger.LogInformation(
+            "Stock updated for product {ProductId} by seller {SellerId}: {OldStock} -> {NewStock}",
+            productId,
+            userId,
+            oldStock,
+            request.Stock);
+
+        return Result.Success();
+    }
+
+    public async Task<Result<ProductInventoryResponse>> GetProductInventoryAsync(
+        string userId,
+        Guid productId,
+        CancellationToken cancellationToken = default)
+    {
+        var productResult = await GetOwnedProductForManagementAsync(userId, productId, cancellationToken);
+        if (productResult.IsFailure)
+            return Result.Failure<ProductInventoryResponse>(productResult.Error);
+
+        var logs = await _context.InventoryLogs
+            .AsNoTracking()
+            .Where(l => l.ProductId == productId && !l.IsDeleted)
+            .OrderByDescending(l => l.CreatedAt)
+            .Select(l => new InventoryLogResponse(
+                l.Id,
+                l.ProductId,
+                l.OldStock,
+                l.NewStock,
+                l.ChangeAmount,
+                l.Reason,
+                l.CreatedAt,
+                l.CreatedById))
+            .ToListAsync(cancellationToken);
+
+        return Result.Success(new ProductInventoryResponse(
+            productId,
+            productResult.Value.Stock,
+            logs));
+    }
+
     private async Task<Result> ValidateProductInputAsync(
         decimal price,
         int stock,

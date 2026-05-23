@@ -17,6 +17,9 @@ These rules describe the seller profile functionality implemented in Part 1.
 - Adding product variants requires `products:variants:add`.
 - Updating product variants requires `products:variants:update`.
 - Deleting product variants requires `products:variants:delete`.
+- Updating product stock requires `products:stock:update`.
+- Viewing product inventory requires `products:inventory:read`.
+- Viewing the seller dashboard requires `seller:dashboard:read`.
 
 ## Seller Profile Rules
 
@@ -44,8 +47,12 @@ These rules describe the seller profile functionality implemented in Part 1.
 
 ## Inventory Rules
 
-- Product stock is stored on the product in Part 2.
-- Inventory history/log endpoints are not implemented until the inventory part.
+- Product stock is stored on the product.
+- Stock cannot be negative.
+- Stock updates must validate product ownership.
+- Stock updates through `PUT /api/Products/{productId}/stock` create inventory logs.
+- Inventory logs store old stock, new stock, change amount, reason, and audit metadata.
+- Product update still accepts stock as part of the full product payload; frontend should use the stock endpoint when it needs an auditable inventory adjustment.
 
 ## Product Image Rules
 
@@ -80,7 +87,10 @@ These rules describe the seller profile functionality implemented in Part 1.
 - Updating or deleting a product owned by another seller returns forbidden.
 - Listing a missing seller's products returns not found.
 - Updating or deleting an image or variant on another seller's product returns forbidden.
+- Updating stock on another seller's product returns forbidden.
+- Reading inventory for another seller's product returns forbidden.
+- Dashboard fields do not include orders, earnings, payments, reviews, or delivery metrics.
 
 ## Not Implemented Yet
 
-File upload integration for product images, inventory history, orders, cart, checkout, payments, wallet, refunds, chat, offers, notifications, reviews, disputes, delivery tracking, dashboards, event bus, background workers, and WebSockets are not implemented for sellers yet.
+File upload integration for product images, orders, cart, checkout, payments, wallet, refunds, chat, offers, notifications, reviews, disputes, delivery tracking, earnings dashboards, event bus, background workers, and WebSockets are not implemented for sellers yet.

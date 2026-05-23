@@ -57,6 +57,7 @@ This file documents the implemented controller routes. The codebase is the sourc
 - `POST /api/Sellers/profile`
 - `GET /api/Sellers/me`
 - `GET /api/Sellers/me/products`
+- `GET /api/Sellers/me/dashboard`
 - `GET /api/Sellers/{sellerId}`
 - `GET /api/Sellers/{sellerId}/products`
 - `PUT /api/Sellers/profile`
@@ -72,6 +73,8 @@ This file documents the implemented controller routes. The codebase is the sourc
 - `POST /api/Products/{productId}/variants`
 - `PUT /api/Products/{productId}/variants/{variantId}`
 - `DELETE /api/Products/{productId}/variants/{variantId}`
+- `PUT /api/Products/{productId}/stock`
+- `GET /api/Products/{productId}/inventory`
 
 ## Planned But Not Implemented
-File upload integration for product images, inventory history, seller dashboard, search, cart, checkout, orders, payments, bookings, offers, notifications, chat, wallet, disputes, reviews, delivery/tracking, and dashboards are not implemented in the current backend.
+File upload integration for product images, search, cart, checkout, orders, payments, bookings, offers, notifications, chat, wallet, disputes, reviews, delivery/tracking, and earnings dashboards are not implemented in the current backend.

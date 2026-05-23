@@ -147,4 +147,31 @@ public class ProductsController(IProductService productService) : ControllerBase
 
         return result.IsSuccess ? NoContent() : result.ToProblem();
     }
+
+    [HttpPut("{productId:guid}/stock")]
+    [Authorize]
+    [HasPermission(Permissions.UpdateProductStock)]
+    public async Task<IActionResult> UpdateStock(
+        [FromRoute] Guid productId,
+        [FromBody] UpdateProductStockRequest request,
+        CancellationToken cancellationToken)
+    {
+        var userId = User.GetUserId()!;
+        var result = await _productService.UpdateProductStockAsync(userId, productId, request, cancellationToken);
+
+        return result.IsSuccess ? NoContent() : result.ToProblem();
+    }
+
+    [HttpGet("{productId:guid}/inventory")]
+    [Authorize]
+    [HasPermission(Permissions.ViewProductInventory)]
+    public async Task<IActionResult> GetInventory(
+        [FromRoute] Guid productId,
+        CancellationToken cancellationToken)
+    {
+        var userId = User.GetUserId()!;
+        var result = await _productService.GetProductInventoryAsync(userId, productId, cancellationToken);
+
+        return result.IsSuccess ? Ok(result.Value) : result.ToProblem();
+    }
 }

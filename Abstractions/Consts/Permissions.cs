@@ -59,6 +59,9 @@ public static class Permissions
     public const string AddProductVariant    = "products:variants:add";
     public const string UpdateProductVariant = "products:variants:update";
     public const string DeleteProductVariant = "products:variants:delete";
+    public const string UpdateProductStock   = "products:stock:update";
+    public const string ViewProductInventory = "products:inventory:read";
+    public const string ViewSellerDashboard  = "seller:dashboard:read";
 
     // =============================
     // Tailor Admin
@@ -128,7 +131,10 @@ public static class Permissions
         DeleteProductImage,
         AddProductVariant,
         UpdateProductVariant,
-        DeleteProductVariant
+        DeleteProductVariant,
+        UpdateProductStock,
+        ViewProductInventory,
+        ViewSellerDashboard
     ];
 
     // =============================

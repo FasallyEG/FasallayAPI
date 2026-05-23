@@ -7,7 +7,7 @@ Implemented:
 - Product catalog endpoints under `/api/Products`
 - Seller product list endpoints under `/api/Sellers`
 
-Inventory history, dashboard, orders, payments, cart, checkout, reviews, and delivery tracking are not implemented yet.
+Orders, payments, cart, checkout, reviews, delivery tracking, and earnings dashboards are not implemented yet.
 Product image management currently stores image URLs/references only. The existing `ImageController`/`ImageService` do not provide a complete upload flow yet.
 
 ## Create Seller Profile
@@ -410,3 +410,92 @@ Response:
 Notes:
 - Delete is implemented as a soft delete.
 - Only the owning seller can update or delete variants.
+
+## Update Product Stock
+
+`PUT /api/Products/{productId}/stock`
+
+Auth: required.
+
+Role/permission: seller must have `products:stock:update`.
+
+Request:
+```json
+{
+  "stock": 25,
+  "reason": "Manual stock count"
+}
+```
+
+Response:
+- `204 No Content`
+
+Validation:
+- `stock` must be greater than or equal to 0.
+- `reason` max is 500 characters.
+- Only the owning seller can update stock.
+
+Notes:
+- Stock changes create an inventory log with old stock, new stock, and change amount.
+
+## Get Product Inventory
+
+`GET /api/Products/{productId}/inventory`
+
+Auth: required.
+
+Role/permission: seller must have `products:inventory:read`.
+
+Response `200 OK`:
+```json
+{
+  "productId": "2fd765d8-3f43-4fc5-8af1-384a647383f8",
+  "currentStock": 25,
+  "logs": [
+    {
+      "id": "4a0d2f80-8efe-4738-93d2-d7adbe496c27",
+      "productId": "2fd765d8-3f43-4fc5-8af1-384a647383f8",
+      "oldStock": 30,
+      "newStock": 25,
+      "changeAmount": -5,
+      "reason": "Manual stock count",
+      "createdAt": "2026-05-23T00:00:00Z",
+      "createdById": "seller-user-id"
+    }
+  ]
+}
+```
+
+Notes:
+- Only the owning seller can view inventory history.
+
+## Seller Dashboard
+
+`GET /api/Sellers/me/dashboard`
+
+Auth: required.
+
+Role/permission: seller must have `seller:dashboard:read`.
+
+Response `200 OK`:
+```json
+{
+  "totalProducts": 12,
+  "activeProducts": 10,
+  "outOfStockProducts": 2,
+  "latestProducts": [
+    {
+      "id": "2fd765d8-3f43-4fc5-8af1-384a647383f8",
+      "name": "Egyptian Cotton Fabric",
+      "price": 250,
+      "stock": 25,
+      "status": 1,
+      "createdAt": "2026-05-23T00:00:00Z"
+    }
+  ]
+}
+```
+
+Notes:
+- Dashboard is based on seller/product data only.
+- Orders, earnings, payments, reviews, and delivery metrics are not included because those modules are not implemented.

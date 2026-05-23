@@ -18,4 +18,5 @@ public class Product : AuditableEntity
 
     public ICollection<ProductImage> Images { get; set; } = [];
     public ICollection<ProductVariant> Variants { get; set; } = [];
+    public ICollection<InventoryLog> InventoryLogs { get; set; } = [];
 }
