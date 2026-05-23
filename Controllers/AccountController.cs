@@ -12,7 +12,7 @@ namespace Fasally.Controllers;
 [Route("me")]
 [ApiController]
 [Authorize]
-public class AcountController(IUserService userService) : ControllerBase
+public class AccountController(IUserService userService) : ControllerBase
 {
     private readonly IUserService _userService = userService;
 

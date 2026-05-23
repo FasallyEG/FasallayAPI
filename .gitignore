@@ -1,0 +1,115 @@
+# Build output
+bin/
+obj/
+[Bb]uild/
+[Rr]elease/
+[Dd]ebug/
+artifacts/
+publish/
+
+# .NET and MSBuild generated files
+*.user
+*.rsuser
+*.suo
+*.cache
+*.lscache
+*.pdb
+*.mdb
+*.nupkg
+*.snupkg
+*.vsp
+*.vspx
+*.coverage
+*.coveragexml
+TestResult*/
+TestResults/
+coverage/
+coverage-*/
+*.trx
+*.opencover.xml
+*.cobertura.xml
+
+# NuGet and package manager caches
+.nuget/
+packages/
+*.nuget.props
+*.nuget.targets
+project.assets.json
+project.nuget.cache
+
+# ASP.NET Core local configuration and secrets
+appsettings.Local.json
+appsettings.*.Local.json
+appsettings.*.local.json
+secrets.json
+.env
+.env.*
+!.env.example
+!.env.sample
+
+# Logs and diagnostics
+logs/
+*.log
+*.tlog
+*.tmp
+*.temp
+*.bak
+*.orig
+*.pid
+*.stackdump
+crash-dumps/
+dumps/
+
+# Local databases and data files
+*.db
+*.db-shm
+*.db-wal
+*.sqlite
+*.sqlite3
+*.mdf
+*.ldf
+*.bacpac
+
+# Uploads and runtime storage
+uploads/
+wwwroot/uploads/
+App_Data/
+
+# IDEs and editors
+.vs/
+.vscode/
+.idea/
+.fleet/
+*.sln.docstates
+*.DotSettings.user
+
+# AI assistants and local history
+.cursor/
+.copilot/
+.continue/
+.aider*
+.claude/
+.codex/
+.windsurf/
+.history/
+.ionide/
+chat-history/
+copilot-chat/
+
+# Local project guidance and drafts
+AGENTS.md
+README.local.md
+docs/
+
+# OS and filesystem metadata
+.DS_Store
+.AppleDouble
+.LSOverride
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# HTTP client local state
+*.http.env.json
+*.http.private.env.json

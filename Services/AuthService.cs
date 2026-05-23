@@ -179,7 +179,7 @@ public class AuthService(
             var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
             code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
 
-            _logger.LogInformation("Confirmation code: {Code}", code);
+            _logger.LogInformation("Confirmation email requested for user: {UserId}", user.Id);
 
             await SendConfirmationEmail(user, code);
 
@@ -342,7 +342,7 @@ public class AuthService(
         var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
         code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
 
-        _logger.LogInformation("Resend confirmation code: {Code}", code);
+        _logger.LogInformation("Confirmation email resent for user: {UserId}", user.Id);
 
         await SendConfirmationEmail(user, code);
 
@@ -360,7 +360,7 @@ public class AuthService(
         var code = await _userManager.GeneratePasswordResetTokenAsync(user);
         code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
 
-        _logger.LogInformation("Reset password code: {Code}", code);
+        _logger.LogInformation("Password reset email requested for user: {UserId}", user.Id);
 
         await SendResetPasswordEmail(user, code);
 
