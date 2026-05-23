@@ -12,6 +12,11 @@ These rules describe the seller profile functionality implemented in Part 1.
 - Updating products requires `products:update`.
 - Deleting products requires `products:delete`.
 - Reading current seller products requires `seller:products:read`.
+- Adding product images requires `products:images:add`.
+- Deleting product images requires `products:images:delete`.
+- Adding product variants requires `products:variants:add`.
+- Updating product variants requires `products:variants:update`.
+- Deleting product variants requires `products:variants:delete`.
 
 ## Seller Profile Rules
 
@@ -42,6 +47,24 @@ These rules describe the seller profile functionality implemented in Part 1.
 - Product stock is stored on the product in Part 2.
 - Inventory history/log endpoints are not implemented until the inventory part.
 
+## Product Image Rules
+
+- Product image management stores URL/reference data only.
+- File upload integration is not implemented in the product API yet.
+- Product image URL is required and max 500 characters.
+- Product image alt text max is 200 characters.
+- Product image sort order must be greater than or equal to 0.
+- Only the owning seller can add or delete product images.
+- Deleted product images are hidden from product responses.
+
+## Product Variant Rules
+
+- Product variants use `type` and `value`.
+- Variant `type` is required and max 100 characters.
+- Variant `value` is required and max 200 characters.
+- Only the owning seller can add, update, or delete variants.
+- Deleted variants are hidden from product responses.
+
 ## Category Rules
 
 - Product `categoryId` is optional.
@@ -56,7 +79,8 @@ These rules describe the seller profile functionality implemented in Part 1.
 - Invalid request fields are rejected by FluentValidation.
 - Updating or deleting a product owned by another seller returns forbidden.
 - Listing a missing seller's products returns not found.
+- Updating or deleting an image or variant on another seller's product returns forbidden.
 
 ## Not Implemented Yet
 
-Product images, product variants, inventory history, orders, cart, checkout, payments, wallet, refunds, chat, offers, notifications, reviews, disputes, delivery tracking, dashboards, event bus, background workers, and WebSockets are not implemented for sellers yet.
+File upload integration for product images, inventory history, orders, cart, checkout, payments, wallet, refunds, chat, offers, notifications, reviews, disputes, delivery tracking, dashboards, event bus, background workers, and WebSockets are not implemented for sellers yet.

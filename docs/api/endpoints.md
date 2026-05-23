@@ -67,6 +67,11 @@ This file documents the implemented controller routes. The codebase is the sourc
 - `POST /api/Products`
 - `PUT /api/Products/{productId}`
 - `DELETE /api/Products/{productId}`
+- `POST /api/Products/{productId}/images`
+- `DELETE /api/Products/{productId}/images/{imageId}`
+- `POST /api/Products/{productId}/variants`
+- `PUT /api/Products/{productId}/variants/{variantId}`
+- `DELETE /api/Products/{productId}/variants/{variantId}`
 
 ## Planned But Not Implemented
-Product images, product variants, inventory history, seller dashboard, search, cart, checkout, orders, payments, bookings, offers, notifications, chat, wallet, disputes, reviews, delivery/tracking, and dashboards are not implemented in the current backend.
+File upload integration for product images, inventory history, seller dashboard, search, cart, checkout, orders, payments, bookings, offers, notifications, chat, wallet, disputes, reviews, delivery/tracking, and dashboards are not implemented in the current backend.

@@ -15,4 +15,7 @@ public class Product : AuditableEntity
     public decimal Price { get; set; }
     public int Stock { get; set; }
     public ProductStatus Status { get; set; } = ProductStatus.Active;
+
+    public ICollection<ProductImage> Images { get; set; } = [];
+    public ICollection<ProductVariant> Variants { get; set; } = [];
 }

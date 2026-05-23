@@ -1,6 +1,6 @@
 # Seller Flow
 
-This document covers the seller profile flow and product catalog flow implemented through Part 2. Product image, variant, inventory history, dashboard, order, payment, cart, checkout, review, and delivery flows are future integrations.
+This document covers the seller profile flow, product catalog flow, product image URL/reference flow, and product variant flow implemented through Part 3. Inventory history, dashboard, order, payment, cart, checkout, review, and delivery flows are future integrations.
 
 ## Seller Profile Flow
 
@@ -33,11 +33,21 @@ This document covers the seller profile flow and product catalog flow implemente
 
 ## Product Image Flow
 
-Not implemented in Part 1. Planned for a later product media part.
+1. Seller uploads or prepares an image outside the current product API.
+2. Seller sends `POST /api/Products/{productId}/images` with the image URL/reference.
+3. Backend validates that the authenticated seller owns the product.
+4. Backend stores the image URL/reference, alt text, and sort order.
+5. Seller can delete the image with `DELETE /api/Products/{productId}/images/{imageId}`.
+6. Delete is soft delete; deleted images are hidden from product responses.
 
 ## Variant Flow
 
-Not implemented in Part 1. Planned for a later product variant part.
+1. Seller sends `POST /api/Products/{productId}/variants` with `type` and `value`.
+2. Backend validates that the authenticated seller owns the product.
+3. Backend stores the variant.
+4. Seller can update a variant with `PUT /api/Products/{productId}/variants/{variantId}`.
+5. Seller can delete a variant with `DELETE /api/Products/{productId}/variants/{variantId}`.
+6. Delete is soft delete; deleted variants are hidden from product responses.
 
 ## Inventory Update Flow
 
