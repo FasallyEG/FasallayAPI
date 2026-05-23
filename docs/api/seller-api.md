@@ -2,10 +2,12 @@
 
 This project uses the current route style, not `/api/v1`.
 
-Implemented in Part 1:
+Implemented:
 - Seller profile endpoints under `/api/Sellers`
+- Product catalog endpoints under `/api/Products`
+- Seller product list endpoints under `/api/Sellers`
 
-Products, images, variants, inventory, dashboard, orders, payments, cart, checkout, reviews, and delivery tracking are not implemented in Part 1.
+Product images, variants, inventory history, dashboard, orders, payments, cart, checkout, reviews, and delivery tracking are not implemented yet.
 
 ## Create Seller Profile
 
@@ -144,6 +146,139 @@ Send authenticated requests with:
 Authorization: Bearer <access_token>
 ```
 
-Use `/api/Sellers/me` for the current seller dashboard/profile shell. Use `/api/Sellers/{sellerId}` when showing another seller publicly.
+Use `/api/Sellers/me` for the current seller profile shell. Use `/api/Sellers/{sellerId}` when showing another seller publicly.
 
-Product endpoints are planned for later parts and should not be called yet.
+## List Products
+
+`GET /api/Products`
+
+Auth: not required.
+
+Public catalog lists active, non-deleted products only.
+
+Query:
+- `search`
+- `sellerId`
+- `categoryId`
+- `minPrice`
+- `maxPrice`
+- `inStock`
+- `pageNumber`
+- `pageSize`
+
+Response `200 OK`:
+```json
+{
+  "items": [
+    {
+      "id": "2fd765d8-3f43-4fc5-8af1-384a647383f8",
+      "sellerId": "seller-user-id",
+      "sellerStoreName": "Fasally Fabrics",
+      "categoryId": 1,
+      "categoryName": "Cotton",
+      "name": "Egyptian Cotton Fabric",
+      "description": "Soft cotton fabric",
+      "price": 250,
+      "stock": 30,
+      "status": 1,
+      "createdAt": "2026-05-23T00:00:00Z",
+      "updatedAt": null
+    }
+  ],
+  "pageNumber": 1,
+  "totalPages": 1,
+  "hasPreviousPage": false,
+  "hasNextPage": false
+}
+```
+
+## Get Product Details
+
+`GET /api/Products/{productId}`
+
+Auth: not required.
+
+Response: product DTO.
+
+Errors:
+- `404 Not Found` when the product does not exist or was deleted.
+
+## Create Product
+
+`POST /api/Products`
+
+Auth: required.
+
+Role/permission: seller must have `products:create`.
+
+Request:
+```json
+{
+  "name": "Egyptian Cotton Fabric",
+  "description": "Soft cotton fabric",
+  "price": 250,
+  "stock": 30,
+  "categoryId": 1,
+  "status": 1
+}
+```
+
+Response `201 Created`: product DTO.
+
+Validation:
+- `name` is required and max 150 characters.
+- `description` max 2000 characters.
+- `price` must be greater than 0.
+- `stock` must be greater than or equal to 0.
+- `categoryId`, when provided, must exist in `/api/Categories`.
+- Authenticated user must already have a seller profile.
+
+## Update Product
+
+`PUT /api/Products/{productId}`
+
+Auth: required.
+
+Role/permission: seller must have `products:update`.
+
+Request: same fields as create.
+
+Response:
+- `204 No Content`
+
+Validation:
+- Same rules as create.
+- Only the owning seller can update the product.
+
+## Delete Product
+
+`DELETE /api/Products/{productId}`
+
+Auth: required.
+
+Role/permission: seller must have `products:delete`.
+
+Response:
+- `204 No Content`
+
+Notes:
+- Delete is implemented as a soft delete.
+- Only the owning seller can delete the product.
+
+## List Current Seller Products
+
+`GET /api/Sellers/me/products`
+
+Auth: required.
+
+Role/permission: seller must have `seller:products:read`.
+
+Query: same pagination/filter fields as `GET /api/Products`, plus optional `status`. The backend forces `sellerId` to the authenticated seller and can return inactive products owned by the seller.
+
+## List Seller Products
+
+`GET /api/Sellers/{sellerId}/products`
+
+Auth: not required.
+
+Query: same pagination/filter fields as `GET /api/Products`. The backend forces `sellerId` to the route value and returns active products only.

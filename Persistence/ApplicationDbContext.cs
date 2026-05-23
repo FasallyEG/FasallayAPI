@@ -16,6 +16,7 @@ public class ApplicationDbContext(
     public DbSet<ExternalLogin> ExternalLogins { get; set; } = null!;
     public DbSet<Tailor> Tailors { get; set; } = null!;
     public DbSet<SellerProfile> SellerProfiles { get; set; } = null!;
+    public DbSet<Product> Products { get; set; } = null!;
     public DbSet<TailorCategory> TailorCategories { get; set; } = null!;
     public DbSet<PortfolioItem> PortfolioItems { get; set; } = null!;
 

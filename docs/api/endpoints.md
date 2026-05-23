@@ -56,8 +56,17 @@ This file documents the implemented controller routes. The codebase is the sourc
 ## Sellers `/api/Sellers`
 - `POST /api/Sellers/profile`
 - `GET /api/Sellers/me`
+- `GET /api/Sellers/me/products`
 - `GET /api/Sellers/{sellerId}`
+- `GET /api/Sellers/{sellerId}/products`
 - `PUT /api/Sellers/profile`
 
+## Products `/api/Products`
+- `GET /api/Products`
+- `GET /api/Products/{productId}`
+- `POST /api/Products`
+- `PUT /api/Products/{productId}`
+- `DELETE /api/Products/{productId}`
+
 ## Planned But Not Implemented
-Products, search, cart, checkout, orders, payments, bookings, offers, notifications, chat, wallet, disputes, reviews, delivery/tracking, and dashboards are not implemented in the current backend.
+Product images, product variants, inventory history, seller dashboard, search, cart, checkout, orders, payments, bookings, offers, notifications, chat, wallet, disputes, reviews, delivery/tracking, and dashboards are not implemented in the current backend.
