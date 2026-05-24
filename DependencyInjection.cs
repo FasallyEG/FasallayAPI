@@ -25,6 +25,7 @@ public static class DependencyInjection
     public static IServiceCollection AddDependencies(this IServiceCollection services, IConfiguration config)
     {
         services.AddControllers();
+        services.AddHttpContextAccessor();
 
         services.AddAuthConfig(config);
 
@@ -40,6 +41,8 @@ public static class DependencyInjection
         services.AddScoped<IRoleService, RoleService>();
         services.AddScoped<ITailorService, TailorService>();
         services.AddScoped<ITailorBrowsingService, TailorBrowsingService>();
+        services.AddScoped<ISellerService, SellerService>();
+        services.AddScoped<IProductService, ProductService>();
         services.AddScoped<ICategoryService, CategoryService>();
 
         services.AddMapsterConfig();

@@ -24,6 +24,12 @@ public static class RoleClaimSeeder
             DefaultRoles.Tailor,
             Permissions.TailorPermissions);
 
+        // Seller permissions
+        await SeedClaimsForRoleAsync(
+            roleManager,
+            DefaultRoles.Seller,
+            Permissions.SellerPermissions);
+
         // Member permissions
         await SeedClaimsForRoleAsync(
             roleManager,

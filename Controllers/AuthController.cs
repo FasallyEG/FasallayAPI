@@ -18,7 +18,7 @@ public class AuthController(IAuthService authService, ILogger<AuthController> lo
     [HttpPost("")]
     public async Task<IActionResult> LoginAsync([FromBody] LoginRequest request, CancellationToken cancellationToken)
     {
-        _logger.LogInformation("Logging with email: {Email} and password: {password}", request.Email, request.Password);
+        _logger.LogInformation("Login requested for email: {Email}", request.Email);
 
         var authResult = await _authService.GetTokenAsync(request.Email, request.Password, cancellationToken);
 
@@ -34,7 +34,7 @@ public class AuthController(IAuthService authService, ILogger<AuthController> lo
     }
 
     [HttpPost("revoke-refresh-token")]
-    public async Task<IActionResult> RevokeRfreshAsync([FromBody] RefreshTokenRequest request, CancellationToken cancellationToken)
+    public async Task<IActionResult> RevokeRefreshAsync([FromBody] RefreshTokenRequest request, CancellationToken cancellationToken)
     {
         var authResult = await _authService.RevokeRefreshTokenAsync(request.Token, request.RefreshToken, cancellationToken);
         return authResult.IsSuccess ? Ok() : authResult.ToProblem();

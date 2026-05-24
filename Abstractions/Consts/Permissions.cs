@@ -44,6 +44,26 @@ public static class Permissions
     public const string ViewMyPortfolio       = "tailor:portfolio:read";
 
     // =============================
+    // Seller
+    // =============================
+    public const string CreateSellerProfile = "seller:profile:create";
+    public const string ViewMySellerProfile = "seller:profile:read";
+    public const string ViewSellerProfile   = "seller:profile:details";
+    public const string UpdateSellerProfile = "seller:profile:update";
+    public const string ViewMySellerProducts = "seller:products:read";
+    public const string CreateProduct        = "products:create";
+    public const string UpdateProduct        = "products:update";
+    public const string DeleteProduct        = "products:delete";
+    public const string AddProductImage      = "products:images:add";
+    public const string DeleteProductImage   = "products:images:delete";
+    public const string AddProductVariant    = "products:variants:add";
+    public const string UpdateProductVariant = "products:variants:update";
+    public const string DeleteProductVariant = "products:variants:delete";
+    public const string UpdateProductStock   = "products:stock:update";
+    public const string ViewProductInventory = "products:inventory:read";
+    public const string ViewSellerDashboard  = "seller:dashboard:read";
+
+    // =============================
     // Tailor Admin
     // =============================
     public const string ApproveTailor = "tailors:approve";
@@ -69,7 +89,9 @@ public static class Permissions
         ViewTailors,
         ViewTailorDetails,
         RequestTailorUpgrade,
-        CreateTailorProfile
+        CreateTailorProfile,
+        ViewSellerProfile,
+        CreateSellerProfile
     ];
 
     // =============================
@@ -85,6 +107,34 @@ public static class Permissions
         UpdateTailorProfile,
         AddPortfolioItem,
         ViewMyPortfolio
+    ];
+
+    // =============================
+    // Seller Permissions
+    // =============================
+    public static readonly IReadOnlyCollection<string> SellerPermissions =
+    [
+        GetMyProfile,
+        UpdateMyProfile,
+        ChangePassword,
+        ViewTailors,
+        ViewTailorDetails,
+        ViewSellerProfile,
+        CreateSellerProfile,
+        ViewMySellerProfile,
+        UpdateSellerProfile,
+        ViewMySellerProducts,
+        CreateProduct,
+        UpdateProduct,
+        DeleteProduct,
+        AddProductImage,
+        DeleteProductImage,
+        AddProductVariant,
+        UpdateProductVariant,
+        DeleteProductVariant,
+        UpdateProductStock,
+        ViewProductInventory,
+        ViewSellerDashboard
     ];
 
     // =============================

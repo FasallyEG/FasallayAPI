@@ -16,7 +16,7 @@ public class UsersController(IUserService userService) : ControllerBase
 
     [HttpGet("")]
     [HasPermission(Permissions.GetUsers)]
-    public async Task<IActionResult> GetAllsAsync(CancellationToken cancellationToken = default)
+    public async Task<IActionResult> GetAllAsync(CancellationToken cancellationToken = default)
     {
         return Ok(await _userService.GetAllAsync(cancellationToken));
     }
