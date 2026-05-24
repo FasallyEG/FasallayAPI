@@ -400,7 +400,8 @@ public class AuthService(
 
     private async Task SendConfirmationEmail(ApplicationUser user, string code)
     {
-        var origin = _httpContextAccessor.HttpContext?.Request.Headers.Origin;
+        var origin = _httpContextAccessor.HttpContext?.Request.Headers.Origin.ToString();
+        if (string.IsNullOrEmpty(origin)) origin = Environment.GetEnvironmentVariable("HOST");
 
         var emailBody = EmailBodyBuilder.GenerateEmailBody("EmailConfirmation",
             templateModel: new Dictionary<string, string>
