@@ -20,8 +20,15 @@ public class ApplicationDbContext(
     public DbSet<ProductImage> ProductImages { get; set; } = null!;
     public DbSet<ProductVariant> ProductVariants { get; set; } = null!;
     public DbSet<InventoryLog> InventoryLogs { get; set; } = null!;
-    public DbSet<TailorCategory> TailorCategories { get; set; } = null!;
+    public DbSet<Category> Categories { get; set; } = null!;
     public DbSet<PortfolioItem> PortfolioItems { get; set; } = null!;
+    public DbSet<Address> Addresses { get; set; } = null!;
+    public DbSet<ClientMeasurement> ClientMeasurements { get; set; } = null!;
+    public DbSet<Proposal> Proposals { get; set; } = null!;
+    public DbSet<ProposalImage> ProposalImages { get; set; } = null!;
+    public DbSet<ProposalProduct> ProposalProducts { get; set; } = null!;
+    public DbSet<Project> Projects { get; set; } = null!;
+    public DbSet<ProjectMeasurement> ProjectMeasurements { get; set; } = null!;
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

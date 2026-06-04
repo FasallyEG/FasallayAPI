@@ -25,5 +25,6 @@ public class Tailor
 
     // Navigation
     public ICollection<PortfolioItem> PortfolioItems { get; set; } = [];
-    public ICollection<TailorCategory> Categories { get; set; } = [];
+    public ICollection<Category> Categories { get; set; } = [];
+    public ICollection<Proposal> Proposals { get; set; } = [];
 }

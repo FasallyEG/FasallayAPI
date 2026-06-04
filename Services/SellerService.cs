@@ -5,6 +5,7 @@ using Fasally.Entities;
 using Fasally.Entities.Enums;
 using Fasally.Errors;
 using Fasally.Persistence;
+using Mapster;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -38,16 +39,9 @@ public class SellerService(
         if (exists)
             return Result.Failure<SellerProfileResponse>(SellerErrors.SellerAlreadyExists);
 
-        var seller = new SellerProfile
-        {
-            ApplicationUserId = userId,
-            StoreName = request.StoreName,
-            Description = request.Description,
-            BusinessPhone = request.BusinessPhone,
-            BusinessEmail = request.BusinessEmail,
-            ShopImageUrl = request.ShopImageUrl,
-            Status = ProfileStatus.Approved
-        };
+        var seller = request.Adapt<SellerProfile>();
+        seller.ApplicationUserId = userId;
+        seller.Status = ProfileStatus.Approved;
 
         _context.SellerProfiles.Add(seller);
         user.IsProfileCompleted = true;
@@ -57,7 +51,7 @@ public class SellerService(
 
         _logger.LogInformation("Seller profile created for user {UserId}", userId);
 
-        return Result.Success(ToResponse(seller));
+        return Result.Success(seller.Adapt<SellerProfileResponse>());
     }
 
     public async Task<Result<SellerProfileResponse>> GetCurrentSellerProfileAsync(
@@ -70,7 +64,7 @@ public class SellerService(
         if (seller is null)
             return Result.Failure<SellerProfileResponse>(SellerErrors.SellerNotFound);
 
-        return Result.Success(ToResponse(seller));
+        return Result.Success(seller.Adapt<SellerProfileResponse>());
     }
 
     public async Task<Result<PublicSellerProfileResponse>> GetSellerProfileAsync(
@@ -83,7 +77,7 @@ public class SellerService(
         if (seller is null)
             return Result.Failure<PublicSellerProfileResponse>(SellerErrors.SellerNotFound);
 
-        return Result.Success(ToPublicResponse(seller));
+        return Result.Success(seller.Adapt<PublicSellerProfileResponse>());
     }
 
     public async Task<Result> UpdateSellerProfileAsync(
@@ -97,11 +91,7 @@ public class SellerService(
         if (seller is null)
             return Result.Failure(SellerErrors.SellerNotFound);
 
-        seller.StoreName = request.StoreName;
-        seller.Description = request.Description;
-        seller.BusinessPhone = request.BusinessPhone;
-        seller.BusinessEmail = request.BusinessEmail;
-        seller.ShopImageUrl = request.ShopImageUrl;
+        request.Adapt(seller);
 
         await _context.SaveChangesAsync(cancellationToken);
 
@@ -148,27 +138,4 @@ public class SellerService(
             outOfStockProducts,
             latestProducts));
     }
-
-    private static SellerProfileResponse ToResponse(SellerProfile seller) =>
-        new(
-            seller.ApplicationUserId,
-            seller.StoreName,
-            seller.Description,
-            seller.BusinessPhone,
-            seller.BusinessEmail,
-            seller.ShopImageUrl,
-            seller.Status,
-            seller.IsVerified,
-            seller.AverageRating,
-            seller.TotalReviews);
-
-    private static PublicSellerProfileResponse ToPublicResponse(SellerProfile seller) =>
-        new(
-            seller.ApplicationUserId,
-            seller.StoreName,
-            seller.Description,
-            seller.ShopImageUrl,
-            seller.IsVerified,
-            seller.AverageRating,
-            seller.TotalReviews);
 }

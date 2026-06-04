@@ -33,10 +33,10 @@ public class TailorConfiguration : IEntityTypeConfiguration<Tailor>
         builder.Property(t => t.ExperienceYears)
             .IsRequired();
 
-        // Many-to-many with TailorCategory
+        // Many-to-many with Category
         builder.HasMany(t => t.Categories)
             .WithMany(c => c.Tailors)
-            .UsingEntity(j => j.ToTable("TailorCategoryMappings"));
+            .UsingEntity(j => j.ToTable("CategoryTailorMappings"));
 
         builder.HasMany(t => t.PortfolioItems)
             .WithOne(p => p.Tailor)

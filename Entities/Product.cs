@@ -8,7 +8,7 @@ public class Product : AuditableEntity
     public SellerProfile SellerProfile { get; set; } = default!;
 
     public int? CategoryId { get; set; }
-    public TailorCategory? Category { get; set; }
+    public Category? Category { get; set; }
 
     public string Name { get; set; } = string.Empty;
     public string? Description { get; set; }
@@ -19,4 +19,5 @@ public class Product : AuditableEntity
     public ICollection<ProductImage> Images { get; set; } = [];
     public ICollection<ProductVariant> Variants { get; set; } = [];
     public ICollection<InventoryLog> InventoryLogs { get; set; } = [];
+    public ICollection<ProposalProduct> ProposalProducts { get; set; } = [];
 }

@@ -4,8 +4,8 @@ using Fasally.Entities;
 using Fasally.Entities.Enums;
 using Fasally.Errors;
 using Fasally.Persistence;
+using Mapster;
 using Microsoft.EntityFrameworkCore;
-using System.Linq.Expressions;
 
 namespace Fasally.Services;
 
@@ -25,7 +25,7 @@ public class ProductService(
             request);
 
         var products = await PaginatedList<ProductResponse>.CreateAsync(
-            query.Select(ProductProjection),
+            query.ProjectToType<ProductResponse>(),
             request.PageNumber,
             request.PageSize,
             cancellationToken);
@@ -43,7 +43,7 @@ public class ProductService(
         if (product is null)
             return Result.Failure<ProductResponse>(ProductErrors.ProductNotFound);
 
-        return Result.Success(ToResponse(product));
+        return Result.Success(product.Adapt<ProductResponse>());
     }
 
     public async Task<Result<ProductResponse>> CreateProductAsync(
@@ -66,16 +66,8 @@ public class ProductService(
         if (validation.IsFailure)
             return Result.Failure<ProductResponse>(validation.Error);
 
-        var product = new Product
-        {
-            SellerProfileId = userId,
-            Name = request.Name,
-            Description = request.Description,
-            Price = request.Price,
-            Stock = request.Stock,
-            CategoryId = request.CategoryId,
-            Status = request.Status
-        };
+        var product = request.Adapt<Product>();
+        product.SellerProfileId = userId;
 
         _context.Products.Add(product);
         await _context.SaveChangesAsync(cancellationToken);
@@ -85,7 +77,7 @@ public class ProductService(
         var created = await BaseProductQuery()
             .FirstAsync(p => p.Id == product.Id, cancellationToken);
 
-        return Result.Success(ToResponse(created));
+        return Result.Success(created.Adapt<ProductResponse>());
     }
 
     public async Task<Result> UpdateProductAsync(
@@ -112,12 +104,7 @@ public class ProductService(
         if (validation.IsFailure)
             return validation;
 
-        product.Name = request.Name;
-        product.Description = request.Description;
-        product.Price = request.Price;
-        product.Stock = request.Stock;
-        product.CategoryId = request.CategoryId;
-        product.Status = request.Status;
+        request.Adapt(product);
 
         await _context.SaveChangesAsync(cancellationToken);
 
@@ -168,7 +155,7 @@ public class ProductService(
             request);
 
         var products = await PaginatedList<ProductResponse>.CreateAsync(
-            query.Select(ProductProjection),
+            query.ProjectToType<ProductResponse>(),
             request.PageNumber,
             request.PageSize,
             cancellationToken);
@@ -192,7 +179,7 @@ public class ProductService(
         var query = ApplyFilters(BaseProductQuery(), request);
 
         var products = await PaginatedList<ProductResponse>.CreateAsync(
-            query.Select(ProductProjection),
+            query.ProjectToType<ProductResponse>(),
             request.PageNumber,
             request.PageSize,
             cancellationToken);
@@ -210,20 +197,15 @@ public class ProductService(
         if (productResult.IsFailure)
             return Result.Failure<ProductImageResponse>(productResult.Error);
 
-        var image = new ProductImage
-        {
-            ProductId = productId,
-            ImageUrl = request.ImageUrl,
-            AltText = request.AltText,
-            SortOrder = request.SortOrder
-        };
+        var image = request.Adapt<ProductImage>();
+        image.ProductId = productId;
 
         _context.ProductImages.Add(image);
         await _context.SaveChangesAsync(cancellationToken);
 
         _logger.LogInformation("Image {ImageId} added to product {ProductId} by seller {SellerId}", image.Id, productId, userId);
 
-        return Result.Success(ToImageResponse(image));
+        return Result.Success(image.Adapt<ProductImageResponse>());
     }
 
     public async Task<Result> DeleteProductImageAsync(
@@ -261,19 +243,15 @@ public class ProductService(
         if (productResult.IsFailure)
             return Result.Failure<ProductVariantResponse>(productResult.Error);
 
-        var variant = new ProductVariant
-        {
-            ProductId = productId,
-            Type = request.Type,
-            Value = request.Value
-        };
+        var variant = request.Adapt<ProductVariant>();
+        variant.ProductId = productId;
 
         _context.ProductVariants.Add(variant);
         await _context.SaveChangesAsync(cancellationToken);
 
         _logger.LogInformation("Variant {VariantId} added to product {ProductId} by seller {SellerId}", variant.Id, productId, userId);
 
-        return Result.Success(ToVariantResponse(variant));
+        return Result.Success(variant.Adapt<ProductVariantResponse>());
     }
 
     public async Task<Result> UpdateProductVariantAsync(
@@ -293,8 +271,7 @@ public class ProductService(
         if (variant is null)
             return Result.Failure(ProductErrors.ProductVariantNotFound);
 
-        variant.Type = request.Type;
-        variant.Value = request.Value;
+        request.Adapt(variant);
 
         await _context.SaveChangesAsync(cancellationToken);
 
@@ -377,15 +354,7 @@ public class ProductService(
             .AsNoTracking()
             .Where(l => l.ProductId == productId && !l.IsDeleted)
             .OrderByDescending(l => l.CreatedAt)
-            .Select(l => new InventoryLogResponse(
-                l.Id,
-                l.ProductId,
-                l.OldStock,
-                l.NewStock,
-                l.ChangeAmount,
-                l.Reason,
-                l.CreatedAt,
-                l.CreatedById))
+            .ProjectToType<InventoryLogResponse>()
             .ToListAsync(cancellationToken);
 
         return Result.Success(new ProductInventoryResponse(
@@ -408,7 +377,7 @@ public class ProductService(
 
         if (categoryId.HasValue)
         {
-            var categoryExists = await _context.TailorCategories
+            var categoryExists = await _context.Categories
                 .AnyAsync(c => c.Id == categoryId.Value, cancellationToken);
 
             if (!categoryExists)
@@ -476,68 +445,4 @@ public class ProductService(
 
         return query;
     }
-
-    private static ProductResponse ToResponse(Product product) =>
-        new(
-            product.Id,
-            product.SellerProfileId,
-            product.SellerProfile.StoreName,
-            product.CategoryId,
-            product.Category?.Name,
-            product.Name,
-            product.Description,
-            product.Price,
-            product.Stock,
-            product.Status,
-            product.CreatedAt,
-            product.UpdatedAt,
-            product.Images
-                .Where(i => !i.IsDeleted)
-                .OrderBy(i => i.SortOrder)
-                .Select(ToImageResponse),
-            product.Variants
-                .Where(v => !v.IsDeleted)
-                .Select(ToVariantResponse));
-
-    private static readonly Expression<Func<Product, ProductResponse>> ProductProjection =
-        product => new ProductResponse(
-            product.Id,
-            product.SellerProfileId,
-            product.SellerProfile.StoreName,
-            product.CategoryId,
-            product.Category == null ? null : product.Category.Name,
-            product.Name,
-            product.Description,
-            product.Price,
-            product.Stock,
-            product.Status,
-            product.CreatedAt,
-            product.UpdatedAt,
-            product.Images
-                .Where(i => !i.IsDeleted)
-                .OrderBy(i => i.SortOrder)
-                .Select(i => new ProductImageResponse(
-                    i.Id,
-                    i.ImageUrl,
-                    i.AltText,
-                    i.SortOrder)),
-            product.Variants
-                .Where(v => !v.IsDeleted)
-                .Select(v => new ProductVariantResponse(
-                    v.Id,
-                    v.Type,
-                    v.Value)));
-
-    private static ProductImageResponse ToImageResponse(ProductImage image) =>
-        new(
-            image.Id,
-            image.ImageUrl,
-            image.AltText,
-            image.SortOrder);
-
-    private static ProductVariantResponse ToVariantResponse(ProductVariant variant) =>
-        new(
-            variant.Id,
-            variant.Type,
-            variant.Value);
 }

@@ -11,9 +11,3 @@ public record UserResponse(
     IEnumerable<string>  Roles,
     TailorStatusResponse? TailorProfile
 );
-
-public record TailorStatusResponse(
-    ProfileStatus Status,
-    bool          IsVerified,
-    int           ExperienceYears
-);

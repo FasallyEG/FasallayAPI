@@ -38,10 +38,10 @@ public class TailorService(
         if (exists)
             return Result.Failure(TailorErrors.TailorAlreadyExists);
 
-        List<TailorCategory> categories = new();
+        List<Category> categories = new();
         if (request.CategoryIds is { Count: > 0 })
         {
-            categories = await _context.TailorCategories
+            categories = await _context.Categories
                 .Where(c => request.CategoryIds.Contains(c.Id))
                 .ToListAsync(cancellationToken);
 
@@ -78,7 +78,7 @@ public class TailorService(
 
         if (request.CategoryIds is { Count: > 0 })
         {
-            var categories = await _context.TailorCategories
+            var categories = await _context.Categories
                 .Where(c => request.CategoryIds.Contains(c.Id))
                 .ToListAsync(cancellationToken);
 
@@ -89,7 +89,7 @@ public class TailorService(
         }
         else if (request.CategoryIds is not null)
         {
-            tailor.Categories = new List<TailorCategory>();
+            tailor.Categories = new List<Category>();
         }
 
         request.Adapt(tailor);
@@ -130,11 +130,11 @@ public class TailorService(
             return Result.Failure<IEnumerable<PortfolioItemResponse>>(TailorErrors.TailorNotFound);
 
         var items = await _context.PortfolioItems
+            .AsNoTracking()
             .Where(p => p.TailorId == userId)
-            .ProjectToType<PortfolioItemResponse>()
             .ToListAsync(cancellationToken);
 
-        return Result.Success<IEnumerable<PortfolioItemResponse>>(items);
+        return Result.Success<IEnumerable<PortfolioItemResponse>>(items.Adapt<List<PortfolioItemResponse>>());
     }
 
     // Admin: approve upgrade request → assign Tailor role

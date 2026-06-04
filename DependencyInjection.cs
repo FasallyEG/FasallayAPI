@@ -44,6 +44,11 @@ public static class DependencyInjection
         services.AddScoped<ISellerService, SellerService>();
         services.AddScoped<IProductService, ProductService>();
         services.AddScoped<ICategoryService, CategoryService>();
+        services.AddScoped<IAddressService, AddressService>();
+        services.AddScoped<IMeasurementService, MeasurementService>();
+        services.AddScoped<IProposalService, ProposalService>();
+        services.AddScoped<ITailorProposalService, TailorProposalService>();
+        services.AddScoped<IProjectService, ProjectService>();
 
         services.AddMapsterConfig();
         services.AddFluentValidationConfig();

@@ -11,6 +11,11 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDependencies(builder.Configuration);
 
+if (builder.Environment.IsDevelopment())
+{
+    builder.Services.AddScoped<DevelopmentSeeder>();
+}
+
 builder.Host.UseSerilog((context, configuration) =>
     configuration.ReadFrom.Configuration(context.Configuration));
 
@@ -29,6 +34,8 @@ using (var scope = app.Services.CreateScope())
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
+    await app.SeedDevelopmentDataAsync();
+
     app.MapOpenApi();
      app.MapScalarApiReference();
 }
@@ -51,3 +58,5 @@ app.MapGet("/auth/emailConfirmation", async context =>
 app.MapControllers();
 
 app.Run();
+
+public partial class Program;

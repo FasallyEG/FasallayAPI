@@ -235,9 +235,9 @@ public class AuthService(
         }
         else
         {
-            user = await _userManager.FindByEmailAsync(payload.Email);
+            var existingUser = await _userManager.FindByEmailAsync(payload.Email);
 
-            if (user == null)
+            if (existingUser is null)
             {
                 user = payload.Adapt<ApplicationUser>();
 
@@ -251,6 +251,10 @@ public class AuthService(
                 }
 
                 await _userManager.AddToRoleAsync(user, DefaultRoles.Member);
+            }
+            else
+            {
+                user = existingUser;
             }
 
             _context.ExternalLogins.Add(new ExternalLogin

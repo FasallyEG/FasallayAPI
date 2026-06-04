@@ -26,6 +26,9 @@ public sealed class ApplicationUser : IdentityUser
     // Navigation
     public Tailor? Tailor { get; set; }
     public SellerProfile? SellerProfile { get; set; }
+    public ClientMeasurement? Measurement { get; set; }
+    public ICollection<Address> Addresses { get; set; } = [];
+    public ICollection<Proposal> Proposals { get; set; } = [];
     public List<RefreshToken> RefreshTokens { get; set; } = [];
     public List<ExternalLogin> ExternalLogins { get; set; } = [];
 }

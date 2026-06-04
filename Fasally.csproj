@@ -8,6 +8,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Fasally.IntegrationTests\**\*.cs" />
+    <Content Remove="Fasally.IntegrationTests\**\*" />
+    <EmbeddedResource Remove="Fasally.IntegrationTests\**\*" />
+    <None Remove="Fasally.IntegrationTests\**\*" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Bogus" Version="35.6.5" />
     <PackageReference Include="DotNetEnv" Version="3.2.0" />
     <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="12.1.1" />
     <PackageReference Include="Google.Apis.Auth" Version="1.74.0" />

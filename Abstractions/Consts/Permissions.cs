@@ -13,6 +13,8 @@ public static class Permissions
     public const string UpdateMyProfile = "profile:update";
     public const string ChangePassword  = "profile:change-password";
     public const string CompleteProfile = "profile:complete";
+    public const string ViewMyMeasurements = "measurements:read";
+    public const string UpdateMyMeasurements = "measurements:update";
 
     // =============================
     // Admin - Users
@@ -33,6 +35,25 @@ public static class Permissions
     // =============================
     public const string ViewTailors       = "tailors:browse";
     public const string ViewTailorDetails = "tailors:details";
+
+    // =============================
+    // Proposals
+    // =============================
+    public const string CreateProposal = "proposals:create";
+    public const string ViewMyProposals = "proposals:read";
+    public const string ApproveProposal = "proposals:approve";
+    public const string RejectProposal = "proposals:reject";
+    public const string ViewTailorProposals = "tailor:proposals:read";
+    public const string AcceptProposal = "tailor:proposals:accept";
+    public const string RejectTailorProposal = "tailor:proposals:reject";
+    public const string FinalizeProposal = "tailor:proposals:finalize";
+
+    // =============================
+    // Projects
+    // =============================
+    public const string ViewMyProjects = "projects:read";
+    public const string StartProject = "projects:start";
+    public const string CompleteProject = "projects:complete";
 
     // =============================
     // Tailor
@@ -86,8 +107,15 @@ public static class Permissions
         UpdateMyProfile,
         ChangePassword,
         CompleteProfile,
+        ViewMyMeasurements,
+        UpdateMyMeasurements,
         ViewTailors,
         ViewTailorDetails,
+        CreateProposal,
+        ViewMyProposals,
+        ApproveProposal,
+        RejectProposal,
+        ViewMyProjects,
         RequestTailorUpgrade,
         CreateTailorProfile,
         ViewSellerProfile,
@@ -102,8 +130,19 @@ public static class Permissions
         GetMyProfile,
         UpdateMyProfile,
         ChangePassword,
+        ViewMyMeasurements,
+        UpdateMyMeasurements,
         ViewTailors,
         ViewTailorDetails,
+        ViewMyProposals,
+        ViewTailorProposals,
+        AcceptProposal,
+        RejectTailorProposal,
+        FinalizeProposal,
+        ViewMyProjects,
+        StartProject,
+        CompleteProject,
+        CreateTailorProfile,
         UpdateTailorProfile,
         AddPortfolioItem,
         ViewMyPortfolio
@@ -117,8 +156,15 @@ public static class Permissions
         GetMyProfile,
         UpdateMyProfile,
         ChangePassword,
+        ViewMyMeasurements,
+        UpdateMyMeasurements,
         ViewTailors,
         ViewTailorDetails,
+        CreateProposal,
+        ViewMyProposals,
+        ApproveProposal,
+        RejectProposal,
+        ViewMyProjects,
         ViewSellerProfile,
         CreateSellerProfile,
         ViewMySellerProfile,

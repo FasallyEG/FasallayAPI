@@ -22,6 +22,75 @@ namespace Fasally.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("CategoryTailor", b =>
+                {
+                    b.Property<int>("CategoriesId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("TailorsApplicationUserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("CategoriesId", "TailorsApplicationUserId");
+
+                    b.HasIndex("TailorsApplicationUserId");
+
+                    b.ToTable("CategoryTailorMappings", (string)null);
+                });
+
+            modelBuilder.Entity("Fasally.Entities.Address", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("ApartmentNumber")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("Area")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("BuildingNumber")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("City")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("Floor")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("Notes")
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
+                    b.Property<string>("Street")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Addresses");
+                });
+
             modelBuilder.Entity("Fasally.Entities.ApplicationRole", b =>
                 {
                     b.Property<string>("Id")
@@ -143,6 +212,59 @@ namespace Fasally.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers", (string)null);
+                });
+
+            modelBuilder.Entity("Fasally.Entities.Category", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Name")
+                        .IsUnique();
+
+                    b.ToTable("Categories");
+                });
+
+            modelBuilder.Entity("Fasally.Entities.ClientMeasurement", b =>
+                {
+                    b.Property<string>("ApplicationUserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("AdditionalMeasurements")
+                        .HasMaxLength(1000)
+                        .HasColumnType("nvarchar(1000)");
+
+                    b.Property<double?>("Chest")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("Hip")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("Length")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("Sleeve")
+                        .HasColumnType("float");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<double?>("Waist")
+                        .HasColumnType("float");
+
+                    b.HasKey("ApplicationUserId");
+
+                    b.ToTable("ClientMeasurements");
                 });
 
             modelBuilder.Entity("Fasally.Entities.ExternalLogin", b =>
@@ -448,6 +570,166 @@ namespace Fasally.Migrations
                     b.ToTable("ProductVariants");
                 });
 
+            modelBuilder.Entity("Fasally.Entities.Project", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("CompletedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("GETUTCDATE()");
+
+                    b.Property<Guid>("ProposalId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("StartedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("Status")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasDefaultValue(0);
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProposalId")
+                        .IsUnique();
+
+                    b.HasIndex("Status");
+
+                    b.ToTable("Projects");
+                });
+
+            modelBuilder.Entity("Fasally.Entities.ProjectMeasurement", b =>
+                {
+                    b.Property<Guid>("ProjectId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("AdditionalMeasurements")
+                        .HasMaxLength(1000)
+                        .HasColumnType("nvarchar(1000)");
+
+                    b.Property<double?>("Chest")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("Hip")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("Length")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("Sleeve")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("Waist")
+                        .HasColumnType("float");
+
+                    b.HasKey("ProjectId");
+
+                    b.ToTable("ProjectMeasurements");
+                });
+
+            modelBuilder.Entity("Fasally.Entities.Proposal", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("AcceptedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ClientId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("GETUTCDATE()");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasMaxLength(2000)
+                        .HasColumnType("nvarchar(2000)");
+
+                    b.Property<DateTime?>("ProductionDeadline")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("ResponseDeadline")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("Status")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasDefaultValue(0);
+
+                    b.Property<string>("TailorId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<decimal?>("TotalPrice")
+                        .HasPrecision(18, 2)
+                        .HasColumnType("decimal(18,2)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ClientId");
+
+                    b.HasIndex("Status");
+
+                    b.HasIndex("TailorId");
+
+                    b.ToTable("Proposals");
+                });
+
+            modelBuilder.Entity("Fasally.Entities.ProposalImage", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("ImageUrl")
+                        .IsRequired()
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
+                    b.Property<Guid>("ProposalId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProposalId");
+
+                    b.ToTable("ProposalImages");
+                });
+
+            modelBuilder.Entity("Fasally.Entities.ProposalProduct", b =>
+                {
+                    b.Property<Guid>("ProposalId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("ProductId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("UnitPriceAtProposal")
+                        .HasPrecision(18, 2)
+                        .HasColumnType("decimal(18,2)");
+
+                    b.HasKey("ProposalId", "ProductId");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("ProposalProducts");
+                });
+
             modelBuilder.Entity("Fasally.Entities.RefreshToken", b =>
                 {
                     b.Property<Guid>("Id")
@@ -573,27 +855,6 @@ namespace Fasally.Migrations
                     b.ToTable("Tailors");
                 });
 
-            modelBuilder.Entity("Fasally.Entities.TailorCategory", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("Name")
-                        .IsUnique();
-
-                    b.ToTable("TailorCategories");
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.Property<int>("Id")
@@ -700,19 +961,41 @@ namespace Fasally.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("TailorTailorCategory", b =>
+            modelBuilder.Entity("CategoryTailor", b =>
                 {
-                    b.Property<int>("CategoriesId")
-                        .HasColumnType("int");
+                    b.HasOne("Fasally.Entities.Category", null)
+                        .WithMany()
+                        .HasForeignKey("CategoriesId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
 
-                    b.Property<string>("TailorsApplicationUserId")
-                        .HasColumnType("nvarchar(450)");
+                    b.HasOne("Fasally.Entities.Tailor", null)
+                        .WithMany()
+                        .HasForeignKey("TailorsApplicationUserId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+                });
 
-                    b.HasKey("CategoriesId", "TailorsApplicationUserId");
+            modelBuilder.Entity("Fasally.Entities.Address", b =>
+                {
+                    b.HasOne("Fasally.Entities.ApplicationUser", "User")
+                        .WithMany("Addresses")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
 
-                    b.HasIndex("TailorsApplicationUserId");
+                    b.Navigation("User");
+                });
 
-                    b.ToTable("TailorCategoryMappings", (string)null);
+            modelBuilder.Entity("Fasally.Entities.ClientMeasurement", b =>
+                {
+                    b.HasOne("Fasally.Entities.ApplicationUser", "User")
+                        .WithOne("Measurement")
+                        .HasForeignKey("Fasally.Entities.ClientMeasurement", "ApplicationUserId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Fasally.Entities.ExternalLogin", b =>
@@ -750,7 +1033,7 @@ namespace Fasally.Migrations
 
             modelBuilder.Entity("Fasally.Entities.Product", b =>
                 {
-                    b.HasOne("Fasally.Entities.TailorCategory", "Category")
+                    b.HasOne("Fasally.Entities.Category", "Category")
                         .WithMany("Products")
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Restrict);
@@ -786,6 +1069,77 @@ namespace Fasally.Migrations
                         .IsRequired();
 
                     b.Navigation("Product");
+                });
+
+            modelBuilder.Entity("Fasally.Entities.Project", b =>
+                {
+                    b.HasOne("Fasally.Entities.Proposal", "Proposal")
+                        .WithOne("Project")
+                        .HasForeignKey("Fasally.Entities.Project", "ProposalId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Proposal");
+                });
+
+            modelBuilder.Entity("Fasally.Entities.ProjectMeasurement", b =>
+                {
+                    b.HasOne("Fasally.Entities.Project", "Project")
+                        .WithOne("MeasurementSnapshot")
+                        .HasForeignKey("Fasally.Entities.ProjectMeasurement", "ProjectId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Project");
+                });
+
+            modelBuilder.Entity("Fasally.Entities.Proposal", b =>
+                {
+                    b.HasOne("Fasally.Entities.ApplicationUser", "Client")
+                        .WithMany("Proposals")
+                        .HasForeignKey("ClientId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("Fasally.Entities.Tailor", "Tailor")
+                        .WithMany("Proposals")
+                        .HasForeignKey("TailorId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Client");
+
+                    b.Navigation("Tailor");
+                });
+
+            modelBuilder.Entity("Fasally.Entities.ProposalImage", b =>
+                {
+                    b.HasOne("Fasally.Entities.Proposal", "Proposal")
+                        .WithMany("Images")
+                        .HasForeignKey("ProposalId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Proposal");
+                });
+
+            modelBuilder.Entity("Fasally.Entities.ProposalProduct", b =>
+                {
+                    b.HasOne("Fasally.Entities.Product", "Product")
+                        .WithMany("ProposalProducts")
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("Fasally.Entities.Proposal", "Proposal")
+                        .WithMany("Products")
+                        .HasForeignKey("ProposalId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Product");
+
+                    b.Navigation("Proposal");
                 });
 
             modelBuilder.Entity("Fasally.Entities.RefreshToken", b =>
@@ -872,24 +1226,15 @@ namespace Fasally.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("TailorTailorCategory", b =>
-                {
-                    b.HasOne("Fasally.Entities.TailorCategory", null)
-                        .WithMany()
-                        .HasForeignKey("CategoriesId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("Fasally.Entities.Tailor", null)
-                        .WithMany()
-                        .HasForeignKey("TailorsApplicationUserId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-                });
-
             modelBuilder.Entity("Fasally.Entities.ApplicationUser", b =>
                 {
+                    b.Navigation("Addresses");
+
                     b.Navigation("ExternalLogins");
+
+                    b.Navigation("Measurement");
+
+                    b.Navigation("Proposals");
 
                     b.Navigation("RefreshTokens");
 
@@ -898,13 +1243,35 @@ namespace Fasally.Migrations
                     b.Navigation("Tailor");
                 });
 
+            modelBuilder.Entity("Fasally.Entities.Category", b =>
+                {
+                    b.Navigation("Products");
+                });
+
             modelBuilder.Entity("Fasally.Entities.Product", b =>
                 {
                     b.Navigation("Images");
 
                     b.Navigation("InventoryLogs");
 
+                    b.Navigation("ProposalProducts");
+
                     b.Navigation("Variants");
+                });
+
+            modelBuilder.Entity("Fasally.Entities.Project", b =>
+                {
+                    b.Navigation("MeasurementSnapshot")
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Fasally.Entities.Proposal", b =>
+                {
+                    b.Navigation("Images");
+
+                    b.Navigation("Products");
+
+                    b.Navigation("Project");
                 });
 
             modelBuilder.Entity("Fasally.Entities.SellerProfile", b =>
@@ -915,11 +1282,8 @@ namespace Fasally.Migrations
             modelBuilder.Entity("Fasally.Entities.Tailor", b =>
                 {
                     b.Navigation("PortfolioItems");
-                });
 
-            modelBuilder.Entity("Fasally.Entities.TailorCategory", b =>
-                {
-                    b.Navigation("Products");
+                    b.Navigation("Proposals");
                 });
 #pragma warning restore 612, 618
         }

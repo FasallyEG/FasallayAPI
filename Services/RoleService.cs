@@ -47,11 +47,8 @@ public class RoleService(RoleManager<ApplicationRole> roleManager,ApplicationDbC
         if(request.Permissions.Except(allowedPermissions).Any())
             return Result.Failure<RoleDetailResponse>(RoleErrors.InvalidPermissions);
 
-        var role = new ApplicationRole
-            {
-            Name = request.Name,
-            ConcurrencyStamp = Guid.CreateVersion7().ToString()
-            };
+        var role = request.Adapt<ApplicationRole>();
+        role.ConcurrencyStamp = Guid.CreateVersion7().ToString();
 
         var result = await _roleManager.CreateAsync(role);
 
@@ -69,7 +66,7 @@ public class RoleService(RoleManager<ApplicationRole> roleManager,ApplicationDbC
             await _context.AddRangeAsync(permissions);
             await _context.SaveChangesAsync();
 
-            var response = new RoleDetailResponse(role.Id,role.Name,role.IsDeleted,
+            var response = new RoleDetailResponse(role.Id, request.Name, role.IsDeleted,
                 request.Permissions);
 
             return Result.Success(response);
@@ -96,7 +93,7 @@ public class RoleService(RoleManager<ApplicationRole> roleManager,ApplicationDbC
         if(request.Permissions.Except(allowedPermissions).Any())
             return Result.Failure<RoleDetailResponse>(RoleErrors.InvalidPermissions);
 
-        role.Name = request.Name;
+        request.Adapt(role);
 
         var result = await _roleManager.UpdateAsync(role);
 
