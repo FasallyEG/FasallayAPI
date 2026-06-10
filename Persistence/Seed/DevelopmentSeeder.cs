@@ -4,6 +4,7 @@ using Fasally.Entities;
 using Fasally.Entities.Enums;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using System.Text.Json;
 
 namespace Fasally.Persistence.Seed;
 
@@ -156,8 +157,8 @@ public sealed class DevelopmentSeeder(
                     ApplicationUserId = user.Id,
                     ExperienceYears = _faker.Random.Int(2, 25),
                     Bio = $"{_faker.Company.CompanyName()} specialist in custom tailoring, fittings, and premium finishing.",
-                    NationalIdImageUrl = ImageUrl("tailor-national-id", i),
-                    ShopImageUrl = ImageUrl("tailor-shop", i),
+                    NationalIdImageUrl = ImageUrl("national id", i),
+                    ShopImageUrl = ImageUrl("store logo", i),
                     Status = ProfileStatus.Approved,
                     ResponseRate = Math.Round(_faker.Random.Double(82, 99), 1),
                     AverageRating = Math.Round(_faker.Random.Double(3.8, 5.0), 1),
@@ -184,8 +185,8 @@ public sealed class DevelopmentSeeder(
                     Description = $"Custom {_faker.Commerce.ProductAdjective()} {PortfolioType(item)} with hand-finished details.",
                     ImageUrls =
                     [
-                        ImageUrl("portfolio", i * 10 + item),
-                        ImageUrl("portfolio-detail", i * 10 + item)
+                        ImageUrl("fabric", i * 10 + item),
+                        ImageUrl("bed fabric", i * 10 + item)
                     ],
                     TailorId = user.Id
                 });
@@ -222,7 +223,7 @@ public sealed class DevelopmentSeeder(
                 Description = $"Supplier of {_faker.Commerce.ProductAdjective().ToLowerInvariant()} fabrics, linings, trims, and tailoring essentials.",
                 BusinessPhone = $"010{_faker.Random.Number(10000000, 99999999)}",
                 BusinessEmail = $"store-{i:000}@dev-fasally.test",
-                ShopImageUrl = ImageUrl("fabric-store", i),
+                ShopImageUrl = ImageUrl("store logo", i),
                 Status = ProfileStatus.Approved,
                 AverageRating = Math.Round(_faker.Random.Double(3.7, 5.0), 1),
                 TotalReviews = _faker.Random.Int(8, 180)
@@ -279,7 +280,7 @@ public sealed class DevelopmentSeeder(
 
             product.Images.Add(new ProductImage
             {
-                ImageUrl = ImageUrl("fabric-texture", i),
+                ImageUrl = ImageUrl("bed fabric", i),
                 AltText = $"{product.Name} texture",
                 SortOrder = 2
             });
@@ -378,8 +379,8 @@ public sealed class DevelopmentSeeder(
                     CreatedAt = DateTime.UtcNow.AddDays(-_faker.Random.Int(1, 90)),
                     Images =
                     [
-                        new ProposalImage { ImageUrl = ImageUrl("proposal-reference", i) },
-                        new ProposalImage { ImageUrl = ImageUrl("proposal-inspiration", i) }
+                        new ProposalImage { ImageUrl = ImageUrl("fabric", i) },
+                        new ProposalImage { ImageUrl = ImageUrl("male merch mockup", i) }
                     ]
                 };
 
@@ -502,7 +503,7 @@ public sealed class DevelopmentSeeder(
                 EmailConfirmed = true,
                 FirstName = _faker.Name.FirstName(gender),
                 LastName = _faker.Name.LastName(gender),
-                ProfileImageUrl = ImageUrl("avatar", index),
+                ProfileImageUrl = ImageUrl("headshot man avatar", index),
                 IsProfileCompleted = true,
                 PendingProfileType = null
             };
@@ -542,8 +543,63 @@ public sealed class DevelopmentSeeder(
     private static string DevEmail(string type, int index) =>
         $"dev-{type}-{index:000}@fasally.test";
 
-    private static string ImageUrl(string collection, int index) =>
-        $"https://images.unsplash.com/{collection}-{index:000}?auto=format&fit=crop&w=900&q=80";
+private static Dictionary<string, List<string>> _imagesCache = new Dictionary<string, List<string>>();
+private static string ImageUrl(string collection, int index)
+{
+    try
+    {
+        string key = collection.ToLower().Trim();
+        if (!_imagesCache.ContainsKey(key))_imagesCache[key] = new List<string>();
+
+        var cachedUrls = _imagesCache[key];
+
+        if (index >= cachedUrls.Count)
+        {
+            int pageNeeded = (index / 80) + 1;
+            string apiKey = Environment.GetEnvironmentVariable("PEXELS_API_KEY")!;
+
+            using (var client = new HttpClient())
+            {
+                client.DefaultRequestHeaders.Add("Authorization", apiKey);
+                client.DefaultRequestHeaders.Add("User-Agent", "DotNetApp");
+
+                string url = $"https://api.pexels.com/v1/search?query={Uri.EscapeDataString(key)}&per_page=80&page={pageNeeded}";
+                var response = client.GetStringAsync(url).Result;
+
+                using (JsonDocument doc = JsonDocument.Parse(response))
+                {
+                    var root = doc.RootElement;
+                    if (root.TryGetProperty("photos", out JsonElement photos))
+                    {
+                        foreach (var photo in photos.EnumerateArray())
+                        {
+                            if (photo.TryGetProperty("src", out JsonElement src) && 
+                                src.TryGetProperty("medium", out JsonElement mediumUrl))
+                            {
+                                cachedUrls.Add(mediumUrl.GetString()!);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        if (cachedUrls.Count > 0 && index < cachedUrls.Count)
+        {
+            return cachedUrls[index];
+        }
+        
+        if (cachedUrls.Count > 0)
+        {
+            return cachedUrls[index % cachedUrls.Count];
+        }
+    }
+    catch (Exception)
+    {
+        return "https://images.pexels.com/photos/6487380/pexels-photo-6487380.jpeg?auto=compress&cs=tinysrgb&w=900";
+    }
+    return "https://images.pexels.com/photos/6487380/pexels-photo-6487380.jpeg?auto=compress&cs=tinysrgb&w=900";
+}
 
     private static IReadOnlyList<Category> PickCategories(
         IReadOnlyList<Category> categories,
