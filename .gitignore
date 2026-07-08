@@ -102,6 +102,9 @@ AGENTS.md
 README.local.md
 docs/
 
+# Developer-local files
+.local/
+
 # OS and filesystem metadata
 .DS_Store
 .AppleDouble
