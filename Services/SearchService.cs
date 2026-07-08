@@ -11,9 +11,12 @@ using System.Linq.Expressions;
 
 namespace Fasally.Services;
 
-public class SearchService(ApplicationDbContext context) : ISearchService
+public class SearchService(
+    ApplicationDbContext context,
+    ICategoryService categoryService) : ISearchService
 {
     private readonly ApplicationDbContext _context = context;
+    private readonly ICategoryService _categoryService = categoryService;
 
     public async Task<Result<PaginatedList<ProductResponse>>> SearchProductsAsync(
         ProductSearchRequest request,
@@ -92,18 +95,44 @@ public class SearchService(ApplicationDbContext context) : ISearchService
         return Result.Success(response);
     }
 
-    public Task<Result<SearchFiltersResponse>> GetFiltersAsync(
+    public async Task<Result<SearchFiltersResponse>> GetFiltersAsync(
         CancellationToken cancellationToken = default)
     {
-        var response = new SearchFiltersResponse(
-            ProductCategories: Array.Empty<CategoryResponse>(),
-            ProductPriceRange: null,
-            ProductSortOptions: SearchSortOptions.ProductSortOptions,
-            TailorSortOptions: SearchSortOptions.TailorSortOptions,
-            SupportedTailorFilters: ["rating", "categoryId"],
-            FutureTailorFilters: ["availability", "location"]);
+        var categoriesResult = await _categoryService.GetAllAsync(cancellationToken);
+        var categories = categoriesResult.Value
+            .OrderBy(c => c.Name)
+            .ToList();
 
-        return Task.FromResult(Result.Success(response));
+        var productPriceRange = await _context.Products
+            .AsNoTracking()
+            .Where(p => !p.IsDeleted && p.Status == ProductStatus.Active)
+            .GroupBy(_ => 1)
+            .Select(g => new PriceRangeResponse(
+                g.Min(p => p.Price),
+                g.Max(p => p.Price)))
+            .FirstOrDefaultAsync(cancellationToken);
+
+        var response = new SearchFiltersResponse(
+            Products: new ProductFiltersMetadataResponse(
+                Filters: ProductFilters,
+                SortOptions: ProductSortOptions,
+                PriceRange: productPriceRange,
+                Categories: categories),
+            Tailors: new TailorFiltersMetadataResponse(
+                Filters: TailorFilters,
+                SortOptions: TailorSortOptions),
+            Pagination: new PaginationMetadataResponse(
+                DefaultPageNumber: 1,
+                DefaultPageSize: 10,
+                MaxPageSize: SearchValidationRules.MaxPageSize),
+            Query: new QueryMetadataResponse(
+                SearchValidationRules.MinQueryLength,
+                SearchValidationRules.MaxQueryLength),
+            Suggestions: new SuggestionsMetadataResponse(
+                DefaultLimit: 10,
+                MaxLimit: SearchValidationRules.MaxSuggestionLimit));
+
+        return Result.Success(response);
     }
 
     public Task<Result<IEnumerable<SearchSuggestionResponse>>> GetSuggestionsAsync(
@@ -217,4 +246,38 @@ public class SearchService(ApplicationDbContext context) : ISearchService
             tailor.ExperienceYears,
             tailor.AverageRating,
             tailor.TotalReviews);
+
+    private static readonly FilterMetadataResponse[] ProductFilters =
+    [
+        new("categoryId", "select", true, "Category"),
+        new("sellerId", "text", true, "Seller"),
+        new("minPrice", "number", true, "Minimum price"),
+        new("maxPrice", "number", true, "Maximum price"),
+        new("inStock", "boolean", true, "In stock")
+    ];
+
+    private static readonly FilterMetadataResponse[] TailorFilters =
+    [
+        new("rating", "number", true, "Minimum rating"),
+        new("categoryId", "select", true, "Category"),
+        new("availability", "boolean", false, "Availability", "Not supported by the current data model"),
+        new("location", "text", false, "Location", "Not supported by the current data model")
+    ];
+
+    private static readonly SortOptionResponse[] ProductSortOptions =
+    [
+        new(SearchSortOptions.Newest, "Newest"),
+        new(SearchSortOptions.PriceAscending, "Price: Low to High"),
+        new(SearchSortOptions.PriceDescending, "Price: High to Low"),
+        new(SearchSortOptions.NameAscending, "Name: A to Z"),
+        new(SearchSortOptions.NameDescending, "Name: Z to A")
+    ];
+
+    private static readonly SortOptionResponse[] TailorSortOptions =
+    [
+        new(SearchSortOptions.RatingDescending, "Rating: High to Low"),
+        new(SearchSortOptions.ExperienceDescending, "Experience: High to Low"),
+        new(SearchSortOptions.NameAscending, "Name: A to Z"),
+        new(SearchSortOptions.NameDescending, "Name: Z to A")
+    ];
 }
