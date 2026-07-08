@@ -11,8 +11,8 @@ public class ProductSearchRequest
     public decimal? MaxPrice { get; set; }
     public bool? InStock { get; set; }
     public string? Sort { get; set; } = SearchSortOptions.Newest;
-    public int PageNumber { get; set; } = 1;
-    public int PageSize { get; set; } = 10;
+    public int PageNumber { get; set; } = SearchValidationRules.DefaultPageNumber;
+    public int PageSize { get; set; } = SearchValidationRules.DefaultPageSize;
 }
 
 public class TailorSearchRequest
@@ -23,14 +23,14 @@ public class TailorSearchRequest
     public string? Availability { get; set; }
     public string? Location { get; set; }
     public string? Sort { get; set; } = SearchSortOptions.RatingDescending;
-    public int PageNumber { get; set; } = 1;
-    public int PageSize { get; set; } = 10;
+    public int PageNumber { get; set; } = SearchValidationRules.DefaultPageNumber;
+    public int PageSize { get; set; } = SearchValidationRules.DefaultPageSize;
 }
 
 public class SearchSuggestionsRequest
 {
     public string? Q { get; set; }
-    public int Limit { get; set; } = 10;
+    public int Limit { get; set; } = SearchValidationRules.DefaultSuggestionLimit;
 }
 
 public class ProductSearchRequestValidator : AbstractValidator<ProductSearchRequest>

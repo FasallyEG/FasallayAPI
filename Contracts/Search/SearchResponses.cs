@@ -44,8 +44,10 @@ public record QueryMetadataResponse(int MinLength, int MaxLength);
 
 public record SuggestionsMetadataResponse(int DefaultLimit, int MaxLimit);
 
+public record SearchSuggestionsResponse(IEnumerable<SearchSuggestionResponse> Suggestions);
+
 public record SearchSuggestionResponse(
-    string Type,
     string Text,
-    string? Value
+    string Type,
+    object? Id
 );

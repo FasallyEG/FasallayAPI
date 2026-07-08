@@ -122,26 +122,88 @@ public class SearchService(
                 Filters: TailorFilters,
                 SortOptions: TailorSortOptions),
             Pagination: new PaginationMetadataResponse(
-                DefaultPageNumber: 1,
-                DefaultPageSize: 10,
+                DefaultPageNumber: SearchValidationRules.DefaultPageNumber,
+                DefaultPageSize: SearchValidationRules.DefaultPageSize,
                 MaxPageSize: SearchValidationRules.MaxPageSize),
             Query: new QueryMetadataResponse(
                 SearchValidationRules.MinQueryLength,
                 SearchValidationRules.MaxQueryLength),
             Suggestions: new SuggestionsMetadataResponse(
-                DefaultLimit: 10,
+                DefaultLimit: SearchValidationRules.DefaultSuggestionLimit,
                 MaxLimit: SearchValidationRules.MaxSuggestionLimit));
 
         return Result.Success(response);
     }
 
-    public Task<Result<IEnumerable<SearchSuggestionResponse>>> GetSuggestionsAsync(
+    public async Task<Result<SearchSuggestionsResponse>> GetSuggestionsAsync(
         SearchSuggestionsRequest request,
         CancellationToken cancellationToken = default)
     {
         Normalize(request);
 
-        return Task.FromResult(Result.Success<IEnumerable<SearchSuggestionResponse>>([]));
+        var query = request.Q!;
+        var limit = request.Limit;
+
+        var products = await _context.Products
+            .AsNoTracking()
+            .Where(p => !p.IsDeleted && p.Status == ProductStatus.Active && p.Name.Contains(query))
+            .OrderBy(p => p.Name)
+            .Select(p => new
+            {
+                p.Id,
+                p.Name
+            })
+            .Take(limit)
+            .ToListAsync(cancellationToken);
+
+        var categories = await _context.TailorCategories
+            .AsNoTracking()
+            .Where(c => c.Name.Contains(query))
+            .OrderBy(c => c.Name)
+            .Select(c => new
+            {
+                c.Id,
+                c.Name
+            })
+            .Take(limit)
+            .ToListAsync(cancellationToken);
+
+        var tailors = await _context.Tailors
+            .AsNoTracking()
+            .Where(t =>
+                t.Status == ProfileStatus.Approved &&
+                (t.User.FirstName.Contains(query) ||
+                 t.User.LastName.Contains(query) ||
+                 (t.User.FirstName + " " + t.User.LastName).Contains(query)))
+            .OrderBy(t => t.User.FirstName)
+            .ThenBy(t => t.User.LastName)
+            .Select(t => new
+            {
+                t.ApplicationUserId,
+                t.User.FirstName,
+                t.User.LastName
+            })
+            .Take(limit)
+            .ToListAsync(cancellationToken);
+
+        var suggestions = products
+            .Select(p => new SearchSuggestionResponse(p.Name, "product", p.Id))
+            .Concat(categories.Select(c => new SearchSuggestionResponse(c.Name, "category", c.Id)))
+            .Concat(tailors.Select(t => new SearchSuggestionResponse(
+                $"{t.FirstName} {t.LastName}".Trim(),
+                "tailor",
+                t.ApplicationUserId)))
+            .Where(s => !string.IsNullOrWhiteSpace(s.Text))
+            .GroupBy(s => new
+            {
+                Text = s.Text.Trim().ToUpperInvariant(),
+                s.Type
+            })
+            .Select(g => g.First())
+            .Take(limit)
+            .ToList();
+
+        return Result.Success(new SearchSuggestionsResponse(suggestions));
     }
 
     private static void Normalize(ProductSearchRequest request)

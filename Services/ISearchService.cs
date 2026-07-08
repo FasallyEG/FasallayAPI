@@ -18,7 +18,7 @@ public interface ISearchService
     Task<Result<SearchFiltersResponse>> GetFiltersAsync(
         CancellationToken cancellationToken = default);
 
-    Task<Result<IEnumerable<SearchSuggestionResponse>>> GetSuggestionsAsync(
+    Task<Result<SearchSuggestionsResponse>> GetSuggestionsAsync(
         SearchSuggestionsRequest request,
         CancellationToken cancellationToken = default);
 }
