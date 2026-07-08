@@ -58,19 +58,38 @@ public class SearchService(ApplicationDbContext context) : ISearchService
         return Result.Success(response);
     }
 
-    public Task<Result<PaginatedList<TailorListItemResponse>>> SearchTailorsAsync(
+    public async Task<Result<PaginatedList<TailorListItemResponse>>> SearchTailorsAsync(
         TailorSearchRequest request,
         CancellationToken cancellationToken = default)
     {
         Normalize(request);
 
-        var response = new PaginatedList<TailorListItemResponse>(
-            [],
-            request.PageNumber,
-            0,
-            request.PageSize);
+        var query = _context.Tailors
+            .AsNoTracking()
+            .Where(t => t.Status == ProfileStatus.Approved);
 
-        return Task.FromResult(Result.Success(response));
+        if (!string.IsNullOrWhiteSpace(request.Q))
+            query = query.Where(t =>
+                t.User.FirstName.Contains(request.Q) ||
+                t.User.LastName.Contains(request.Q) ||
+                (t.User.FirstName + " " + t.User.LastName).Contains(request.Q) ||
+                (t.Bio != null && t.Bio.Contains(request.Q)));
+
+        if (request.CategoryId.HasValue)
+            query = query.Where(t => t.Categories.Any(c => c.Id == request.CategoryId.Value));
+
+        if (request.Rating.HasValue)
+            query = query.Where(t => t.AverageRating >= request.Rating.Value);
+
+        query = ApplyTailorSort(query, request.Sort);
+
+        var response = await PaginatedList<TailorListItemResponse>.CreateAsync(
+            query.Select(TailorProjection),
+            request.PageNumber,
+            request.PageSize,
+            cancellationToken);
+
+        return Result.Success(response);
     }
 
     public Task<Result<SearchFiltersResponse>> GetFiltersAsync(
@@ -108,7 +127,7 @@ public class SearchService(ApplicationDbContext context) : ISearchService
         request.Q = NormalizeText(request.Q);
         request.Availability = NormalizeText(request.Availability);
         request.Location = NormalizeText(request.Location);
-        request.Sort = NormalizeText(request.Sort) ?? SearchSortOptions.Newest;
+        request.Sort = NormalizeText(request.Sort) ?? SearchSortOptions.RatingDescending;
     }
 
     private static void Normalize(SearchSuggestionsRequest request)
@@ -162,4 +181,40 @@ public class SearchService(ApplicationDbContext context) : ISearchService
                     v.Id,
                     v.Type,
                     v.Value)));
+
+    private static IQueryable<Tailor> ApplyTailorSort(
+        IQueryable<Tailor> query,
+        string? sort) =>
+        sort switch
+        {
+            SearchSortOptions.ExperienceDescending => query
+                .OrderByDescending(t => t.ExperienceYears)
+                .ThenByDescending(t => t.AverageRating)
+                .ThenBy(t => t.User.FirstName)
+                .ThenBy(t => t.User.LastName),
+
+            SearchSortOptions.NameAscending => query
+                .OrderBy(t => t.User.FirstName)
+                .ThenBy(t => t.User.LastName),
+
+            SearchSortOptions.NameDescending => query
+                .OrderByDescending(t => t.User.FirstName)
+                .ThenByDescending(t => t.User.LastName),
+
+            _ => query
+                .OrderByDescending(t => t.AverageRating)
+                .ThenByDescending(t => t.TotalReviews)
+                .ThenBy(t => t.User.FirstName)
+                .ThenBy(t => t.User.LastName)
+        };
+
+    private static readonly Expression<Func<Tailor, TailorListItemResponse>> TailorProjection =
+        tailor => new TailorListItemResponse(
+            tailor.ApplicationUserId,
+            tailor.User.FirstName + " " + tailor.User.LastName,
+            tailor.User.ProfileImageUrl,
+            tailor.Categories.Select(c => c.Name),
+            tailor.ExperienceYears,
+            tailor.AverageRating,
+            tailor.TotalReviews);
 }

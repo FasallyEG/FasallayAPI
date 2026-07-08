@@ -21,7 +21,6 @@ public static class SearchSortOptions
 
     public static readonly IReadOnlyCollection<string> TailorSortOptions =
     [
-        Newest,
         RatingDescending,
         ExperienceDescending,
         NameAscending,

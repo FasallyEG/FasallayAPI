@@ -22,7 +22,7 @@ public class TailorSearchRequest
     public int? CategoryId { get; set; }
     public string? Availability { get; set; }
     public string? Location { get; set; }
-    public string? Sort { get; set; } = SearchSortOptions.Newest;
+    public string? Sort { get; set; } = SearchSortOptions.RatingDescending;
     public int PageNumber { get; set; } = 1;
     public int PageSize { get; set; } = 10;
 }
@@ -80,12 +80,12 @@ public class TailorSearchRequestValidator : AbstractValidator<TailorSearchReques
             .When(x => x.Rating.HasValue);
 
         RuleFor(x => x.Availability)
-            .MaximumLength(SearchValidationRules.MaxFilterTextLength)
-            .When(x => !string.IsNullOrWhiteSpace(x.Availability));
+            .Must(string.IsNullOrWhiteSpace)
+            .WithMessage("Availability filtering is not supported yet");
 
         RuleFor(x => x.Location)
-            .MaximumLength(SearchValidationRules.MaxFilterTextLength)
-            .When(x => !string.IsNullOrWhiteSpace(x.Location));
+            .Must(string.IsNullOrWhiteSpace)
+            .WithMessage("Location filtering is not supported yet");
 
         RuleFor(x => x.Sort)
             .Must(sort => string.IsNullOrWhiteSpace(sort) || SearchSortOptions.TailorSortOptions.Contains(sort))
