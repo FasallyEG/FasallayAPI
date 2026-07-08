@@ -38,8 +38,8 @@ public class ProductSearchRequestValidator : AbstractValidator<ProductSearchRequ
     public ProductSearchRequestValidator()
     {
         RuleFor(x => x.Q)
-            .MinimumLength(SearchValidationRules.MinQueryLength)
-            .MaximumLength(SearchValidationRules.MaxQueryLength)
+            .Must(SearchRequestValidation.HasValidQueryLength)
+            .WithMessage($"Q must be between {SearchValidationRules.MinQueryLength} and {SearchValidationRules.MaxQueryLength} characters")
             .When(x => !string.IsNullOrWhiteSpace(x.Q));
 
         RuleFor(x => x.MinPrice)
@@ -71,8 +71,8 @@ public class TailorSearchRequestValidator : AbstractValidator<TailorSearchReques
     public TailorSearchRequestValidator()
     {
         RuleFor(x => x.Q)
-            .MinimumLength(SearchValidationRules.MinQueryLength)
-            .MaximumLength(SearchValidationRules.MaxQueryLength)
+            .Must(SearchRequestValidation.HasValidQueryLength)
+            .WithMessage($"Q must be between {SearchValidationRules.MinQueryLength} and {SearchValidationRules.MaxQueryLength} characters")
             .When(x => !string.IsNullOrWhiteSpace(x.Q));
 
         RuleFor(x => x.Rating)
@@ -105,10 +105,21 @@ public class SearchSuggestionsRequestValidator : AbstractValidator<SearchSuggest
     {
         RuleFor(x => x.Q)
             .NotEmpty()
-            .MinimumLength(SearchValidationRules.MinQueryLength)
-            .MaximumLength(SearchValidationRules.MaxQueryLength);
+            .Must(SearchRequestValidation.HasValidQueryLength)
+            .WithMessage($"Q must be between {SearchValidationRules.MinQueryLength} and {SearchValidationRules.MaxQueryLength} characters");
 
         RuleFor(x => x.Limit)
             .InclusiveBetween(1, SearchValidationRules.MaxSuggestionLimit);
+    }
+}
+
+internal static class SearchRequestValidation
+{
+    public static bool HasValidQueryLength(string? value)
+    {
+        var length = value?.Trim().Length ?? 0;
+
+        return length >= SearchValidationRules.MinQueryLength
+            && length <= SearchValidationRules.MaxQueryLength;
     }
 }
