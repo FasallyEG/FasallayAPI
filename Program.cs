@@ -3,6 +3,8 @@ using Fasally.Persistence.Seed;
 using Scalar.AspNetCore;
 using Serilog;
 
+DotNetEnv.Env.Load();
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -39,6 +41,12 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.UseStaticFiles();
+
+app.MapGet("/auth/emailConfirmation", async context =>
+{
+    context.Response.ContentType = "text/html";
+    await context.Response.SendFileAsync("wwwroot/emailConfirm.html");
+});
 
 app.MapControllers();
 
